@@ -1,2 +1,2 @@
 # Grad-Project
-## Security subteam
+## AI subteam
