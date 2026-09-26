@@ -19,6 +19,10 @@ CISCO_PATTERN = re.compile(
     r"%(?P<facility>[A-Z0-9_]+)-(?P<severity>\d+)-(?P<mnemonic>[A-Z0-9_]+): (?P<message>.*)"
 )
 
+CISCO_DEBUG_PATTERN = re.compile(
+    r"<(?P<pri>\d+)>(?P<seq>\d+):\s*(?:(?P<hostname>\S+):\s+)?\*?(?P<timestamp>[A-Za-z]{3}\s+\d+\s+\d{2}:\d{2}:\d{2}(?:\.\d+)?):\s*(?P<message>RIP:.*)"
+)
+
 WINDOWS_PATTERN = re.compile(
     r"(?:<(?P<pri>\d+)>)?"
     r"(?P<timestamp>\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})\s+"
@@ -36,14 +40,21 @@ LOGIN_FAILED_DETAILS = re.compile(
 CISCO_EVENT_MAP = {
     "LINEPROTO-UPDOWN":            {"category": ["network"], "type": ["info"]},
     "SEC_LOGIN-LOGIN_FAILED":      {"category": ["authentication"], "type": ["denied"]},
+    "SEC-IPACCESSLOGP":        {"category": ["intrusion_detection"], "type": ["alert"]},
+    "SEC-IPACCESSLOGDP":       {"category": ["intrusion_detection"], "type": ["alert"]},
+    "HSRP-STATECHANGE":            {"category": ["network", "routing"], "type": ["change"]}
 }
 
 WINDOWS_EVENT_MAP = {
-    "4624": {"category": ["authentication"], "type": ["info"]},      # Logon Success
-    "4625": {"category": ["authentication"], "type": ["denied"]},    # Logon Failure
-    "4634": {"category": ["authentication"], "type": ["info"]},      # Logoff
-    "4720": {"category": ["iam"], "type": ["creation"]},             # User Created
-    "4722": {"category": ["iam"], "type": ["change"]}                # User Enabled
+    "4624": {"category": ["authentication"], "type": ["info"]},
+    "4625": {"category": ["authentication"], "type": ["denied"]},
+    "4634": {"category": ["authentication"], "type": ["info"]},
+    "4720": {"category": ["iam"], "type": ["creation"]},
+    "4722": {"category": ["iam"], "type": ["change"]},
+    "4724": {"category": ["iam"], "type": ["change"]},
+    "4728": {"category": ["iam"], "type": ["group", "change"]},
+    "4732": {"category": ["iam"], "type": ["group", "change"]},
+    "4738": {"category": ["iam"], "type": ["change"]}
 }
 
 LINUX_EVENT_MAP = {
@@ -131,26 +142,49 @@ def parse_gns3_event(raw_message, source_ip, iso_now):
         "parser": {"version": PARSER_VERSION, "name": "cisco_ios"}
     }
 
+    # Enrich access-log events with ACL connection details.
+    if "IPACCESSLOG" in fields["mnemonic"]:
+        acl_pattern = re.compile(
+            r"permitted\s+(?P<proto>\S+)\s+(?P<src_ip>\S+).*?->\s+(?P<dst_ip>\S+)"
+        )
+        acl_match = acl_pattern.search(fields["message"])
+        if acl_match:
+            normalized_event["source"]["ip"] = acl_match.group("src_ip")
+            normalized_event["destination"] = {"ip": acl_match.group("dst_ip")}
+            normalized_event["network"] = {"transport": acl_match.group("proto")}
+
     if event_key == "SEC_LOGIN-LOGIN_FAILED":
         details = LOGIN_FAILED_DETAILS.search(fields["message"])
         if details:
             normalized_event["user"] = {"name": details.group("user")}
             normalized_event["source"]["ip"] = details.group("source_ip")
 
+    if "ignored v2 packet" in fields["message"] and "invalid authentication" in fields["message"]:
+        normalized_event["event"]["category"] = ["network", "intrusion_detection"]
+        normalized_event["event"]["type"] = ["denied"]
+        normalized_event["event"]["action"] = "routing-auth-failure"
+
     return normalized_event
 
 def parse_windows_event(raw_message, source_ip, iso_now):
-    match = WINDOWS_PATTERN.search(raw_message)
+    nxlog_regex = r'<(?P<pri>\d+)>.*?\s+(?P<computer>\S+)\s+MSWinEventLog.*?(?P<timestamp>[A-Z][a-z]{2}\s+[A-Z][a-z]{2}\s+\d+\s+[\d:]+\s+\d{4})\s+(?P<event_id>\d{4})\s+Microsoft-Windows-Security-Auditing.*?(?:Audit)\s+\S+\s+.*?\s+(?P<message>.*)'
+    match = re.search(nxlog_regex, raw_message)
     if not match:
-        return None
+        match = WINDOWS_PATTERN.search(raw_message)
+        if not match:
+            return None
     
     fields = match.groupdict()
+    if not fields.get("user") or fields.get("user") == "N/A":
+        user_match = re.search(r'(?:Target Account|New Account).*?Account Name:\s+([A-Za-z0-9_-]+)', raw_message, re.DOTALL)
+        if user_match and user_match.group(1) != "-":
+            fields["user"] = user_match.group(1)
+
     raw_hash = hashlib.sha256(raw_message.encode()).hexdigest()[:16]
     
     event_id = fields["event_id"]
     event_info = WINDOWS_EVENT_MAP.get(event_id, {"category": ["authentication"], "type": ["info"]})
 
-    # Calculate severity: warning for failed logins (4625), otherwise derive from PRI or default to info
     if event_id == "4625":
         log_lvl, sev_num = map_severity("warning")
     elif fields.get("pri"):
@@ -200,6 +234,15 @@ def parse_windows_event(raw_message, source_ip, iso_now):
     elif event_id == "4624":
         normalized_event["event"]["action"] = "logon-success"
         normalized_event["event"]["outcome"] = "success"
+    elif event_id == "4720":
+        normalized_event["event"]["action"] = "user-account-created"
+    elif event_id == "4722":
+        normalized_event["event"]["action"] = "user-account-enabled"
+    elif event_id in ["4732", "4728"]:
+        normalized_event["event"]["action"] = "member-added-to-local-group"
+        group_match = re.search(r'Group Name:\s+([A-Za-z0-9_-]+)', raw_message)
+        if group_match:
+            normalized_event["group"] = {"name": group_match.group(1)}
 
     # User entity mapping
     if fields.get("user") and fields["user"] != "N/A":
@@ -283,6 +326,57 @@ def parse_linux_event(raw_message, source_ip, iso_now):
 
     return ecs_event
 
+def parse_cisco_debug(raw_message, source_ip, iso_now):
+    match = CISCO_DEBUG_PATTERN.search(raw_message)
+    if not match:
+        return None
+        
+    fields = match.groupdict()
+    raw_hash = hashlib.sha256(raw_message.encode()).hexdigest()[:16]
+    event_time = normalize_cisco_timestamp(fields["timestamp"])
+    
+    # Differentiate between routing attacks and standard debug noise
+    if "ignored v2 packet" in fields["message"] and "invalid authentication" in fields["message"]:
+        category = ["network", "intrusion_detection"]
+        event_type = ["denied"]
+        action = "routing-auth-failure"
+        log_lvl, sev_num = map_severity("warning")
+    else:
+        category = ["network", "routing"]
+        event_type = ["info"]
+        action = "routing-update"
+        log_lvl, sev_num = map_severity("info")
+        
+    normalized_event = {
+        "@timestamp": event_time,
+        "ecs": {"version": "9.3.0"},
+        "log": {"level": log_lvl},
+        "event": {
+            "id": raw_hash,
+            "kind": "event",
+            "category": category,
+            "type": event_type,
+            "action": action,
+            "severity": sev_num,
+            "created": event_time,
+            "ingested": iso_now,
+            "dataset": "gns3.debug",
+            "module": "python-udp-collector",
+            "original": raw_message
+        },
+        "host": {"name": "unknown-cisco-device", "ip": source_ip},
+        "source": {"ip": source_ip},
+        "message": fields["message"],
+        "parser": {"version": PARSER_VERSION, "name": "cisco_debug"}
+    }
+    
+    # Isolate the rogue attacker's IP from the message string
+    ip_match = re.search(r'from (\d+\.\d+\.\d+\.\d+)', fields["message"])
+    if ip_match:
+        normalized_event["source"]["ip"] = ip_match.group(1)
+        
+    return normalized_event
+
 def save_event(event_dict, filepath):
     with open(filepath, "a") as f:
         f.write(json.dumps(event_dict) + "\n")
@@ -314,7 +408,10 @@ if __name__ == "__main__":
 
         # parsing cscade logic
         normalized = parse_gns3_event(raw_message, source_ip, iso_now)
-        
+
+        if not normalized:
+            normalized = parse_cisco_debug(raw_message, source_ip, iso_now)
+            
         if not normalized:
             normalized = parse_windows_event(raw_message, source_ip, iso_now)
             
