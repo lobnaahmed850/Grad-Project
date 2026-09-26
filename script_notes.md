@@ -183,3 +183,20 @@ no shutdown
 - {"@timestamp": "2026-09-24T23:47:40.219Z", "ecs": {"version": "9.3.0"}, "log": {"level": "info"}, "event": {"id": "28233618acc31921", "kind": "event", "category": ["network", "routing"], "type": ["info"], "action": "routing-update", "severity": 6, "created": "2026-09-24T23:47:40.219Z", "ingested": "2026-09-24T23:47:39.256143+00:00", "dataset": "gns3.debug", "module": "python-udp-collector", "original": "<143>139: *Sep 24 23:47:40.219: RIP: sending v2 update to 224.0.0.9 via Ethernet0/0 (10.0.0.2) - suppressing null update"}, "host": {"name": "unknown-cisco-device", "ip": "192.168.100.44"}, "source": {"ip": "192.168.100.44"}, "message": "RIP: sending v2 update to 224.0.0.9 via Ethernet0/0 (10.0.0.2) - suppressing null update", "parser": {"version": "1.3.0", "name": "cisco_debug"}}
 - {"@timestamp": "2026-09-24T23:53:15.891Z", "ecs": {"version": "9.3.0"}, "log": {"level": "warning"}, "event": {"id": "40148944acebc179", "kind": "event", "category": ["network", "intrusion_detection"], "type": ["denied"], "action": "routing-auth-failure", "severity": 4, "created": "2026-09-24T23:53:15.891Z", "ingested": "2026-09-24T23:53:15.001734+00:00", "dataset": "gns3.debug", "module": "python-udp-collector", "original": "<143>166: *Sep 24 23:53:15.891: RIP: ignored v2 packet from 10.0.0.1 (invalid authentication)"}, "host": {"name": "unknown-cisco-device", "ip": "192.168.100.44"}, "source": {"ip": "10.0.0.1"}, "message": "RIP: ignored v2 packet from 10.0.0.1 (invalid authentication)", "parser": {"version": "1.3.0", "name": "cisco_debug"}}
 - {"@timestamp": "2026-09-24T23:53:18.747Z", "ecs": {"version": "9.3.0"}, "log": {"level": "error"}, "event": {"id": "51a4547f35ccb685", "kind": "event", "category": ["network"], "type": ["info"], "sequence": 38, "severity": 3, "created": "2026-09-24T23:53:18.747Z", "ingested": "2026-09-24T23:53:16.509490+00:00", "dataset": "gns3.syslog", "module": "python-udp-collector", "original": "<131>38: *Sep 24 23:53:18.747: %LINK-3-UPDOWN: Interface FastEthernet1/0, changed state to up"}, "host": {"name": "unknown-cisco-device", "ip": "10.0.0.1"}, "source": {"ip": "10.0.0.1"}, "message": "Interface FastEthernet1/0, changed state to up", "parser": {"version": "1.3.0", "name": "cisco_ios"}}
+
+
+# Load Generator Script 
+## 100 EPS for 300s
+```
+run logic.py
+run load_generator.py
+results -> load_generator_sent_log.jsonl
+run measure_latency.py
+Sent: 27545, Matched/Indexed: 27545, Lost: 0 (0.00%)
+Latency (ms) — min: 0.1, median: 0.2, p95: 0.2, max: 403.6
+```
+## 300 EPS for 300s
+```
+Sent: 73959, Matched/Indexed: 73927, Lost: 32 (0.04%)
+Latency (ms) — min: 0.1, median: 0.1, p95: 78.8, max: 1923.3
+```
