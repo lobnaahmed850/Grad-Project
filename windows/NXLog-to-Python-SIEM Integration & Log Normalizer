@@ -1,0 +1,254 @@
+1. INSTALLATION & DIRECTORY PREPARATION:
+   - Download and install NXLog Community Edition on the Windows VM.
+   - Default installation path: C:\Program Files (x86)\nxlog
+   - Inside the NXLog directory, make sure to create a folder named "data" 
+     (Path: C:\Program Files (x86)\nxlog\data) so NXLog can write its log files.
+
+2. CONFIGURATION FILE (nxlog.conf):
+   - Locate the configuration file at: 
+     C:\Program Files (x86)\nxlog\conf\nxlog.conf
+   - Replace its contents with the following configuration:
+
+--------------------------------------------------
+Root C:\Program Files (x86)\nxlog
+LogFile C:\Program Files (x86)\nxlog\data\nxlog.log
+
+<Extension json>
+    Module      xm_json
+</Extension>
+
+<Input eventlog>
+    Module      im_msvistalog
+</Input>
+
+<Output udpsender>
+    Module      om_udp
+    Host        192.168.1.13:10514
+    Exec        to_json();
+</Output>
+
+<Route 1>
+    Path        eventlog => udpsender
+</Route>
+--------------------------------------------------
+
+3. RUNNING NXLog:
+   - Open Command Prompt (CMD) as Administrator.
+   - Navigate to the NXLog directory:
+     cd "C:\Program Files (x86)\nxlog"
+   - Run NXLog in the foreground to verify and send logs:
+     nxlog.exe -f
+
+4. RECEIVING & PARSING LOGS (Python Backend):
+   - Ensure your Python UDP server is listening on port 514 (0.0.0.0:10514).
+   - Ensure your Python script parses the incoming JSON objects from NXLog 
+     properly to store them in your normalized event logs.
+
+
+
+
+
+
+# the sec version
+import socket
+import json
+import os
+import hashlib
+import re
+from datetime import datetime
+
+# Configuration
+UDP_IP = "0.0.0.0"
+UDP_PORT = 10514
+NORMALIZED_FILE = "normalized_events.jsonl"
+QUARANTINE_FILE = "quarantine.jsonl"
+RAW_FILE = "raw_logs.json"
+
+# Set to track unique event hashes for deduplication
+seen_event_hashes = set()
+
+def calculate_hash(event_data):
+    """Generates a unique MD5 hash for an event dictionary to detect duplicates."""
+    event_string = json.dumps(event_data, sort_keys=True)
+    return hashlib.md5(event_string.encode('utf-8')).hexdigest()
+
+def save_event(event, filepath):
+    """Appends an event dictionary as a JSON line to the specified file."""
+    with open(filepath, "a", encoding="utf-8") as f:
+        f.write(json.dumps(event) + "\n")
+
+def parse_windows_event(raw_message):
+    """Parses raw JSON Windows log messages into ECS format."""
+    try:
+        # Try to load the incoming message as JSON (sent by NXLog)
+        data = json.loads(raw_message)
+    except json.JSONDecodeError:
+        return None  # Not a valid JSON, fallback or quarantine
+
+    # Extract fields safely from NXLog JSON
+    timestamp_str = data.get("EventTime")
+    computer = data.get("Hostname", "unknown-host")
+    event_id = data.get("EventID", 0)
+    user = data.get("AccountName", data.get("UserID", "SYSTEM"))
+    message = data.get("Message", "")
+    level = data.get("Severity", "info").lower()
+
+    # Format timestamp to ISO format
+    if timestamp_str:
+        try:
+            # Handle ISO format from NXLog
+            dt = datetime.strptime(timestamp_str.strip().split(".")[0], "%Y-%m-%dT%H:%M:%S")
+            timestamp = dt.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+        except ValueError:
+            timestamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    else:
+        timestamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+    # Construct ECS Event
+    event_body = {
+        "@timestamp": timestamp,
+        "ecs": {"version": "9.3.0"},
+        "log": {"level": level},
+        "event": {
+            "kind": "event",
+            "category": ["system"],
+            "type": ["info"],
+            "code": str(event_id),
+            "severity": data.get("SeverityValue", 6),
+            "created": timestamp,
+            "ingested": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "+00:00",
+            "dataset": data.get("Channel", "windows.system"),
+            "module": "nxlog-udp-collector",
+            "original": raw_message
+        },
+        "host": {
+            "name": computer,
+            "ip": "192.168.1.13",
+            "os": {"family": "windows"}
+        },
+        "source": {"ip": "192.168.1.13"},
+        "message": message,
+        "parser": {"version": "2.0.0", "name": "nxlog_json"},
+        "user": {"name": user}
+    }
+    
+    # Generate unique ID for the event
+    event_body["event"]["id"] = calculate_hash(event_body)[:16]
+    return event_body
+
+def parse_linux_event(raw_message):
+    """Parses raw Linux/Rsyslog SSH log messages into ECS format."""
+    # Example pattern: <30>Sep 16 15:10:00 kali sshd[1234]: Accepted publickey for root from 192.168.1.50 port 22 ssh2
+    pattern = r"^(?:<(\d+)>)?\s*([A-Za-z]{3}\s+\d+\s+[\d:]+)\s+([^\s]+)\s+([^\[:]+)(?:\[(\d+)\])?:\s+(.*)$"
+    match = re.match(pattern, raw_message)
+    
+    if match:
+        prio, timestamp_str, hostname, process_name, pid, message = match.groups()
+        
+        current_year = datetime.utcnow().year
+        if timestamp_str:
+            try:
+                dt = datetime.strptime(f"{current_year} {timestamp_str.strip()}", "%Y %b %d %H:%M:%S")
+                timestamp = dt.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+            except ValueError:
+                timestamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.000Z")
+        else:
+            timestamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+        event_body = {
+            "@timestamp": timestamp,
+            "ecs": {"version": "9.3.0"},
+            "log": {"level": "info"},
+            "event": {
+                "kind": "event",
+                "category": ["authentication"],
+                "type": ["info"],
+                "severity": 6,
+                "created": timestamp,
+                "ingested": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "+00:00",
+                "dataset": "linux.sshd",
+                "module": "rsyslog",
+                "original": raw_message
+            },
+            "host": {
+                "name": hostname,
+                "ip": "127.0.0.1",
+                "os": {"family": "linux"}
+            },
+            "source": {"ip": "127.0.0.1"},
+            "process": {"name": process_name},
+            "message": message,
+            "parser": {"version": "1.3.0", "name": "linux_rsyslog"}
+        }
+        
+        event_body["event"]["id"] = calculate_hash(event_body)[:16]
+        return event_body
+        
+    return None
+
+def normalize_log(raw_message):
+    """Tries parsing the log through available parsers (Windows, then Linux)."""
+    # Try Windows
+    normalized = parse_windows_event(raw_message)
+    if normalized:
+        return normalized
+        
+    # Try Linux
+    normalized = parse_linux_event(raw_message)
+    if normalized:
+        return normalized
+        
+    return None
+
+def main():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.bind((UDP_IP, UDP_PORT))
+    print(f"[*] UDP Server listening on {UDP_IP}:{UDP_PORT}...")
+
+    try:
+        while True:
+            data, addr = sock.recvfrom(4096)
+            raw_message = data.decode('utf-8', errors='ignore').strip()
+            iso_now = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "+00:00"
+
+            print(f"\nReceived from {addr}: {raw_message}")
+
+            # Save raw log entry
+            raw_entry = {
+                "raw": raw_message,
+                "source_ip": addr[0],
+                "received_at": iso_now
+            }
+            save_event(raw_entry, RAW_FILE)
+
+            # Normalize log
+            normalized = normalize_log(raw_message)
+
+            if normalized:
+                # Check for duplicates (Deduping)
+                event_hash = calculate_hash(normalized)
+                if event_hash in seen_event_hashes:
+                    print(f"[DEDUP] Skipped duplicate event from {addr[0]} (Hash: {event_hash})")
+                    continue
+                
+                seen_event_hashes.add(event_hash)
+                print(f"Normalized ({normalized['parser']['name']}) ->", json.dumps(normalized, indent=2))
+                
+                # Save to normalized file safely
+                save_event(normalized, NORMALIZED_FILE)
+            else:
+                print("Could NOT parse this event - sent to quarantine.")
+                quarantine_entry = {
+                    "raw": raw_message,
+                    "source_ip": addr[0],
+                    "reason": "did not match any known regex patterns (Windows or Linux)",
+                    "received_at": iso_now
+                }
+                save_event(quarantine_entry, QUARANTINE_FILE)
+
+    except KeyboardInterrupt:
+        print("\n[*] Server stopped by user.")
+        sock.close()
+
+if __name__ == "__main__":
+    main()
