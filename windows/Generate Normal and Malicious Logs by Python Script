@@ -1,0 +1,50 @@
+import subprocess
+import random
+import time
+
+# A diverse list of security commands simulating both common and advanced/rare attack techniques
+attack_commands = [
+    # 1. Common Account Discovery & Enumeration
+    "net localgroup administrators",
+    "net user",
+    "whoami /all",
+    
+    # 2. Advanced & Rare System/Network Discovery
+    "systeminfo",
+    "tasklist /v",
+    "netstat -ano",
+    "sc query",
+    
+    # 3. User & Group Manipulation (Account Creation / Modification)
+    "net user TestUser123! P@ssw0rd123 /add",
+    "net localgroup administrators TestUser123! /add",
+    "net user TestUser123! /delete",
+    
+    # 4. PowerShell & Scripting Execution Behavior
+    "powershell -Command \"Get-Process | Where-Object {$_.Name -eq 'lsass'}\"",
+    "powershell -Command \"Get-Service | Where-Object {$_.Status -eq 'Running'}\"",
+    
+    # 5. Simulated Failed Logins & Credential Access Attempts
+    "net use \\invalid_target_share_test /user:FakeAdmin badpass123"
+]
+
+print("[*] Starting Diverse Malicious Logs Generator (Mix of Common & Rare Techniques)...")
+total_generated = 0
+
+# Adjust the range value to control how many log iterations/packets you want to generate
+for round in range(200):
+    # Randomly pick a technique to ensure high variety and avoid static repeating logs
+    cmd = random.choice(attack_commands)
+    print(f"[+] Executing [Round {round+1}]: {cmd}")
+    
+    try:
+        # Execute the command silently in the Windows background
+        subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        total_generated += 1
+    except Exception as e:
+        pass
+    
+    # Small delay to allow NXLog to capture and forward events smoothly
+    time.sleep(0.1)
+
+print(f"\n[+] Successfully generated and forwarded diverse malicious logs! Total executions: {total_generated}")
