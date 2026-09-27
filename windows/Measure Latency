@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+
+import json
+import re
+import sys
+from datetime import datetime, timezone
+from statistics import mean
+
+# Regex to match the Windows load test packet and extract sequence number
+LOADTEST_PATTERN = re.compile(
+    r"VM Latency Test Packet #(\d+)"
+)
+
+def percentile(values, p):
+    """Calculates the p-th percentile for a list of values."""
+    if not values:
+        return None
+
+    values = sorted(values)
+    index = (len(values) - 1) * p / 100
+
+    lower = int(index)
+    upper = min(lower + 1, len(values) - 1)
+
+    if lower == upper:
+        return values[lower]
+
+    fraction = index - lower
+    return (
+        values[lower]
+        + (values[upper] - values[lower]) * fraction
+    )
+
+def iso_to_ns(value):
+    """Converts an ISO timestamp string to nanoseconds since epoch."""
+    dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+
+    return int(dt.timestamp() * 1_000_000_000)
+
+def analyze(raw_file, expected):
+    """Analyzes raw log file to measure latency, event loss, and actual EPS."""
+    received = 0
+    sequences = set()
+    latencies = []
+    receive_times = []
+
+    with open(raw_file, "r", encoding="utf-8") as f:
+        for line in f:
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+
+            # Extract the raw payload using the correct key "raw_payload"
+            raw_payload_str = record.get("raw_payload", "")
+            match = LOADTEST_PATTERN.search(raw_payload_str)
+
+            if not match:
+                continue
+
+            seq = int(match.group(1))
+            received += 1
+            sequences.add(seq)
+
+            received_at = record.get("received_at")
+
+            if received_at:
+                try:
+                    received_ns = iso_to_ns(received_at)
+                    
+                    # Parse event time embedded inside the inner JSON payload
+                    try:
+                        inner_data = json.loads(raw_payload_str)
+                        event_time_str = inner_data.get("EventTime")
+                        if event_time_str:
+                            sent_ns = iso_to_ns(event_time_str)
+                            latency_ms = (received_ns - sent_ns) / 1_000_000
+                            if latency_ms >= 0:
+                                latencies.append(latency_ms)
+                    except Exception:
+                        pass
+
+                    receive_times.append(received_ns)
+
+                except Exception:
+                    pass
+
+    lost = expected - received
+    loss_percentage = (
+        (lost / expected) * 100
+        if expected > 0
+        else 0
+    )
+
+    print()
+    print("=" * 70)
+    print("AI NET - WINDOWS LOAD TEST RESULTS")
+    print("=" * 70)
+
+    print(f"Expected events       : {expected}")
+    print(f"Received events       : {received}")
+    print(f"Lost events           : {lost}")
+    print(f"Loss percentage       : {loss_percentage:.6f}%")
+
+    if receive_times:
+        duration = (
+            max(receive_times) - min(receive_times)
+        ) / 1_000_000_000
+
+        if duration > 0:
+            actual_eps = received / duration
+            print(f"Measured receive EPS  : {actual_eps:.2f}")
+
+    if latencies:
+        print()
+        print("Latency")
+        print("-" * 70)
+        print(f"Samples               : {len(latencies)}")
+        print(f"Minimum               : {min(latencies):.3f} ms")
+        print(f"Average               : {mean(latencies):.3f} ms")
+        print(f"P50                   : {percentile(latencies, 50):.3f} ms")
+        print(f"P95                   : {percentile(latencies, 95):.3f} ms")
+        print(f"P99                   : {percentile(latencies, 99):.3f} ms")
+        print(f"Maximum               : {max(latencies):.3f} ms")
+
+    missing = []
+    if expected <= 2_000_000:
+        for seq in range(1, expected + 1):
+            if seq not in sequences:
+                missing.append(seq)
+
+    print()
+    if missing:
+        print(f"Missing sequence IDs  : {len(missing)}")
+        if len(missing) <= 50:
+            print(missing)
+    else:
+        print("Missing sequence IDs  : 0")
+
+    print("=" * 70)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print(
+            "Usage: python analyze_windows_loadtest.py "
+            "<raw_logs_filename> <expected_events>"
+        )
+        sys.exit(1)
+
+    raw_file = sys.argv[1]
+    expected = int(sys.argv[2])
+
+    analyze(raw_file, expected)
