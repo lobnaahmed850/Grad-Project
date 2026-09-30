@@ -105,3 +105,56 @@ The following tests validate the system across the emulated GNS3 topology (`Linu
 * **Missing Sequence IDs:** 0
 
 > *Analysis:* Running a 1,500 EPS short-burst test successfully proved that the 100,000-item queue buffer completely prevents packet loss during high-intensity spikes, achieving 0% loss. *Note:* The high count of negative latency samples indicates a minor clock skew artifact between the sender and receiver during extreme high-speed generation, which can be fine-tuned with subsequent NTP alignment.
+
+---
+
+## 4. Windows Load Generator & Collector Performance Tests
+
+The following tests evaluate the ingestion pipeline performance using a Windows 10 VM generator sending simulated Windows event logs to the host machine via UDP (Port 10514).
+
+### Test 1: High-Stress Burst (6,000 EPS for 1 Second)
+
+- **Target Rate:** 6,000 EPS
+- **Duration:** 1 second (Actual elapsed: 2.257 seconds)
+- **Expected Events:** 6,000
+- **Received Events:** 2,951
+- **Lost Events:** 3,049 (Loss percentage: **50.81667%**)
+- **Measured Receive EPS:** 0.32
+
+#### Latency Metrics
+
+- **Samples:** 2,771
+- **Minimum:** 17.541 ms
+- **Average:** 737.125 ms
+- **P50:** 694.475 ms
+- **P95:** 1,298.604 ms
+- **P99:** 1,380.592 ms
+- **Maximum:** 1,396.189 ms
+- **Missing Sequence IDs:** 3,549
+
+> **Analysis:** This high-stress burst test demonstrated that the collector could recover nearly 50% of the generated events under intense traffic generation, while also exposing the performance boundary of the current network and socket-buffer configuration during aggressive load spikes.
+
+---
+
+### Test 2: Stable Load Test (50 EPS for 10 Seconds)
+
+- **Target Rate:** 50 EPS
+- **Duration:** 10 seconds (Actual elapsed: 9.982 seconds)
+- **Expected Events:** 500
+- **Received Events:** 500
+- **Lost Events:** 0 (Loss percentage: **0.000000%**)
+- **Measured Receive EPS:** 50.09
+
+#### Latency Metrics
+
+- **Samples:** 500
+- **Minimum:** 19.194 ms
+- **Average:** 510.372 ms
+- **P50:** 510.277 ms
+- **P95:** 959.678 ms
+- **P99:** 1,000.316 ms
+- **Maximum:** 1,002.148 ms
+- **Missing Sequence IDs:** 0
+
+> **Analysis:** Running the test at a stable, sustained rate of 50 EPS for 10 seconds achieved complete ingestion with zero packet loss and complete sequence integrity, confirming reliable pipeline behavior under the tested standard load condition.
+
