@@ -14,3 +14,7 @@ data/
 .venv/
 env/
 venv/
+
+# Machine Learning Models & Datasets
+*.pkl
+*.npz
