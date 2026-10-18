@@ -1,0 +1,2 @@
+timestamp,model,n_estimators,class_weight,accuracy,macro_auc_roc,macro_auc_pr,macro_precision,macro_recall,macro_f1,weighted_f1
+2026-10-18 20:58:38,RandomForest,200,balanced_subsample,0.997572853541285,0.9875086902986069,0.8785273844454445,0.8632632690919764,0.8506453019373899,0.8558328498562376,0.9974897297954214

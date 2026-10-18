@@ -8,6 +8,7 @@ __pycache__/
 # Data folder 
 data/
 *.csv
+!**/experiments/*.csv
 *.pcap
 
 # Virtual Environments
