@@ -30,7 +30,9 @@ from sklearn.metrics import (
 )
 
 
+# ---------------------------------------------------------------------------
 # 1. Isolation Forest score conversion
+# ---------------------------------------------------------------------------
 def convert_iforest_scores(model, X):
     """
     sklearn's IsolationForest.decision_function() returns HIGHER values for
@@ -67,7 +69,24 @@ def iforest_predictions_to_binary(model, X):
     return binary_preds
 
 
+# ---------------------------------------------------------------------------
 # 2. Core metric computation
+# ---------------------------------------------------------------------------
+def compute_fpr(y_true, y_pred):
+    """
+    False Positive Rate = FP / (FP + TN)
+
+    The share of NORMAL flows that were wrongly flagged as attacks. Lower is better:
+    0.01 means 10 false alarms per 1,000 normal flows. In an intrusion detection
+    system this is the cost side of detection (analysts have to chase false alarms).
+
+    Binary convention only (1 = attack, 0 = normal). Returns NaN if y_true contains
+    no normal rows, because FPR is undefined without negatives.
+    """
+    tn, fp, fn, tp = confusion_matrix(y_true, y_pred, labels=[0, 1]).ravel()
+    return fp / (fp + tn) if (fp + tn) > 0 else float("nan")
+
+
 def compute_metrics(y_true, y_pred, y_scores):
     """
     Computes every metric the project needs for a single model, given:
@@ -87,6 +106,7 @@ def compute_metrics(y_true, y_pred, y_scores):
         "precision": precision_score(y_true, y_pred, zero_division=0),
         "recall": recall_score(y_true, y_pred, zero_division=0),
         "f1_score": f1_score(y_true, y_pred, zero_division=0),
+        "fpr": compute_fpr(y_true, y_pred),
     }
     return metrics
 
@@ -104,6 +124,7 @@ def print_metrics_report(y_true, y_pred, y_scores, model_name="Model"):
     print(f"Precision : {metrics['precision']:.4f}")
     print(f"Recall    : {metrics['recall']:.4f}")
     print(f"F1-score  : {metrics['f1_score']:.4f}")
+    print(f"FPR       : {metrics['fpr']:.4f}  ({metrics['fpr'] * 1000:.1f} false alarms per 1,000 normal flows)")
     print()
     print("Classification report:")
     print(classification_report(y_true, y_pred, target_names=["Normal", "Anomaly"], zero_division=0))
@@ -115,7 +136,9 @@ def print_metrics_report(y_true, y_pred, y_scores, model_name="Model"):
     return metrics
 
 
+# ---------------------------------------------------------------------------
 # 3. Plots
+# ---------------------------------------------------------------------------
 def plot_confusion_matrix(y_true, y_pred, model_name="Model", ax=None):
     """Plots a labeled confusion matrix heatmap."""
     cm = confusion_matrix(y_true, y_pred)
@@ -221,7 +244,9 @@ def build_comparison_table(models_results_dict):
     return df.reset_index()
 
 
+# ---------------------------------------------------------------------------
 # 5. Experiment logging (for hyperparameter tuning tracking)
+# ---------------------------------------------------------------------------
 def log_experiment(log_path, model_name, params, metrics):
     """
     Appends one row to a CSV experiment log: model name, hyperparameters used,
@@ -246,9 +271,14 @@ def log_experiment(log_path, model_name, params, metrics):
 
     row_df = pd.DataFrame([row])
 
+    # Different models log different metrics/params (binary vs multiclass, and new
+    # metrics like fpr). Blindly appending a row with new columns would misalign the
+    # CSV, so we merge on column names: missing values become empty cells.
     if os.path.exists(log_path):
-        row_df.to_csv(log_path, mode="a", header=False, index=False)
+        old_df = pd.read_csv(log_path)
+        out_df = pd.concat([old_df, row_df], ignore_index=True)
     else:
-        row_df.to_csv(log_path, mode="w", header=True, index=False)
+        out_df = row_df
+    out_df.to_csv(log_path, index=False)
 
     print(f"Logged experiment for {model_name} -> {log_path}")

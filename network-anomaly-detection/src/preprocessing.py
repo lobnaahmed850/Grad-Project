@@ -26,14 +26,12 @@ def load_and_merge_csvs(data_dir="../data/CIC2017/", output_parquet="../data/raw
         df.to_parquet(output_parquet, index=False)
         
     return df
+
+#droping duplicates and cleaning the data (numericalization)
 def clean_dataframe(df):
 
     df.columns = df.columns.str.strip().str.lower()
-    
-
     df = df.drop_duplicates()
-    
- 
     for col in ["flow bytes/s", "flow packets/s"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
@@ -42,24 +40,17 @@ def clean_dataframe(df):
     
     return df
 
+#prepare data for Isolation Forest (binary classification)
 def prepare_IF_data(df):
-   
-    df['is_attack'] = (df['label'].str.strip().str.upper() != 'BENIGN').astype(int)
-    y = df['is_attack']
-    X = df.drop(columns=['label', 'is_attack'])
+    y = (df['label'].str.strip().str.upper() != 'BENIGN').astype(int)
+    X = df.drop(columns=['label'])
     return X, y
 
-
+#prepare data for Random Forest (multi-class classification)
 def prepare_rf_data(df):
-
-    df_attacks = df[df["label"].str.strip().str.upper() != "BENIGN"].copy()
-
-
+    df_attacks = df[df["label"].str.strip().str.upper() != "BENIGN"]
     X = df_attacks.drop(columns=["label"])
-    y = df_attacks["label"]
-
-
+    y = df_attacks["label"].str.strip()          # strip so "DoS Hulk" and "DoS Hulk " don't become 2 classes
     label_encoder = LabelEncoder()
     y_encoded = label_encoder.fit_transform(y)
-
     return X, y_encoded, label_encoder
