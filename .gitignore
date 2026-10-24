@@ -1,0 +1,20 @@
+# Python bytecode & cache
+__pycache__/
+*.pyc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Data folder 
+data/
+*.csv
+*.pcap
+
+# Virtual Environments
+.venv/
+env/
+venv/
+
+# Machine Learning Models & Datasets
+*.pkl
+*.npz
