@@ -45,7 +45,10 @@ def evaluate_multiclass(y_true, y_pred, y_proba, classes, class_names,
     summary   : dict of overall metrics (macro_* are the headline numbers; this dict
                 can be passed straight to evaluation.log_experiment)
     per_class : DataFrame with one row per class (support, AUC-ROC, AUC-PR,
-                precision, recall, F1)
+                precision, recall, F1, false_positives, fpr)
+                fpr here is one-vs-rest: rows of OTHER attack types predicted as this
+                class, divided by all rows of other classes. There is no "normal" class
+                in this model, so this is NOT the normal-flagged-as-attack rate.
     """
     y_true = np.asarray(y_true)
     y_pred = np.asarray(y_pred)
@@ -60,6 +63,8 @@ def evaluate_multiclass(y_true, y_pred, y_proba, classes, class_names,
         if Y[:, i].sum() == 0:
             continue
         pred_i = (y_pred == cls).astype(int)
+        n_neg = int((Y[:, i] == 0).sum())                      # rows of ALL other classes
+        fp = int(((pred_i == 1) & (Y[:, i] == 0)).sum())       # other-class rows predicted as this class
         rows.append({
             "class": name,
             "support": int(Y[:, i].sum()),
@@ -68,6 +73,8 @@ def evaluate_multiclass(y_true, y_pred, y_proba, classes, class_names,
             "precision": precision_score(Y[:, i], pred_i, zero_division=0),
             "recall": recall_score(Y[:, i], pred_i, zero_division=0),
             "f1_score": f1_score(Y[:, i], pred_i, zero_division=0),
+            "false_positives": fp,
+            "fpr": fp / n_neg if n_neg > 0 else float("nan"),
         })
     per_class = pd.DataFrame(rows)
 
@@ -78,6 +85,7 @@ def evaluate_multiclass(y_true, y_pred, y_proba, classes, class_names,
         "macro_precision": per_class["precision"].mean(),
         "macro_recall": per_class["recall"].mean(),
         "macro_f1": per_class["f1_score"].mean(),
+        "macro_fpr": per_class["fpr"].mean(),
         "weighted_f1": np.average(per_class["f1_score"], weights=per_class["support"]),
     }
 
