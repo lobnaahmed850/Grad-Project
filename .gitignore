@@ -10,6 +10,7 @@ data/
 *.csv
 !**/experiments/*.csv
 *.pcap
+!**/localdata/*.csv
 
 # Virtual Environments
 .venv/
