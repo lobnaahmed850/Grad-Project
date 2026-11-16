@@ -1,0 +1,15 @@
+.git
+.agents
+.aws
+.codex
+artifacts
+runtime
+**/__pycache__
+**/.venv
+**/data
+**/captures
+**/localdata
+**/notebooks
+**/reports
+**/models/*.joblib
+**/models/candidates

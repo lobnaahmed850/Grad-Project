@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI-NetGuard · Event console</title>
+<style>
+:root{color-scheme:light dark;--bg:#f4f6f7;--surface:#fff;--text:#172b36;--muted:#4e626d;--line:#c8d2d8;--accent:#075c68;--danger:#a72121;--ok:#176441}
+@media(prefers-color-scheme:dark){:root{--bg:#121b21;--surface:#1b2932;--text:#e6eef2;--muted:#b2c2cc;--line:#465b68;--accent:#8bd1db;--danger:#ffaaaa;--ok:#9fdfb8}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,sans-serif}
+main{max-width:1440px;margin:auto;padding:32px 24px}header{display:flex;align-items:start;justify-content:space-between;gap:24px;flex-wrap:wrap}
+h1{font-size:28px;letter-spacing:-.02em;margin:0}h2{font-size:20px;margin:24px 0 12px}p{margin:8px 0;color:var(--muted)}
+form,.toolbar{display:flex;align-items:end;flex-wrap:wrap;gap:12px}label{display:grid;gap:4px;font-size:14px}
+input,select,button{font:inherit;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:4px;color:var(--text);background:var(--surface)}
+button{cursor:pointer;color:var(--accent);font-weight:600}button:hover{border-color:var(--accent)}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.summary{display:flex;flex-wrap:wrap;gap:32px;padding:20px 0;border-block:1px solid var(--line);margin:24px 0}
+.measure{min-width:120px}.measure strong{display:block;font-size:28px;font-variant-numeric:tabular-nums}.measure span{color:var(--muted);font-size:14px}
+.table-scroll{overflow:auto;border:1px solid var(--line);background:var(--surface)}table{width:100%;border-collapse:collapse;font-size:14px;text-align:left}
+th,td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}th{white-space:nowrap;color:var(--muted)}td{overflow-wrap:anywhere}
+.alert{color:var(--danger);font-weight:600}.benign{color:var(--ok)}code,pre{font:13px/1.5 ui-monospace,monospace}pre{white-space:pre-wrap;overflow-wrap:anywhere}
+details{min-width:220px}summary{cursor:pointer;color:var(--accent)}#status{min-height:24px}small{color:var(--muted)}
+@media(max-width:600px){main{padding:20px 12px}.summary{gap:16px}form{width:100%}input{max-width:100%}}
+</style></head>
+<body><main>
+<header><div><h1>AI-NetGuard</h1><p>Network and syslog event console</p><small>Laboratory validation · Production generalization has not been established.</small></div>
+<form id="auth"><label>Ingestion token<input id="token" type="password" autocomplete="off" required></label><button>Connect</button></form></header>
+<p id="status" role="status" aria-live="polite">Enter the local token to read stored events.</p>
+<section class="summary" aria-label="Stored event totals"><div class="measure"><strong id="alerts">—</strong><span>Suspicious events</span></div><div class="measure"><strong id="normal">—</strong><span>Normal observations</span></div><div class="measure"><strong id="quarantine">—</strong><span>Quarantined logs</span></div></section>
+<div class="toolbar"><label>Event source<select id="source"><option value="">All sources</option><option value="ml">Network ML</option><option value="syslog">Syslog</option></select></label><button id="refresh" type="button">Refresh</button><label><span>Auto refresh</span><input id="auto" type="checkbox" checked></label></div>
+<h2>Latest events</h2><p><small>Up to 100 stored records. Expand evidence for model version, flow timing and source measurements. Scroll the table horizontally on a small screen.</small></p>
+<div class="table-scroll" tabindex="0" aria-label="Event records"><table><thead><tr><th scope="col">Observed</th><th scope="col">Source</th><th scope="col">Verdict</th><th scope="col">Network address</th><th scope="col">Explanation and evidence</th></tr></thead><tbody id="events"><tr><td colspan="5">No records loaded.</td></tr></tbody></table></div>
+<h2>Sensor diagnostics</h2><pre id="diagnostics">No diagnostics loaded.</pre>
+</main><script>
+let bearer='',busy=false;
+const byId=id=>document.getElementById(id);
+const cell=(row,text,cls)=>{const node=document.createElement('td');node.textContent=text;if(cls)node.className=cls;row.append(node);return node};
+async function load(){
+ if(!bearer||busy)return;busy=true;
+ try{
+  const request=async path=>{const response=await fetch(path,{headers:{Authorization:'Bearer '+bearer}});if(!response.ok)throw Error(response.status===401?'Token was rejected.':'Event service returned '+response.status);return response.json()};
+  const [summary,data]=await Promise.all([request('/api/summary'),request('/api/events?source='+encodeURIComponent(byId('source').value))]);
+  let alerts=0,normal=0;for(const item of summary.counts){if(item.decision==='alert')alerts+=item.count;else normal+=item.count}
+  byId('alerts').textContent=alerts.toLocaleString();byId('normal').textContent=normal.toLocaleString();byId('quarantine').textContent=summary.counters.quarantined||0;
+  byId('events').replaceChildren();
+  for(const event of data.events){
+   const row=document.createElement('tr');cell(row,event.timestamp);cell(row,event.event_source);cell(row,event.decision,event.decision);cell(row,event.source_ip+(event.destination_ip?' → '+event.destination_ip:''));
+   const evidence=cell(row,'');const details=document.createElement('details');const title=document.createElement('summary');title.textContent=event.explanation;const content=document.createElement('pre');content.textContent=JSON.stringify(event,null,2);details.append(title,content);evidence.append(details);byId('events').append(row);
+  }
+  if(!data.events.length){const row=document.createElement('tr');const empty=cell(row,'No stored events match this source.');empty.colSpan=5;byId('events').append(row)}
+  byId('diagnostics').textContent=JSON.stringify(summary.sensors,null,2);byId('status').textContent='Connected · Updated '+new Date().toLocaleTimeString();
+ }catch(error){byId('status').textContent=error.message}finally{busy=false}
+}
+byId('auth').addEventListener('submit',event=>{event.preventDefault();bearer=byId('token').value;load()});
+byId('refresh').addEventListener('click',load);byId('source').addEventListener('change',load);
+setInterval(()=>{if(byId('auto').checked&&!document.hidden)load()},3000);
+</script></body></html>

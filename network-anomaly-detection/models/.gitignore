@@ -1,0 +1,7 @@
+# Large model files are stored on Google Drive, not in Git.
+# GitHub rejects files over 100 MB, and iforest_v0.1.0.joblib is 489 MB.
+*.joblib
+
+# The small Random Forest model is already tracked in Git.
+!random_forest_final.joblib
+!releases/**/*.joblib

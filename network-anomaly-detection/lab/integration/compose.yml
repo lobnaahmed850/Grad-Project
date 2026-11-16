@@ -1,0 +1,179 @@
+name: netguard-integration
+x-traffic: &traffic
+  image: netguard-lab-host:1
+  build:
+    context: ..
+    dockerfile: host.Dockerfile
+  entrypoint: ["python3", "/lab/traffic.py"]
+  volumes:
+    - ./traffic.py:/lab/traffic.py:ro
+  read_only: true
+  tmpfs: [/tmp, /run]
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  cpus: 1
+  mem_limit: 256m
+  pids_limit: 128
+  init: true
+
+services:
+  client-a-link:
+    image: netguard-lab-host:1
+    network_mode: service:client-a
+    entrypoint: ["sh", "-c", "ethtool -K lab0 gro off gso off tso off"]
+    cap_drop: [ALL]
+    cap_add: [NET_ADMIN]
+    read_only: true
+    security_opt: [no-new-privileges:true]
+    cpus: 0.25
+    mem_limit: 32m
+    pids_limit: 16
+    depends_on: [client-a]
+  client-b-link:
+    image: netguard-lab-host:1
+    network_mode: service:client-b
+    entrypoint: ["sh", "-c", "ethtool -K lab0 gro off gso off tso off"]
+    cap_drop: [ALL]
+    cap_add: [NET_ADMIN]
+    read_only: true
+    security_opt: [no-new-privileges:true]
+    cpus: 0.25
+    mem_limit: 32m
+    pids_limit: 16
+    depends_on: [client-b]
+  link-init:
+    image: netguard-lab-host:1
+    network_mode: service:server
+    entrypoint: ["sh", "-c", "ethtool -K lab0 gro off gso off tso off && ethtool -k lab0"]
+    cap_drop: [ALL]
+    cap_add: [NET_ADMIN]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    cpus: 0.25
+    mem_limit: 32m
+    pids_limit: 16
+    depends_on:
+      server: {condition: service_healthy}
+  server:
+    <<: *traffic
+    command: ["serve"]
+    cap_add: [SETUID, SETGID, CHOWN, DAC_OVERRIDE, SYS_CHROOT]
+    networks:
+      traffic: {ipv4_address: 10.77.0.10, interface_name: lab0}
+      management: {interface_name: mgmt0}
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health',timeout=2)"]
+      interval: 2s
+      timeout: 3s
+      retries: 10
+  client-a:
+    <<: *traffic
+    entrypoint: ["sleep", "infinity"]
+    networks:
+      traffic: {ipv4_address: 10.77.0.20, interface_name: lab0}
+      management: {interface_name: mgmt0}
+  client-b:
+    <<: *traffic
+    entrypoint: ["sleep", "infinity"]
+    networks:
+      traffic: {ipv4_address: 10.77.0.21, interface_name: lab0}
+      management: {interface_name: mgmt0}
+  simulator:
+    <<: *traffic
+    entrypoint: ["sleep", "infinity"]
+    networks:
+      traffic: {ipv4_address: 10.77.0.30}
+      management: {}
+  capture:
+    image: netguard-lab-host:1
+    network_mode: service:server
+    entrypoint: ["sleep", "infinity"]
+    init: true
+    cap_drop: [ALL]
+    cap_add: [NET_RAW, SETUID, SETGID]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    tmpfs: [/tmp]
+    volumes:
+      - capture-data:/captures
+    cpus: 1
+    mem_limit: 128m
+    pids_limit: 32
+    depends_on:
+      server: {condition: service_healthy}
+      link-init: {condition: service_completed_successfully}
+      client-a-link: {condition: service_completed_successfully}
+      client-b-link: {condition: service_completed_successfully}
+  ingest:
+    image: netguard-runtime:integration
+    profiles: [serving]
+    build:
+      context: ../../..
+      dockerfile: Dockerfile
+    command: ["python", "-m", "netguard.service", "--host", "0.0.0.0", "--database", "/state/events.sqlite"]
+    user: "1000:1000"
+    environment:
+      NETGUARD_TOKEN: ${NETGUARD_TOKEN:?Set a local ingestion token}
+    networks: [management, dashboard]
+    ports: ["127.0.0.1:${NETGUARD_DASHBOARD_PORT:-8090}:8090"]
+    volumes: [events:/state]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 2
+    mem_limit: 512m
+    pids_limit: 128
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',timeout=2)"]
+      interval: 2s
+      timeout: 3s
+      retries: 10
+  sensor-state:
+    image: netguard-runtime:integration
+    profiles: [serving]
+    user: "1000:1000"
+    network_mode: none
+    command: ["python", "-c", "import os; os.chmod('/state', 0o770); [os.chmod('/state/'+name, 0o660) for name in os.listdir('/state') if os.path.isfile('/state/'+name) and os.stat('/state/'+name).st_uid == os.getuid()]"]
+    volumes: [sensor:/state]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 0.25
+    mem_limit: 64m
+    pids_limit: 16
+  sensor:
+    image: netguard-runtime:integration
+    user: "0:1000"
+    profiles: [serving]
+    network_mode: service:server
+    command: ["python", "-m", "netguard.sensor", "--interface", "lab0", "--endpoint", "http://ingest:8090", "--outbox", "/state/outbox.sqlite", "--include-net", "10.77.0.0/24", "--server-ip", "10.77.0.10"]
+    environment:
+      NETGUARD_TOKEN: ${NETGUARD_TOKEN:?Set a local ingestion token}
+    cap_drop: [ALL]
+    cap_add: [NET_RAW]
+    security_opt: [no-new-privileges:true]
+    volumes: [sensor:/state]
+    read_only: true
+    tmpfs: [/tmp]
+    cpus: 2
+    mem_limit: 768m
+    pids_limit: 128
+    depends_on:
+      server: {condition: service_healthy}
+      link-init: {condition: service_completed_successfully}
+      ingest: {condition: service_healthy}
+      sensor-state: {condition: service_completed_successfully}
+networks:
+  traffic:
+    internal: true
+    ipam:
+      config: [{subnet: 10.77.0.0/24}]
+  management:
+    internal: true
+  dashboard:
+    driver: bridge
+volumes:
+  events:
+  sensor:
+  capture-data:

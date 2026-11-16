@@ -20,3 +20,11 @@ venv/
 # Machine Learning Models & Datasets
 *.pkl
 *.npz
+*.joblib
+!network-anomaly-detection/models/random_forest_final.joblib
+!network-anomaly-detection/models/releases/**/*.joblib
+*.pcapng
+*.sqlite*
+runtime/
+artifacts/
+.pytest_cache/

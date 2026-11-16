@@ -1,0 +1,17 @@
+# Python 3.11 release environment. environment.yml is historical and Windows-only.
+joblib==1.5.3
+numpy==2.4.6
+pandas==3.0.6
+pyarrow==26.0.1
+scikit-learn==1.9.1
+scipy==1.17.1
+pytest==9.2.0
+# Transitive dependencies resolved and verified by the standard Docker build.
+iniconfig==2.3.1
+narwhals==2.28.0
+packaging==26.3
+pluggy==1.7.0
+Pygments==2.21.0
+python-dateutil==4.0.0
+threadpoolctl==3.8.0
+tzdata==2026.6

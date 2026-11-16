@@ -1,0 +1,1880 @@
+{
+  "bundle_format": 1,
+  "model_version": "lab-v1",
+  "feature_version": "stream-v2-causal-start-rate",
+  "created_unix": 1794843904.6484418,
+  "environment": {
+    "python": "3.11.17",
+    "sklearn": "1.9.1",
+    "numpy": "2.4.6",
+    "joblib": "1.5.3",
+    "pandas": "3.0.6"
+  },
+  "features": [
+    {
+      "name": "total fwd packets",
+      "unit": "packets"
+    },
+    {
+      "name": "total backward packets",
+      "unit": "packets"
+    },
+    {
+      "name": "total length of fwd packets",
+      "unit": "bytes"
+    },
+    {
+      "name": "total length of bwd packets",
+      "unit": "bytes"
+    },
+    {
+      "name": "fwd packet length max",
+      "unit": "bytes"
+    },
+    {
+      "name": "fwd packet length min",
+      "unit": "bytes"
+    },
+    {
+      "name": "fwd packet length mean",
+      "unit": "bytes"
+    },
+    {
+      "name": "fwd packet length std",
+      "unit": "bytes"
+    },
+    {
+      "name": "bwd packet length mean",
+      "unit": "bytes"
+    },
+    {
+      "name": "bwd packet length std",
+      "unit": "bytes"
+    },
+    {
+      "name": "min packet length",
+      "unit": "bytes"
+    },
+    {
+      "name": "max packet length",
+      "unit": "bytes"
+    },
+    {
+      "name": "packet length mean",
+      "unit": "bytes"
+    },
+    {
+      "name": "packet length std",
+      "unit": "bytes"
+    },
+    {
+      "name": "packet length variance",
+      "unit": "bytes"
+    },
+    {
+      "name": "average packet size",
+      "unit": "bytes"
+    },
+    {
+      "name": "down/up ratio",
+      "unit": "whole number"
+    },
+    {
+      "name": "act_data_pkt_fwd",
+      "unit": "packets"
+    },
+    {
+      "name": "fin flag count",
+      "unit": "0 or 1"
+    },
+    {
+      "name": "syn flag count",
+      "unit": "0 or 1"
+    },
+    {
+      "name": "psh flag count",
+      "unit": "0 or 1"
+    },
+    {
+      "name": "ack flag count",
+      "unit": "0 or 1"
+    },
+    {
+      "name": "urg flag count",
+      "unit": "0 or 1"
+    },
+    {
+      "name": "flow duration",
+      "unit": "microseconds"
+    },
+    {
+      "name": "flow bytes/s",
+      "unit": "per second"
+    },
+    {
+      "name": "flow packets/s",
+      "unit": "per second"
+    },
+    {
+      "name": "fwd packets/s",
+      "unit": "per second"
+    },
+    {
+      "name": "bwd packets/s",
+      "unit": "per second"
+    },
+    {
+      "name": "flow iat mean",
+      "unit": "microseconds"
+    },
+    {
+      "name": "flow iat std",
+      "unit": "microseconds"
+    },
+    {
+      "name": "flow iat max",
+      "unit": "microseconds"
+    },
+    {
+      "name": "flow iat min",
+      "unit": "microseconds"
+    },
+    {
+      "name": "active mean",
+      "unit": "microseconds"
+    },
+    {
+      "name": "active std",
+      "unit": "microseconds"
+    },
+    {
+      "name": "active max",
+      "unit": "microseconds"
+    },
+    {
+      "name": "active min",
+      "unit": "microseconds"
+    },
+    {
+      "name": "idle mean",
+      "unit": "microseconds"
+    },
+    {
+      "name": "idle std",
+      "unit": "microseconds"
+    },
+    {
+      "name": "idle max",
+      "unit": "microseconds"
+    },
+    {
+      "name": "idle min",
+      "unit": "microseconds"
+    },
+    {
+      "name": "source flow rate",
+      "unit": "starts/second"
+    }
+  ],
+  "implementation_sha256": {
+    "flow_extractor.py": "76ca19d77d1cde4b9d1041c3942882d804ca97f73dbfc7784ed2ab335a5bf43e",
+    "streaming.py": "8818b3216c4f3809e6c205cbe3fadc1ebc03e1f8e61c7923c540cfe09bd559eb",
+    "release.py": "b373af3b00b37892b07d48b856fd7ab02ffdc973244b526f54da81f5beb04bc7"
+  },
+  "classes": [
+    "BENIGN",
+    "HTTP_FLOOD",
+    "PORT_SCAN",
+    "SLOW_HTTP"
+  ],
+  "flow_config": {
+    "idle_seconds": 1.0,
+    "active_seconds": 8.0,
+    "rate_window_seconds": 1.0,
+    "max_flows": 10000,
+    "max_sources": 4096,
+    "max_rate_events": 100000
+  },
+  "min_confidence": 0.7,
+  "detector_features": [],
+  "detector_threshold": null,
+  "model_sha256": "154aadd04fa6685e33109b2cc039fb95279021730d06cb0019ac2bd5f0cdbe11",
+  "provenance": {
+    "manifest_sha256": "3379385fad994d6b4487cc17ae00b5d3c9f8a61fcbdf3572031ab7e4fc86d55d",
+    "manifest": {
+      "schema": "netguard-sessions-v1",
+      "scope": "synthetic isolated Docker lab",
+      "sessions": [
+        {
+          "session_id": "train-benign-1000-1794843567940371326",
+          "role": "train",
+          "scenario": "benign",
+          "label": "BENIGN",
+          "pcap": "artifacts/sessions/train-benign-1000-1794843567940371326.pcap",
+          "sha256": "261e2b7b5b826c663f45b576897049eb71c808d538dac567c05392798084520b",
+          "bytes": 10837214,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "benign",
+            "seed": 1000,
+            "target": "10.77.0.10",
+            "started_unix": 1794843568.2669256,
+            "ended_unix": 1794843573.291482,
+            "operations": 53,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n9388 packets captured\n9421 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "train-benign-1017-1794843573638255323",
+          "role": "train",
+          "scenario": "benign",
+          "label": "BENIGN",
+          "pcap": "artifacts/sessions/train-benign-1017-1794843573638255323.pcap",
+          "sha256": "71b05c0820749876e2a498bd6cff8561a900bf482131fd9380e476502844927d",
+          "bytes": 10839758,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "benign",
+            "seed": 1017,
+            "target": "10.77.0.10",
+            "started_unix": 1794843574.079084,
+            "ended_unix": 1794843579.1383898,
+            "operations": 53,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n9504 packets captured\n9616 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "train-benign-1034-1794843579627417391",
+          "role": "train",
+          "scenario": "benign",
+          "label": "BENIGN",
+          "pcap": "artifacts/sessions/train-benign-1034-1794843579627417391.pcap",
+          "sha256": "c84707236a879d9903ba203df3d65b72d29ff747438473189b4bffe1f9c94b41",
+          "bytes": 13038342,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "benign",
+            "seed": 1034,
+            "target": "10.77.0.10",
+            "started_unix": 1794843580.0474052,
+            "ended_unix": 1794843585.0720947,
+            "operations": 52,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n11605 packets captured\n11615 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "train-scan-1051-1794843585440331497",
+          "role": "train",
+          "scenario": "scan",
+          "label": "PORT_SCAN",
+          "pcap": "artifacts/sessions/train-scan-1051-1794843585440331497.pcap",
+          "sha256": "f8c4917d65971f43a6b5bc53a20a36cf21e7b43ca797a6db5f22db1b6e0f1caa",
+          "bytes": 64344,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "scan",
+            "seed": 1051,
+            "target": "10.77.0.10",
+            "started_unix": 1794843585.855788,
+            "ended_unix": 1794843589.2499478,
+            "operations": 500,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n804 packets captured\n1000 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "train-scan-1068-1794843589666292914",
+          "role": "train",
+          "scenario": "scan",
+          "label": "PORT_SCAN",
+          "pcap": "artifacts/sessions/train-scan-1068-1794843589666292914.pcap",
+          "sha256": "5ab8e0de37d514623da6b2d8515b159ae96388f4961b352250149531db5d9615",
+          "bytes": 66904,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "scan",
+            "seed": 1068,
+            "target": "10.77.0.10",
+            "started_unix": 1794843590.0899558,
+            "ended_unix": 1794843593.4404542,
+            "operations": 500,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n836 packets captured\n1000 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "train-flood-1085-1794843593876441781",
+          "role": "train",
+          "scenario": "flood",
+          "label": "HTTP_FLOOD",
+          "pcap": "artifacts/sessions/train-flood-1085-1794843593876441781.pcap",
+          "sha256": "30b7ea4f3d2deae7b20e06b709f34eeafc8716ccc6cf199bebbc5730f994f842",
+          "bytes": 2714358,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "flood",
+            "seed": 1085,
+            "target": "10.77.0.10",
+            "started_unix": 1794843594.3465784,
+            "ended_unix": 1794843599.3743603,
+            "operations": 2136,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n24502 packets captured\n25834 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "train-flood-1102-1794843599787535677",
+          "role": "train",
+          "scenario": "flood",
+          "label": "HTTP_FLOOD",
+          "pcap": "artifacts/sessions/train-flood-1102-1794843599787535677.pcap",
+          "sha256": "90a370d548a162d27f21a876798145839016922449217570a6ca2f78ecbc1e68",
+          "bytes": 3193044,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "flood",
+            "seed": 1102,
+            "target": "10.77.0.10",
+            "started_unix": 1794843600.2564428,
+            "ended_unix": 1794843605.2575486,
+            "operations": 2484,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n28829 packets captured\n30064 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "train-slow-1119-1794843605618508243",
+          "role": "train",
+          "scenario": "slow",
+          "label": "SLOW_HTTP",
+          "pcap": "artifacts/sessions/train-slow-1119-1794843605618508243.pcap",
+          "sha256": "1b95756e6c73dcaea0cab2adf6b1f6676e10a39ed04d82b775cc9d6f219704f7",
+          "bytes": 103179,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "slow",
+            "seed": 1119,
+            "target": "10.77.0.10",
+            "started_unix": 1794843605.9640574,
+            "ended_unix": 1794843610.9792655,
+            "operations": 468,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n1131 packets captured\n1248 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "train-slow-1136-1794843611377127921",
+          "role": "train",
+          "scenario": "slow",
+          "label": "SLOW_HTTP",
+          "pcap": "artifacts/sessions/train-slow-1136-1794843611377127921.pcap",
+          "sha256": "6c907e0541b8fa89e47571e88c3857abdaa0308459c81f5b1e13008c3acc1ad5",
+          "bytes": 108469,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "slow",
+            "seed": 1136,
+            "target": "10.77.0.10",
+            "started_unix": 1794843611.8194969,
+            "ended_unix": 1794843616.8538568,
+            "operations": 492,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n1189 packets captured\n1312 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "calibration-benign-2000-1794843617274273470",
+          "role": "calibration",
+          "scenario": "benign",
+          "label": "BENIGN",
+          "pcap": "artifacts/sessions/calibration-benign-2000-1794843617274273470.pcap",
+          "sha256": "8484f536dba222032fd77e36f7185bfd999873c47666e56bba7342e95e74f523",
+          "bytes": 5788012,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "benign",
+            "seed": 2000,
+            "target": "10.77.0.10",
+            "started_unix": 1794843617.6756194,
+            "ended_unix": 1794843622.6916466,
+            "operations": 53,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n5598 packets captured\n5628 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "calibration-benign-2017-1794843623070146736",
+          "role": "calibration",
+          "scenario": "benign",
+          "label": "BENIGN",
+          "pcap": "artifacts/sessions/calibration-benign-2017-1794843623070146736.pcap",
+          "sha256": "ee2dd16370e8df56a4a1d4f2257c36b64c2fa87b6152db272f41a16f8409fe5e",
+          "bytes": 9346648,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "benign",
+            "seed": 2017,
+            "target": "10.77.0.10",
+            "started_unix": 1794843623.4510062,
+            "ended_unix": 1794843628.4607277,
+            "operations": 49,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n8375 packets captured\n8511 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "calibration-benign-2034-1794843628855340287",
+          "role": "calibration",
+          "scenario": "benign",
+          "label": "BENIGN",
+          "pcap": "artifacts/sessions/calibration-benign-2034-1794843628855340287.pcap",
+          "sha256": "e462ad2d28bc7be99060825e8530a86721d0a2052e5cfd353ff09cf7ef2a3573",
+          "bytes": 11577130,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "benign",
+            "seed": 2034,
+            "target": "10.77.0.10",
+            "started_unix": 1794843629.2717922,
+            "ended_unix": 1794843634.3035965,
+            "operations": 54,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n10054 packets captured\n10205 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "calibration-scan-2051-1794843634644138553",
+          "role": "calibration",
+          "scenario": "scan",
+          "label": "PORT_SCAN",
+          "pcap": "artifacts/sessions/calibration-scan-2051-1794843634644138553.pcap",
+          "sha256": "2a76b2f13080294d43909bc75a799d3166dd1b25028d22449d34d3dd86bb1faf",
+          "bytes": 67384,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "scan",
+            "seed": 2051,
+            "target": "10.77.0.10",
+            "started_unix": 1794843634.971711,
+            "ended_unix": 1794843638.3448322,
+            "operations": 500,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n842 packets captured\n1000 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "calibration-scan-2068-1794843638715107551",
+          "role": "calibration",
+          "scenario": "scan",
+          "label": "PORT_SCAN",
+          "pcap": "artifacts/sessions/calibration-scan-2068-1794843638715107551.pcap",
+          "sha256": "fcdaeee31e152426cc1192d46cc3c07550f9dd3a020169a4943348683176ce7c",
+          "bytes": 65144,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "scan",
+            "seed": 2068,
+            "target": "10.77.0.10",
+            "started_unix": 1794843639.1450124,
+            "ended_unix": 1794843642.5353928,
+            "operations": 500,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n814 packets captured\n1000 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "calibration-flood-2085-1794843642889762225",
+          "role": "calibration",
+          "scenario": "flood",
+          "label": "HTTP_FLOOD",
+          "pcap": "artifacts/sessions/calibration-flood-2085-1794843642889762225.pcap",
+          "sha256": "5cef882772a61fde3fb5ca790286ef85b46b160c6ac8b7e5d3832c878c55f6b8",
+          "bytes": 3831834,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "flood",
+            "seed": 2085,
+            "target": "10.77.0.10",
+            "started_unix": 1794843643.378255,
+            "ended_unix": 1794843648.3931541,
+            "operations": 2916,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n34598 packets captured\n35293 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "calibration-flood-2102-1794843648762800773",
+          "role": "calibration",
+          "scenario": "flood",
+          "label": "HTTP_FLOOD",
+          "pcap": "artifacts/sessions/calibration-flood-2102-1794843648762800773.pcap",
+          "sha256": "bd989290bf4c0d5b1e1316c157c59c946ce1d0e6bf8100fb94283f19014740c9",
+          "bytes": 2713914,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "flood",
+            "seed": 2102,
+            "target": "10.77.0.10",
+            "started_unix": 1794843649.1755776,
+            "ended_unix": 1794843654.1805305,
+            "operations": 2112,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n24500 packets captured\n25540 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "calibration-slow-2119-1794843654615319462",
+          "role": "calibration",
+          "scenario": "slow",
+          "label": "SLOW_HTTP",
+          "pcap": "artifacts/sessions/calibration-slow-2119-1794843654615319462.pcap",
+          "sha256": "74b5c2c475523965bfd23d08835ba6d34ba57b6a0b812e119504afcbd77d4733",
+          "bytes": 89954,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "slow",
+            "seed": 2119,
+            "target": "10.77.0.10",
+            "started_unix": 1794843655.0604787,
+            "ended_unix": 1794843660.4496593,
+            "operations": 442,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n986 packets captured\n1156 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "calibration-slow-2136-1794843660847733796",
+          "role": "calibration",
+          "scenario": "slow",
+          "label": "SLOW_HTTP",
+          "pcap": "artifacts/sessions/calibration-slow-2136-1794843660847733796.pcap",
+          "sha256": "86eede94002bb2896db5b65ffc34b1d0addc27c2b13e47108e678daa1941eaee",
+          "bytes": 95244,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "slow",
+            "seed": 2136,
+            "target": "10.77.0.10",
+            "started_unix": 1794843661.2398994,
+            "ended_unix": 1794843666.6382594,
+            "operations": 468,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n1044 packets captured\n1224 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "test-benign-3000-1794843667025731908",
+          "role": "test",
+          "scenario": "benign",
+          "label": "BENIGN",
+          "pcap": "artifacts/sessions/test-benign-3000-1794843667025731908.pcap",
+          "sha256": "71d778a08f58c6b7d6a9e9c7f8c8a30cb8759ea303c6ca42039228a465de7b34",
+          "bytes": 13778162,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "benign",
+            "seed": 3000,
+            "target": "10.77.0.10",
+            "started_unix": 1794843667.4622343,
+            "ended_unix": 1794843672.4928684,
+            "operations": 52,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n12145 packets captured\n12183 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "test-benign-3017-1794843672814174592",
+          "role": "test",
+          "scenario": "benign",
+          "label": "BENIGN",
+          "pcap": "artifacts/sessions/test-benign-3017-1794843672814174592.pcap",
+          "sha256": "f52bde1eb552c6461a9872fa92452126a9fb8fc2470fdfa3d1c364f5966208d6",
+          "bytes": 9843670,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "benign",
+            "seed": 3017,
+            "target": "10.77.0.10",
+            "started_unix": 1794843673.2012815,
+            "ended_unix": 1794843678.2255394,
+            "operations": 56,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n8739 packets captured\n8995 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "test-benign-3034-1794843678572323971",
+          "role": "test",
+          "scenario": "benign",
+          "label": "BENIGN",
+          "pcap": "artifacts/sessions/test-benign-3034-1794843678572323971.pcap",
+          "sha256": "868bdf413ff8f62a4820543f3b145285c8ab8087131021dd6f689ef817020dba",
+          "bytes": 11791100,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "benign",
+            "seed": 3034,
+            "target": "10.77.0.10",
+            "started_unix": 1794843678.984704,
+            "ended_unix": 1794843684.017934,
+            "operations": 55,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n10773 packets captured\n10919 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "test-scan-3051-1794843684407141801",
+          "role": "test",
+          "scenario": "scan",
+          "label": "PORT_SCAN",
+          "pcap": "artifacts/sessions/test-scan-3051-1794843684407141801.pcap",
+          "sha256": "2189da5a5e2411a445387edf84bd2818529a6065ff59e3c26fc281e949592416",
+          "bytes": 65944,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "scan",
+            "seed": 3051,
+            "target": "10.77.0.10",
+            "started_unix": 1794843684.8639815,
+            "ended_unix": 1794843688.1945872,
+            "operations": 500,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n824 packets captured\n1000 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "test-scan-3068-1794843688582659903",
+          "role": "test",
+          "scenario": "scan",
+          "label": "PORT_SCAN",
+          "pcap": "artifacts/sessions/test-scan-3068-1794843688582659903.pcap",
+          "sha256": "8e0f5cff0d7e7a96f422778c444be5818b494a35a93ec929f313e3913680eea2",
+          "bytes": 67064,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "scan",
+            "seed": 3068,
+            "target": "10.77.0.10",
+            "started_unix": 1794843688.910928,
+            "ended_unix": 1794843692.2860603,
+            "operations": 500,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n838 packets captured\n1000 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "test-flood-3085-1794843692685663506",
+          "role": "test",
+          "scenario": "flood",
+          "label": "HTTP_FLOOD",
+          "pcap": "artifacts/sessions/test-flood-3085-1794843692685663506.pcap",
+          "sha256": "74b2c9898e09ff895ac5bdeb0e16cfe0fe4cafb25f2d9c766211a28d4cece0fd",
+          "bytes": 3352530,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "flood",
+            "seed": 3085,
+            "target": "10.77.0.10",
+            "started_unix": 1794843693.0883338,
+            "ended_unix": 1794843698.1092913,
+            "operations": 2556,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n30269 packets captured\n30925 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "test-flood-3102-1794843698525543679",
+          "role": "test",
+          "scenario": "flood",
+          "label": "HTTP_FLOOD",
+          "pcap": "artifacts/sessions/test-flood-3102-1794843698525543679.pcap",
+          "sha256": "ffbed82dbbb04f581bf0b35a92ef5d426a7ee49d5955e7788a37d4b55fc2e2fd",
+          "bytes": 4150856,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "flood",
+            "seed": 3102,
+            "target": "10.77.0.10",
+            "started_unix": 1794843698.9577506,
+            "ended_unix": 1794843703.966564,
+            "operations": 3156,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n37479 packets captured\n38193 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "test-slow-3119-1794843704314928561",
+          "role": "test",
+          "scenario": "slow",
+          "label": "SLOW_HTTP",
+          "pcap": "artifacts/sessions/test-slow-3119-1794843704314928561.pcap",
+          "sha256": "a05e980df04e50b21f9364ee997817800ffcaae0a42f48a9f62fa0d816c2da20",
+          "bytes": 116404,
+          "actor_ips": [
+            "10.77.0.21"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "slow",
+            "seed": 3119,
+            "target": "10.77.0.10",
+            "started_unix": 1794843704.7426662,
+            "ended_unix": 1794843709.795301,
+            "operations": 528,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n1276 packets captured\n1408 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        },
+        {
+          "session_id": "test-slow-3136-1794843710152682398",
+          "role": "test",
+          "scenario": "slow",
+          "label": "SLOW_HTTP",
+          "pcap": "artifacts/sessions/test-slow-3136-1794843710152682398.pcap",
+          "sha256": "8838095eae33e37fda6ac52200ff4e6d1c5ab24b675ea0d378360365beb7a184",
+          "bytes": 82019,
+          "actor_ips": [
+            "10.77.0.20"
+          ],
+          "server_ip": "10.77.0.10",
+          "metadata": {
+            "scenario": "slow",
+            "seed": 3136,
+            "target": "10.77.0.10",
+            "started_unix": 1794843710.5905232,
+            "ended_unix": 1794843715.961829,
+            "operations": 403,
+            "errors": 0,
+            "tools": {
+              "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+            }
+          },
+          "capture_statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n899 packets captured\n1054 packets received by filter\n0 packets dropped by kernel",
+          "capture_dropped_packets": 0
+        }
+      ],
+      "environment": {
+        "image_id": "sha256:f22c91fb168db3d84c78613f454f8f41a70186ccb5b4822398395aee71c45462",
+        "docker": "29.9.3",
+        "git_base": "0c4d86c81eb03d68e98f3e9324230e1ac4239363",
+        "created_at": "2026-11-16T15:39:27.940350+00:00"
+      }
+    },
+    "selection_sha256": "60d2accfbeb53398f43181be166272e049dea82d171f8e0950d7332fc83788ef",
+    "chosen_candidate": "causal-rf32-confidence-0.7",
+    "training_rows": 7800,
+    "calibration_rows": 7087,
+    "test_rows": 7363,
+    "excluded_reverse_or_unrelated_rows": {
+      "train-benign-1000-1794843567940371326": 48,
+      "train-benign-1017-1794843573638255323": 47,
+      "train-benign-1034-1794843579627417391": 43,
+      "train-scan-1051-1794843585440331497": 0,
+      "train-scan-1068-1794843589666292914": 0,
+      "train-flood-1085-1794843593876441781": 974,
+      "train-flood-1102-1794843599787535677": 1157,
+      "train-slow-1119-1794843605618508243": 0,
+      "train-slow-1136-1794843611377127921": 0,
+      "calibration-benign-2000-1794843617274273470": 48,
+      "calibration-benign-2017-1794843623070146736": 43,
+      "calibration-benign-2034-1794843628855340287": 41,
+      "calibration-scan-2051-1794843634644138553": 0,
+      "calibration-scan-2068-1794843638715107551": 0,
+      "calibration-flood-2085-1794843642889762225": 1198,
+      "calibration-flood-2102-1794843648762800773": 920,
+      "calibration-slow-2119-1794843654615319462": 0,
+      "calibration-slow-2136-1794843660847733796": 0,
+      "test-benign-3000-1794843667025731908": 43,
+      "test-benign-3017-1794843672814174592": 44,
+      "test-benign-3034-1794843678572323971": 42,
+      "test-scan-3051-1794843684407141801": 0,
+      "test-scan-3068-1794843688582659903": 0,
+      "test-flood-3085-1794843692685663506": 1150,
+      "test-flood-3102-1794843698525543679": 1425,
+      "test-slow-3119-1794843704314928561": 0,
+      "test-slow-3136-1794843710152682398": 0
+    },
+    "preprocessing": "median imputation fitted on training sessions only; infinities become missing",
+    "labels": "scenario assignment; only actor-originating flows to the lab server are scored"
+  },
+  "evaluation": {
+    "flows": 7363,
+    "binary_confusion_matrix": [
+      [
+        207,
+        4
+      ],
+      [
+        28,
+        7124
+      ]
+    ],
+    "precision": 0.999438832772166,
+    "recall": 0.9960850111856824,
+    "f1": 0.9977591036414566,
+    "false_positive_rate": 0.018957345971563982,
+    "false_negative_rate": 0.0039149888143176735,
+    "macro_detection_rate": 0.9986071730587475,
+    "category_macro_f1": 0.9814647835580402,
+    "categories": {
+      "BENIGN": {
+        "flows": 211,
+        "detection_rate": 0.018957345971563982,
+        "correct_type_rate": 0.981042654028436
+      },
+      "HTTP_FLOOD": {
+        "flows": 6701,
+        "detection_rate": 0.9958215191762424,
+        "correct_type_rate": 0.9958215191762424
+      },
+      "PORT_SCAN": {
+        "flows": 376,
+        "detection_rate": 1.0,
+        "correct_type_rate": 1.0
+      },
+      "SLOW_HTTP": {
+        "flows": 75,
+        "detection_rate": 1.0,
+        "correct_type_rate": 1.0
+      }
+    },
+    "category_confusion_labels": [
+      "BENIGN",
+      "HTTP_FLOOD",
+      "PORT_SCAN",
+      "SLOW_HTTP"
+    ],
+    "category_confusion_matrix": [
+      [
+        207,
+        4,
+        0,
+        0
+      ],
+      [
+        28,
+        6673,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        376,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        75
+      ]
+    ],
+    "false_positive_rate_95pct_wilson": [
+      0.007396106319858525,
+      0.047721710713714116
+    ],
+    "sessions": {
+      "test-benign-3000-1794843667025731908": {
+        "flows": 71,
+        "binary_confusion_matrix": [
+          [
+            70,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.014084507042253521,
+        "false_negative_rate": null,
+        "macro_detection_rate": null,
+        "category_macro_f1": 0.49645390070921985,
+        "categories": {
+          "BENIGN": {
+            "flows": 71,
+            "detection_rate": 0.014084507042253521,
+            "correct_type_rate": 0.9859154929577465
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            70,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "false_positive_rate_95pct_wilson": [
+          0.0024905391347781955,
+          0.07556230847938292
+        ]
+      },
+      "test-benign-3017-1794843672814174592": {
+        "flows": 68,
+        "binary_confusion_matrix": [
+          [
+            66,
+            2
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.029411764705882353,
+        "false_negative_rate": null,
+        "macro_detection_rate": null,
+        "category_macro_f1": 0.4925373134328358,
+        "categories": {
+          "BENIGN": {
+            "flows": 68,
+            "detection_rate": 0.029411764705882353,
+            "correct_type_rate": 0.9705882352941176
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            66,
+            2
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "false_positive_rate_95pct_wilson": [
+          0.008103009605045342,
+          0.10104823424253043
+        ]
+      },
+      "test-benign-3034-1794843678572323971": {
+        "flows": 72,
+        "binary_confusion_matrix": [
+          [
+            71,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.013888888888888888,
+        "false_negative_rate": null,
+        "macro_detection_rate": null,
+        "category_macro_f1": 0.4965034965034965,
+        "categories": {
+          "BENIGN": {
+            "flows": 72,
+            "detection_rate": 0.013888888888888888,
+            "correct_type_rate": 0.9861111111111112
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            71,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "false_positive_rate_95pct_wilson": [
+          0.002455888640432169,
+          0.07456780284286987
+        ]
+      },
+      "test-flood-3085-1794843692685663506": {
+        "flows": 2817,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            14,
+            2803
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 0.9950301739439119,
+        "f1": 0.997508896797153,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.004969826056088037,
+        "macro_detection_rate": 0.9950301739439119,
+        "category_macro_f1": 0.4987544483985765,
+        "categories": {
+          "HTTP_FLOOD": {
+            "flows": 2817,
+            "detection_rate": 0.9950301739439119,
+            "correct_type_rate": 0.9950301739439119
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            14,
+            2803
+          ]
+        ]
+      },
+      "test-flood-3102-1794843698525543679": {
+        "flows": 3884,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            14,
+            3870
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 0.9963954685890835,
+        "f1": 0.9981944802682486,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.003604531410916581,
+        "macro_detection_rate": 0.9963954685890835,
+        "category_macro_f1": 0.4990972401341243,
+        "categories": {
+          "HTTP_FLOOD": {
+            "flows": 3884,
+            "detection_rate": 0.9963954685890835,
+            "correct_type_rate": 0.9963954685890835
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            14,
+            3870
+          ]
+        ]
+      },
+      "test-scan-3051-1794843684407141801": {
+        "flows": 221,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            221
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "macro_detection_rate": 1.0,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "PORT_SCAN": {
+            "flows": 221,
+            "detection_rate": 1.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "category_confusion_labels": [
+          "PORT_SCAN"
+        ],
+        "category_confusion_matrix": [
+          [
+            221
+          ]
+        ]
+      },
+      "test-scan-3068-1794843688582659903": {
+        "flows": 155,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            155
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "macro_detection_rate": 1.0,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "PORT_SCAN": {
+            "flows": 155,
+            "detection_rate": 1.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "category_confusion_labels": [
+          "PORT_SCAN"
+        ],
+        "category_confusion_matrix": [
+          [
+            155
+          ]
+        ]
+      },
+      "test-slow-3119-1794843704314928561": {
+        "flows": 44,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            44
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "macro_detection_rate": 1.0,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "SLOW_HTTP": {
+            "flows": 44,
+            "detection_rate": 1.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "category_confusion_labels": [
+          "SLOW_HTTP"
+        ],
+        "category_confusion_matrix": [
+          [
+            44
+          ]
+        ]
+      },
+      "test-slow-3136-1794843710152682398": {
+        "flows": 31,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            31
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "macro_detection_rate": 1.0,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "SLOW_HTTP": {
+            "flows": 31,
+            "detection_rate": 1.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "category_confusion_labels": [
+          "SLOW_HTTP"
+        ],
+        "category_confusion_matrix": [
+          [
+            31
+          ]
+        ]
+      }
+    },
+    "all_independent_session_rows_secondary": {
+      "flows": 9731,
+      "binary_confusion_matrix": [
+        [
+          229,
+          5
+        ],
+        [
+          36,
+          9461
+        ]
+      ],
+      "precision": 0.999471793788295,
+      "recall": 0.9962093292618722,
+      "f1": 0.9978378948478617,
+      "false_positive_rate": 0.021367521367521368,
+      "false_negative_rate": 0.00379067073812783,
+      "macro_detection_rate": 0.9986031893842394,
+      "category_macro_f1": 0.9788612850445805,
+      "categories": {
+        "BENIGN": {
+          "flows": 234,
+          "detection_rate": 0.021367521367521368,
+          "correct_type_rate": 0.9786324786324786
+        },
+        "HTTP_FLOOD": {
+          "flows": 8591,
+          "detection_rate": 0.9958095681527179,
+          "correct_type_rate": 0.9958095681527179
+        },
+        "PORT_SCAN": {
+          "flows": 831,
+          "detection_rate": 1.0,
+          "correct_type_rate": 1.0
+        },
+        "SLOW_HTTP": {
+          "flows": 75,
+          "detection_rate": 1.0,
+          "correct_type_rate": 1.0
+        }
+      },
+      "category_confusion_labels": [
+        "BENIGN",
+        "HTTP_FLOOD",
+        "PORT_SCAN",
+        "SLOW_HTTP"
+      ],
+      "category_confusion_matrix": [
+        [
+          229,
+          5,
+          0,
+          0
+        ],
+        [
+          36,
+          8555,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          831,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          75
+        ]
+      ],
+      "false_positive_rate_95pct_wilson": [
+        0.009160505364670172,
+        0.049036210432734484
+      ],
+      "sessions": {
+        "test-benign-3000-1794843667025731908": {
+          "flows": 80,
+          "binary_confusion_matrix": [
+            [
+              79,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_rate": 0.0125,
+          "false_negative_rate": null,
+          "macro_detection_rate": null,
+          "category_macro_f1": 0.4968553459119497,
+          "categories": {
+            "BENIGN": {
+              "flows": 80,
+              "detection_rate": 0.0125,
+              "correct_type_rate": 0.9875
+            }
+          },
+          "category_confusion_labels": [
+            "BENIGN",
+            "HTTP_FLOOD"
+          ],
+          "category_confusion_matrix": [
+            [
+              79,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "false_positive_rate_95pct_wilson": [
+            0.002209918618306224,
+            0.06746432423965451
+          ]
+        },
+        "test-benign-3017-1794843672814174592": {
+          "flows": 75,
+          "binary_confusion_matrix": [
+            [
+              72,
+              3
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_rate": 0.04,
+          "false_negative_rate": null,
+          "macro_detection_rate": null,
+          "category_macro_f1": 0.4897959183673469,
+          "categories": {
+            "BENIGN": {
+              "flows": 75,
+              "detection_rate": 0.04,
+              "correct_type_rate": 0.96
+            }
+          },
+          "category_confusion_labels": [
+            "BENIGN",
+            "HTTP_FLOOD"
+          ],
+          "category_confusion_matrix": [
+            [
+              72,
+              3
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "false_positive_rate_95pct_wilson": [
+            0.013695816001486477,
+            0.11113168623083756
+          ]
+        },
+        "test-benign-3034-1794843678572323971": {
+          "flows": 79,
+          "binary_confusion_matrix": [
+            [
+              78,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_positive_rate": 0.012658227848101266,
+          "false_negative_rate": null,
+          "macro_detection_rate": null,
+          "category_macro_f1": 0.4968152866242038,
+          "categories": {
+            "BENIGN": {
+              "flows": 79,
+              "detection_rate": 0.012658227848101266,
+              "correct_type_rate": 0.9873417721518988
+            }
+          },
+          "category_confusion_labels": [
+            "BENIGN",
+            "HTTP_FLOOD"
+          ],
+          "category_confusion_matrix": [
+            [
+              78,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "false_positive_rate_95pct_wilson": [
+            0.002237936230769212,
+            0.06827736043177712
+          ]
+        },
+        "test-flood-3085-1794843692685663506": {
+          "flows": 3835,
+          "binary_confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              18,
+              3817
+            ]
+          ],
+          "precision": 1.0,
+          "recall": 0.9953063885267275,
+          "f1": 0.9976476738107685,
+          "false_positive_rate": null,
+          "false_negative_rate": 0.00469361147327249,
+          "macro_detection_rate": 0.9953063885267275,
+          "category_macro_f1": 0.49882383690538423,
+          "categories": {
+            "HTTP_FLOOD": {
+              "flows": 3835,
+              "detection_rate": 0.9953063885267275,
+              "correct_type_rate": 0.9953063885267275
+            }
+          },
+          "category_confusion_labels": [
+            "BENIGN",
+            "HTTP_FLOOD"
+          ],
+          "category_confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              18,
+              3817
+            ]
+          ]
+        },
+        "test-flood-3102-1794843698525543679": {
+          "flows": 4756,
+          "binary_confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              18,
+              4738
+            ]
+          ],
+          "precision": 1.0,
+          "recall": 0.996215306980656,
+          "f1": 0.9981040657257215,
+          "false_positive_rate": null,
+          "false_negative_rate": 0.0037846930193439865,
+          "macro_detection_rate": 0.996215306980656,
+          "category_macro_f1": 0.49905203286286076,
+          "categories": {
+            "HTTP_FLOOD": {
+              "flows": 4756,
+              "detection_rate": 0.996215306980656,
+              "correct_type_rate": 0.996215306980656
+            }
+          },
+          "category_confusion_labels": [
+            "BENIGN",
+            "HTTP_FLOOD"
+          ],
+          "category_confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              18,
+              4738
+            ]
+          ]
+        },
+        "test-scan-3051-1794843684407141801": {
+          "flows": 412,
+          "binary_confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              412
+            ]
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_rate": null,
+          "false_negative_rate": 0.0,
+          "macro_detection_rate": 1.0,
+          "category_macro_f1": 1.0,
+          "categories": {
+            "PORT_SCAN": {
+              "flows": 412,
+              "detection_rate": 1.0,
+              "correct_type_rate": 1.0
+            }
+          },
+          "category_confusion_labels": [
+            "PORT_SCAN"
+          ],
+          "category_confusion_matrix": [
+            [
+              412
+            ]
+          ]
+        },
+        "test-scan-3068-1794843688582659903": {
+          "flows": 419,
+          "binary_confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              419
+            ]
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_rate": null,
+          "false_negative_rate": 0.0,
+          "macro_detection_rate": 1.0,
+          "category_macro_f1": 1.0,
+          "categories": {
+            "PORT_SCAN": {
+              "flows": 419,
+              "detection_rate": 1.0,
+              "correct_type_rate": 1.0
+            }
+          },
+          "category_confusion_labels": [
+            "PORT_SCAN"
+          ],
+          "category_confusion_matrix": [
+            [
+              419
+            ]
+          ]
+        },
+        "test-slow-3119-1794843704314928561": {
+          "flows": 44,
+          "binary_confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              44
+            ]
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_rate": null,
+          "false_negative_rate": 0.0,
+          "macro_detection_rate": 1.0,
+          "category_macro_f1": 1.0,
+          "categories": {
+            "SLOW_HTTP": {
+              "flows": 44,
+              "detection_rate": 1.0,
+              "correct_type_rate": 1.0
+            }
+          },
+          "category_confusion_labels": [
+            "SLOW_HTTP"
+          ],
+          "category_confusion_matrix": [
+            [
+              44
+            ]
+          ]
+        },
+        "test-slow-3136-1794843710152682398": {
+          "flows": 31,
+          "binary_confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              31
+            ]
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_rate": null,
+          "false_negative_rate": 0.0,
+          "macro_detection_rate": 1.0,
+          "category_macro_f1": 1.0,
+          "categories": {
+            "SLOW_HTTP": {
+              "flows": 31,
+              "detection_rate": 1.0,
+              "correct_type_rate": 1.0
+            }
+          },
+          "category_confusion_labels": [
+            "SLOW_HTTP"
+          ],
+          "category_confusion_matrix": [
+            [
+              31
+            ]
+          ]
+        }
+      }
+    },
+    "latency_single_flow": {
+      "mean_ms": 3.00380845,
+      "p50_ms": 2.9888035,
+      "p95_ms": 3.1892532,
+      "p99_ms": 3.30774842,
+      "max_ms": 3.340011
+    },
+    "overlap": {
+      "reference_rows": 16542,
+      "target_rows": 9731,
+      "overlap_rows": 2368,
+      "novel_rows": 7363,
+      "rounding_decimals": 3,
+      "policy": "primary metrics exclude signed-log1p feature fingerprints rounded to 3 decimals matching earlier roles",
+      "limitation": "quantized near-duplicate screening is not an exhaustive nearest-neighbor search"
+    },
+    "acceptance": {
+      "fpr_point_estimate_at_most_3pct": true,
+      "macro_detection_at_least_70pct": true,
+      "p95_single_flow_at_most_5ms": true,
+      "scope": "independent synthetic Docker sessions; sample uncertainty and external validation remain",
+      "passed": true
+    }
+  },
+  "scope": "isolated synthetic Docker laboratory; external validation required"
+}

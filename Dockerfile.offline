@@ -1,0 +1,12 @@
+FROM ubuntu:26.04
+COPY python /opt/python
+COPY packages /opt/packages
+COPY libraries /opt/libraries
+COPY app /app
+RUN mkdir /state && chown 1000:1000 /state
+ENV PATH=/opt/python/bin:$PATH \
+    PYTHONPATH=/opt/packages:/app:/app/network-anomaly-detection \
+    LD_LIBRARY_PATH=/opt/libraries \
+    PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+WORKDIR /app
+CMD ["python3", "-m", "netguard.service"]

@@ -1,0 +1,33 @@
+name: Validate AI-NetGuard
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: network-anomaly-detection/requirements.txt
+      - run: pip install -r network-anomaly-detection/requirements.txt
+      - run: python -m pytest network-anomaly-detection/tests -q -p no:cacheprovider
+  isolated-live-demo:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    env:
+      NETGUARD_TOKEN: ci-isolated-local-token
+      BUILDX_BUILDER: default
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r network-anomaly-detection/requirements.txt
+      - run: docker compose -f network-anomaly-detection/lab/integration/compose.yml --profile serving up -d --build
+      - run: python network-anomaly-detection/tools/demo_integration.py
+      - if: always()
+        run: docker compose -f network-anomaly-detection/lab/integration/compose.yml --profile serving down
