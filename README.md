@@ -84,6 +84,7 @@ See the actual [evaluation](network-anomaly-detection/reports/lab-v2/evaluation.
 - [Engineering progress](docs/engineering-progress.md)
 - [Technical report](docs/technical-report.md)
 - [Large files kept outside Git (Drive)](docs/large-files.md)
+- [Status and roadmap](docs/project-status-and-roadmap.md)
 - [Topology](docs/network-topology.svg)
 
 Historical reports and research notebooks are retained for context. Their random
