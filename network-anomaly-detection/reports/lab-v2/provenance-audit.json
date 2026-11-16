@@ -1,0 +1,9 @@
+{
+  "release": "lab-v2",
+  "capture_sessions": 36,
+  "common_capture_hashes_with_lab_v1": 0,
+  "selection_hash_matches_evaluated_bundle": true,
+  "all_admitted_captures_report_zero_kernel_loss": true,
+  "all_admitted_workloads_report_zero_errors": true,
+  "model_sha256": "9a895917ab1964abcf8e59ad20a0518a4cbeab8718f3f9a51fffd0d5cca8bec0"
+}

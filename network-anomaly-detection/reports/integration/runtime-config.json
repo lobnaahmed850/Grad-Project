@@ -1,0 +1,199 @@
+{
+  "scope": "observed local runtime configuration; not an external penetration test",
+  "containers": [
+    {
+      "service": "server",
+      "image_id": "sha256:f22c91fb168db3d84c78613f454f8f41a70186ccb5b4822398395aee71c45462",
+      "state": "running",
+      "user": "",
+      "cap_add": [
+        "CAP_CHOWN",
+        "CAP_DAC_OVERRIDE",
+        "CAP_SETGID",
+        "CAP_SETUID",
+        "CAP_SYS_CHROOT"
+      ],
+      "cap_drop": [
+        "ALL"
+      ],
+      "network_mode": "netguard-integration_management",
+      "ports": {},
+      "networks": [
+        "netguard-integration_management",
+        "netguard-integration_traffic"
+      ],
+      "memory_limit": 268435456,
+      "nano_cpus": 1000000000,
+      "privileged": false,
+      "readonly_root": true
+    },
+    {
+      "service": "client-a",
+      "image_id": "sha256:f22c91fb168db3d84c78613f454f8f41a70186ccb5b4822398395aee71c45462",
+      "state": "running",
+      "user": "",
+      "cap_add": null,
+      "cap_drop": [
+        "ALL"
+      ],
+      "network_mode": "netguard-integration_management",
+      "ports": {},
+      "networks": [
+        "netguard-integration_management",
+        "netguard-integration_traffic"
+      ],
+      "memory_limit": 268435456,
+      "nano_cpus": 1000000000,
+      "privileged": false,
+      "readonly_root": true
+    },
+    {
+      "service": "client-b",
+      "image_id": "sha256:f22c91fb168db3d84c78613f454f8f41a70186ccb5b4822398395aee71c45462",
+      "state": "running",
+      "user": "",
+      "cap_add": null,
+      "cap_drop": [
+        "ALL"
+      ],
+      "network_mode": "netguard-integration_management",
+      "ports": {},
+      "networks": [
+        "netguard-integration_management",
+        "netguard-integration_traffic"
+      ],
+      "memory_limit": 268435456,
+      "nano_cpus": 1000000000,
+      "privileged": false,
+      "readonly_root": true
+    },
+    {
+      "service": "simulator",
+      "image_id": "sha256:f22c91fb168db3d84c78613f454f8f41a70186ccb5b4822398395aee71c45462",
+      "state": "running",
+      "user": "",
+      "cap_add": null,
+      "cap_drop": [
+        "ALL"
+      ],
+      "network_mode": "netguard-integration_management",
+      "ports": {},
+      "networks": [
+        "netguard-integration_management",
+        "netguard-integration_traffic"
+      ],
+      "memory_limit": 268435456,
+      "nano_cpus": 1000000000,
+      "privileged": false,
+      "readonly_root": true
+    },
+    {
+      "service": "capture",
+      "image_id": "sha256:f22c91fb168db3d84c78613f454f8f41a70186ccb5b4822398395aee71c45462",
+      "state": "running",
+      "user": "",
+      "cap_add": [
+        "CAP_NET_RAW",
+        "CAP_SETGID",
+        "CAP_SETUID"
+      ],
+      "cap_drop": [
+        "ALL"
+      ],
+      "network_mode": "container:410a4cc2f5aac251e3a6d6525104ce8e00a92ce124cd1fa32e14638902ef21ad",
+      "ports": {},
+      "networks": [],
+      "memory_limit": 134217728,
+      "nano_cpus": 1000000000,
+      "privileged": false,
+      "readonly_root": true
+    },
+    {
+      "service": "sensor",
+      "image_id": "sha256:89fa0435fd29bc6f60b9ffb1c8d86e943f28ec7b6df23f11028e66907f5d54d1",
+      "state": "running",
+      "user": "0:1000",
+      "cap_add": [
+        "CAP_NET_RAW"
+      ],
+      "cap_drop": [
+        "ALL"
+      ],
+      "network_mode": "container:410a4cc2f5aac251e3a6d6525104ce8e00a92ce124cd1fa32e14638902ef21ad",
+      "ports": {},
+      "networks": [],
+      "memory_limit": 805306368,
+      "nano_cpus": 2000000000,
+      "privileged": false,
+      "readonly_root": true
+    },
+    {
+      "service": "ingest",
+      "image_id": "sha256:89fa0435fd29bc6f60b9ffb1c8d86e943f28ec7b6df23f11028e66907f5d54d1",
+      "state": "running",
+      "user": "1000:1000",
+      "cap_add": null,
+      "cap_drop": [
+        "ALL"
+      ],
+      "network_mode": "netguard-integration_dashboard",
+      "ports": {
+        "8090/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8090"
+          }
+        ]
+      },
+      "networks": [
+        "netguard-integration_dashboard",
+        "netguard-integration_management"
+      ],
+      "memory_limit": 536870912,
+      "nano_cpus": 2000000000,
+      "privileged": false,
+      "readonly_root": true
+    }
+  ],
+  "networks": [
+    {
+      "name": "traffic",
+      "internal": true,
+      "ipam": [
+        {
+          "Subnet": "10.77.0.0/24",
+          "Gateway": "10.77.0.1"
+        }
+      ]
+    },
+    {
+      "name": "management",
+      "internal": true,
+      "ipam": [
+        {
+          "Subnet": "172.25.0.0/16",
+          "Gateway": "172.25.0.1"
+        }
+      ]
+    },
+    {
+      "name": "dashboard",
+      "internal": false,
+      "ipam": [
+        {
+          "Subnet": "172.26.0.0/16",
+          "Gateway": "172.26.0.1"
+        }
+      ]
+    }
+  ],
+  "routes": {
+    "server": "10.77.0.0/24 dev lab0 proto kernel scope link src 10.77.0.10 \n172.25.0.0/16 dev mgmt0 proto kernel scope link src 172.25.0.4 \n",
+    "client-a": "10.77.0.0/24 dev lab0 proto kernel scope link src 10.77.0.20 \n172.25.0.0/16 dev mgmt0 proto kernel scope link src 172.25.0.2 \n",
+    "client-b": "10.77.0.0/24 dev lab0 proto kernel scope link src 10.77.0.21 \n172.25.0.0/16 dev mgmt0 proto kernel scope link src 172.25.0.3 \n",
+    "simulator": "10.77.0.0/24 dev eth0 proto kernel scope link src 10.77.0.30 \n172.25.0.0/16 dev eth1 proto kernel scope link src 172.25.0.5 \n"
+  },
+  "generator_default_routes_absent": true,
+  "privileged_containers_absent": true,
+  "dashboard_binding": "127.0.0.1:8090"
+}

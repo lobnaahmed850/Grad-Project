@@ -1,0 +1,256 @@
+{
+ "all rows": {
+  "summary": [
+   {
+    "version": "training",
+    "benign rows": 413832,
+    "attack rows": 288917,
+    "IF false alarms": 0.028463241122001198,
+    "IF attack recall": 0.8236413918184116,
+    "IF AUC": 0.9840831155106271,
+    "RF correct on attacks": 0.9997957891020605,
+    "RF confidence on attacks": 0.999444071440902
+   },
+   {
+    "version": "defective",
+    "benign rows": 413832,
+    "attack rows": 288917,
+    "IF false alarms": 0.9801610315297029,
+    "IF attack recall": 0.99999653879834,
+    "IF AUC": 0.7440681058467687,
+    "RF correct on attacks": 0.9984078472364035,
+    "RF confidence on attacks": 0.5264206868572369
+   },
+   {
+    "version": "repaired",
+    "benign rows": 413832,
+    "attack rows": 288917,
+    "IF false alarms": 0.2135890892922732,
+    "IF attack recall": 0.9898136835146426,
+    "IF AUC": 0.9501140071326888,
+    "RF correct on attacks": 0.9997334874721806,
+    "RF confidence on attacks": 0.948082920912935
+   }
+  ],
+  "per_class": {
+   "training": {
+    "Bot": {
+     "IF flagged": 0.028484231943031537,
+     "RF correct": 0.9989827060020345,
+     "RF top prediction": "Bot"
+    },
+    "DDoS": {
+     "IF flagged": 0.9546892452373328,
+     "RF correct": 0.9999687565904067,
+     "RF top prediction": "DDoS"
+    },
+    "PortScan": {
+     "IF flagged": 0.7279076791422315,
+     "RF correct": 0.9996665072613324,
+     "RF top prediction": "PortScan"
+    }
+   },
+   "defective": {
+    "Bot": {
+     "IF flagged": 1.0,
+     "RF correct": 0.9979654120040692,
+     "RF top prediction": "Bot"
+    },
+    "DDoS": {
+     "IF flagged": 0.9999921891476017,
+     "RF correct": 0.9983675318487506,
+     "RF top prediction": "DDoS"
+    },
+    "PortScan": {
+     "IF flagged": 1.0,
+     "RF correct": 0.9984457979914928,
+     "RF top prediction": "PortScan"
+    }
+   },
+   "repaired": {
+    "Bot": {
+     "IF flagged": 0.271617497456765,
+     "RF correct": 0.9989827060020345,
+     "RF top prediction": "Bot"
+    },
+    "DDoS": {
+     "IF flagged": 0.9884633710076781,
+     "RF correct": 0.9999687565904067,
+     "RF top prediction": "DDoS"
+    },
+    "PortScan": {
+     "IF flagged": 0.9997860612619869,
+     "RF correct": 0.9995532455765019,
+     "RF top prediction": "PortScan"
+    }
+   }
+  }
+ },
+ "held out": {
+  "summary": [
+   {
+    "version": "training",
+    "benign rows": 100457,
+    "attack rows": 43257,
+    "IF false alarms": 0.018077386344406064,
+    "IF attack recall": 0.828351480685207,
+    "IF AUC": 0.989571391892069,
+    "RF correct on attacks": 0.9995838823774187,
+    "RF confidence on attacks": 0.9995298949644944
+   },
+   {
+    "version": "defective",
+    "benign rows": 100457,
+    "attack rows": 43257,
+    "IF false alarms": 0.968912071831729,
+    "IF attack recall": 1.0,
+    "IF AUC": 0.824303040176095,
+    "RF correct on attacks": 0.9986360589037613,
+    "RF confidence on attacks": 0.5269705910243533
+   },
+   {
+    "version": "repaired",
+    "benign rows": 100457,
+    "attack rows": 43257,
+    "IF false alarms": 0.14380282110753856,
+    "IF attack recall": 0.989666412372564,
+    "IF AUC": 0.9672607789770654,
+    "RF correct on attacks": 0.9994682941489239,
+    "RF confidence on attacks": 0.9481600799605555
+   }
+  ],
+  "per_class": {
+   "training": {
+    "Bot": {
+     "IF flagged": 0.026845637583892617,
+     "RF correct": 0.9966442953020134,
+     "RF top prediction": "Bot"
+    },
+    "DDoS": {
+     "IF flagged": 0.9536039768019884,
+     "RF correct": 0.9997928748964374,
+     "RF top prediction": "DDoS"
+    },
+    "PortScan": {
+     "IF flagged": 0.7361610352264558,
+     "RF correct": 0.999450247388675,
+     "RF top prediction": "PortScan"
+    }
+   },
+   "defective": {
+    "Bot": {
+     "IF flagged": 1.0,
+     "RF correct": 0.9966442953020134,
+     "RF top prediction": "Bot"
+    },
+    "DDoS": {
+     "IF flagged": 1.0,
+     "RF correct": 0.9985501242750622,
+     "RF top prediction": "DDoS"
+    },
+    "PortScan": {
+     "IF flagged": 1.0,
+     "RF correct": 0.9987313401277118,
+     "RF top prediction": "PortScan"
+    }
+   },
+   "repaired": {
+    "Bot": {
+     "IF flagged": 0.31208053691275167,
+     "RF correct": 0.9966442953020134,
+     "RF top prediction": "Bot"
+    },
+    "DDoS": {
+     "IF flagged": 0.9877796188898095,
+     "RF correct": 0.9997928748964374,
+     "RF top prediction": "DDoS"
+    },
+    "PortScan": {
+     "IF flagged": 0.9997462680255423,
+     "RF correct": 0.999238804076627,
+     "RF top prediction": "PortScan"
+    }
+   }
+  }
+ },
+ "repair_accuracy": {
+  "destination port": 1.0,
+  "flow duration": 1.0,
+  "total fwd packets": 1.0,
+  "total backward packets": 1.0,
+  "total length of fwd packets": 1.0,
+  "total length of bwd packets": 1.0,
+  "fwd packet length max": 1.0,
+  "fwd packet length min": 1.0,
+  "fwd packet length mean": 1.0,
+  "fwd packet length std": 1.0,
+  "bwd packet length max": 0.9902426044007178,
+  "bwd packet length min": 0.7972305901538103,
+  "bwd packet length mean": 1.0,
+  "bwd packet length std": 1.0,
+  "flow bytes/s": 1.0,
+  "flow packets/s": 1.0,
+  "flow iat mean": 1.0,
+  "flow iat std": 1.0,
+  "flow iat max": 1.0,
+  "flow iat min": 1.0,
+  "fwd iat total": 0.434877886699234,
+  "fwd iat mean": 0.434877886699234,
+  "fwd iat std": 0.6305096129628075,
+  "fwd iat max": 0.6947146136102649,
+  "fwd iat min": 0.7393877472611131,
+  "bwd iat total": 0.5150686802827183,
+  "bwd iat mean": 0.5150686802827183,
+  "bwd iat std": 0.5173539912543454,
+  "bwd iat max": 0.7757762728940205,
+  "bwd iat min": 0.9436911329649704,
+  "fwd psh flags": 1.0,
+  "bwd psh flags": 1.0,
+  "fwd urg flags": 1.0,
+  "bwd urg flags": 1.0,
+  "fwd header length": 0.5764561742528271,
+  "bwd header length": 0.5903288371808426,
+  "fwd packets/s": 1.0,
+  "bwd packets/s": 1.0,
+  "min packet length": 1.0,
+  "max packet length": 1.0,
+  "packet length mean": 1.0,
+  "packet length std": 1.0,
+  "packet length variance": 1.0,
+  "fin flag count": 1.0,
+  "syn flag count": 1.0,
+  "rst flag count": 1.0,
+  "psh flag count": 1.0,
+  "ack flag count": 1.0,
+  "urg flag count": 1.0,
+  "cwe flag count": 1.0,
+  "ece flag count": 1.0,
+  "down/up ratio": 1.0,
+  "average packet size": 1.0,
+  "avg fwd segment size": 1.0,
+  "avg bwd segment size": 1.0,
+  "fwd header length.1": 0.5764561742528271,
+  "fwd avg bytes/bulk": 1.0,
+  "fwd avg packets/bulk": 1.0,
+  "fwd avg bulk rate": 1.0,
+  "bwd avg bytes/bulk": 1.0,
+  "bwd avg packets/bulk": 1.0,
+  "bwd avg bulk rate": 1.0,
+  "subflow fwd packets": 1.0,
+  "subflow fwd bytes": 1.0,
+  "subflow bwd packets": 1.0,
+  "subflow bwd bytes": 1.0,
+  "init_win_bytes_forward": 0.4311197881462656,
+  "init_win_bytes_backward": 1.0,
+  "act_data_pkt_fwd": 1.0,
+  "min_seg_size_forward": 0.6427216545309918,
+  "active mean": 1.0,
+  "active std": 1.0,
+  "active max": 1.0,
+  "active min": 1.0,
+  "idle mean": 1.0,
+  "idle std": 1.0,
+  "idle max": 1.0,
+  "idle min": 1.0
+ }
+}

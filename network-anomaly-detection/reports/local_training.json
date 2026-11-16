@@ -1,0 +1,104 @@
+{
+ "portable+timing": {
+  "block test": {
+   "benign flows": 108,
+   "false alarms": 0.08333333333333333,
+   "false alarms 95% CI": [
+    0.044459900413239356,
+    0.15083058184023337
+   ],
+   "macro correct": 0.8372143931253242,
+   "macro called benign": 0.03906256916706568,
+   "per class": {
+    "Bot": {
+     "flows": 30,
+     "correct": 1.0,
+     "called benign": 0.0,
+     "top": "Bot 100%"
+    },
+    "DoS GoldenEye": {
+     "flows": 5036,
+     "correct": 0.9968228752978554,
+     "called benign": 0.003177124702144559,
+     "top": "DoS GoldenEye 100%"
+    },
+    "DoS slowloris": {
+     "flows": 1106,
+     "correct": 0.9719710669077758,
+     "called benign": 0.02802893309222423,
+     "top": "DoS slowloris 97%"
+    },
+    "FTP-Patator": {
+     "flows": 20,
+     "correct": 0.75,
+     "called benign": 0.2,
+     "top": "FTP-Patator 75%"
+    },
+    "PortScan": {
+     "flows": 65963,
+     "correct": 0.4321665175931962,
+     "called benign": 0.0020314418689265194,
+     "top": "SYN flood 57%"
+    },
+    "SYN flood": {
+     "flows": 4394,
+     "correct": 0.8723258989531179,
+     "called benign": 0.001137915339098771,
+     "top": "SYN flood 87%"
+    }
+   },
+   "public test": {
+    "public macro recall": 0.8126811396437128,
+    "public false alarms": 0.04932619272638174
+   }
+  },
+  "file test": {
+   "benign flows": 108,
+   "false alarms": 0.16666666666666666,
+   "false alarms 95% CI": [
+    0.10810385411647243,
+    0.24812853168630572
+   ],
+   "macro correct": 0.0005101929528012659,
+   "macro called benign": 0.663620529169524,
+   "per class": {
+    "Bot": {
+     "flows": 30,
+     "correct": 0.0,
+     "called benign": 1.0,
+     "top": "BENIGN 100%"
+    },
+    "DoS GoldenEye": {
+     "flows": 5036,
+     "correct": 0.0,
+     "called benign": 1.0,
+     "top": "BENIGN 100%"
+    },
+    "DoS slowloris": {
+     "flows": 1106,
+     "correct": 0.0027124773960217,
+     "called benign": 0.9954792043399638,
+     "top": "BENIGN 100%"
+    },
+    "FTP-Patator": {
+     "flows": 20,
+     "correct": 0.0,
+     "called benign": 0.95,
+     "top": "BENIGN 95%"
+    },
+    "PortScan": {
+     "flows": 65963,
+     "correct": 0.0003486803207858951,
+     "called benign": 0.0030168427754953533,
+     "top": "SYN flood 100%"
+    },
+    "SYN flood": {
+     "flows": 4394,
+     "correct": 0.0,
+     "called benign": 0.03322712790168411,
+     "top": "PortScan 97%"
+    }
+   }
+  }
+ }
+}

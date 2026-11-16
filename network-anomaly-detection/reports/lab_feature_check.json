@@ -1,0 +1,18 @@
+{
+ "without source flow rate": {
+  "unseen session FA": 0.0030389177531614546,
+  "detection": {
+   "HTTP flood": 0.5071232191952012,
+   "Slowloris": 0.7544204322200393,
+   "PortScan": 0.9996000799840032
+  }
+ },
+ "with source flow rate": {
+  "unseen session FA": 0.0046073914322125285,
+  "detection": {
+   "HTTP flood": 0.9865033741564608,
+   "Slowloris": 0.8683693516699411,
+   "PortScan": 0.9996000799840032
+  }
+ }
+}

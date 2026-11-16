@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "name": "desktop",
+      "source": "syslog",
+      "viewport": 1440,
+      "body": 1425,
+      "rows": 3
+    },
+    {
+      "name": "desktop",
+      "source": "ml",
+      "viewport": 1440,
+      "body": 1425,
+      "rows": 100
+    },
+    {
+      "name": "mobile",
+      "source": "syslog",
+      "viewport": 390,
+      "body": 390,
+      "rows": 3
+    },
+    {
+      "name": "mobile",
+      "source": "ml",
+      "viewport": 390,
+      "body": 390,
+      "rows": 100
+    }
+  ]
+}

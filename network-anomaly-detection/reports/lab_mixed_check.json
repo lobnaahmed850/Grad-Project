@@ -1,0 +1,450 @@
+{
+ "benign": {
+  "lan": {
+   "flows": 2061,
+   "largest packet": 1448.0,
+   "median flow iat min (us)": 280.0,
+   "contract issues": [],
+   "old extraction": {
+    "contract errors": [
+     "first_packet_backward",
+     "forward_fields_never_set",
+     "forward_window_missing",
+     "flag_columns_differ"
+    ],
+    "false alarms": 1.0,
+    "95% CI": [
+     0.9981395183049393,
+     1.0
+    ]
+   },
+   "designs": {
+    "saved models": {
+     "false alarms": 0.42066957787481807,
+     "95% CI": [
+      0.399523190105441,
+      0.4421111512406458
+     ],
+     "per type": {
+      "Web, under 2 kB": {
+       "flows": 439,
+       "flagged": 0.9772209567198178
+      },
+      "Web, 2 to 100 kB": {
+       "flows": 100,
+       "flagged": 0.99
+      },
+      "SSH": {
+       "flows": 174,
+       "flagged": 0.0
+      },
+      "Web, over 100 kB": {
+       "flows": 335,
+       "flagged": 0.9970149253731343
+      },
+      "Web, leftover from server": {
+       "flows": 879,
+       "flagged": 0.005688282138794084
+      },
+      "DNS": {
+       "flows": 134,
+       "flagged": 0.0
+      }
+     }
+    },
+    "new Stage 1, saved Stage 2": {
+     "false alarms": 0.4119359534206696,
+     "95% CI": [
+      0.39086965793946954,
+      0.4333299319951773
+     ],
+     "per type": {
+      "Web, under 2 kB": {
+       "flows": 439,
+       "flagged": 0.9407744874715261
+      },
+      "Web, 2 to 100 kB": {
+       "flows": 100,
+       "flagged": 0.98
+      },
+      "SSH": {
+       "flows": 174,
+       "flagged": 0.0
+      },
+      "Web, over 100 kB": {
+       "flows": 335,
+       "flagged": 0.9940298507462687
+      },
+      "Web, leftover from server": {
+       "flows": 879,
+       "flagged": 0.005688282138794084
+      },
+      "DNS": {
+       "flows": 134,
+       "flagged": 0.0
+      }
+     }
+    },
+    "parallel, chosen": {
+     "false alarms": 0.4119359534206696,
+     "95% CI": [
+      0.39086965793946954,
+      0.4333299319951773
+     ],
+     "per type": {
+      "Web, under 2 kB": {
+       "flows": 439,
+       "flagged": 0.9407744874715261
+      },
+      "Web, 2 to 100 kB": {
+       "flows": 100,
+       "flagged": 0.98
+      },
+      "SSH": {
+       "flows": 174,
+       "flagged": 0.0
+      },
+      "Web, over 100 kB": {
+       "flows": 335,
+       "flagged": 0.9940298507462687
+      },
+      "Web, leftover from server": {
+       "flows": 879,
+       "flagged": 0.005688282138794084
+      },
+      "DNS": {
+       "flows": 134,
+       "flagged": 0.0
+      }
+     }
+    }
+   }
+  },
+  "wan": {
+   "flows": 2090,
+   "largest packet": 1448.0,
+   "median flow iat min (us)": 1018.0,
+   "contract issues": [],
+   "old extraction": {
+    "contract errors": [
+     "first_packet_backward",
+     "forward_fields_never_set",
+     "forward_window_missing",
+     "flag_columns_differ"
+    ],
+    "false alarms": 1.0,
+    "95% CI": [
+     0.9981652862375073,
+     1.0000000000000002
+    ]
+   },
+   "designs": {
+    "saved models": {
+     "false alarms": 0.41196172248803825,
+     "95% CI": [
+      0.3910404549059502,
+      0.4332060401488811
+     ],
+     "per type": {
+      "Web, over 100 kB": {
+       "flows": 304,
+       "flagged": 1.0
+      },
+      "Web, under 2 kB": {
+       "flows": 461,
+       "flagged": 0.9804772234273319
+      },
+      "SSH": {
+       "flows": 174,
+       "flagged": 0.0
+      },
+      "Web, 2 to 100 kB": {
+       "flows": 99,
+       "flagged": 0.9696969696969697
+      },
+      "Web, leftover from server": {
+       "flows": 878,
+       "flagged": 0.010250569476082005
+      },
+      "DNS": {
+       "flows": 174,
+       "flagged": 0.0
+      }
+     }
+    },
+    "new Stage 1, saved Stage 2": {
+     "false alarms": 0.20956937799043063,
+     "95% CI": [
+      0.19266077954537908,
+      0.22754369055398282
+     ],
+     "per type": {
+      "Web, over 100 kB": {
+       "flows": 304,
+       "flagged": 0.993421052631579
+      },
+      "Web, under 2 kB": {
+       "flows": 461,
+       "flagged": 0.0824295010845987
+      },
+      "SSH": {
+       "flows": 174,
+       "flagged": 0.0
+      },
+      "Web, 2 to 100 kB": {
+       "flows": 99,
+       "flagged": 0.9191919191919192
+      },
+      "Web, leftover from server": {
+       "flows": 878,
+       "flagged": 0.007972665148063782
+      },
+      "DNS": {
+       "flows": 174,
+       "flagged": 0.0
+      }
+     }
+    },
+    "parallel, chosen": {
+     "false alarms": 0.20956937799043063,
+     "95% CI": [
+      0.19266077954537908,
+      0.22754369055398282
+     ],
+     "per type": {
+      "Web, over 100 kB": {
+       "flows": 304,
+       "flagged": 0.993421052631579
+      },
+      "Web, under 2 kB": {
+       "flows": 461,
+       "flagged": 0.0824295010845987
+      },
+      "SSH": {
+       "flows": 174,
+       "flagged": 0.0
+      },
+      "Web, 2 to 100 kB": {
+       "flows": 99,
+       "flagged": 0.9191919191919192
+      },
+      "Web, leftover from server": {
+       "flows": 878,
+       "flagged": 0.007972665148063782
+      },
+      "DNS": {
+       "flows": 174,
+       "flagged": 0.0
+      }
+     }
+    }
+   }
+  },
+  "slow": {
+   "flows": 2147,
+   "largest packet": 1448.0,
+   "median flow iat min (us)": 759.0,
+   "contract issues": [],
+   "old extraction": {
+    "contract errors": [
+     "first_packet_backward",
+     "forward_fields_never_set",
+     "forward_window_missing",
+     "flag_columns_differ"
+    ],
+    "false alarms": 0.9967396367023754,
+    "95% CI": [
+     0.9932850254984211,
+     0.9984198029743032
+    ]
+   },
+   "designs": {
+    "saved models": {
+     "false alarms": 0.18770377270610153,
+     "95% CI": [
+      0.17174979648798167,
+      0.20477332822747857
+     ],
+     "per type": {
+      "Web, under 2 kB": {
+       "flows": 504,
+       "flagged": 0.01984126984126984
+      },
+      "Web, over 100 kB": {
+       "flows": 309,
+       "flagged": 0.9935275080906149
+      },
+      "SSH": {
+       "flows": 161,
+       "flagged": 0.0
+      },
+      "Web, 2 to 100 kB": {
+       "flows": 109,
+       "flagged": 0.7339449541284404
+      },
+      "Web, leftover from server": {
+       "flows": 936,
+       "flagged": 0.00641025641025641
+      },
+      "DNS": {
+       "flows": 128,
+       "flagged": 0.0
+      }
+     }
+    },
+    "new Stage 1, saved Stage 2": {
+     "false alarms": 0.1448532836516069,
+     "95% CI": [
+      0.13059979526357154,
+      0.16037542113544181
+     ],
+     "per type": {
+      "Web, under 2 kB": {
+       "flows": 504,
+       "flagged": 0.0
+      },
+      "Web, over 100 kB": {
+       "flows": 309,
+       "flagged": 0.919093851132686
+      },
+      "SSH": {
+       "flows": 161,
+       "flagged": 0.0
+      },
+      "Web, 2 to 100 kB": {
+       "flows": 109,
+       "flagged": 0.21100917431192662
+      },
+      "Web, leftover from server": {
+       "flows": 936,
+       "flagged": 0.004273504273504274
+      },
+      "DNS": {
+       "flows": 128,
+       "flagged": 0.0
+      }
+     }
+    },
+    "parallel, chosen": {
+     "false alarms": 0.1448532836516069,
+     "95% CI": [
+      0.13059979526357154,
+      0.16037542113544181
+     ],
+     "per type": {
+      "Web, under 2 kB": {
+       "flows": 504,
+       "flagged": 0.0
+      },
+      "Web, over 100 kB": {
+       "flows": 309,
+       "flagged": 0.919093851132686
+      },
+      "SSH": {
+       "flows": 161,
+       "flagged": 0.0
+      },
+      "Web, 2 to 100 kB": {
+       "flows": 109,
+       "flagged": 0.21100917431192662
+      },
+      "Web, leftover from server": {
+       "flows": 936,
+       "flagged": 0.004273504273504274
+      },
+      "DNS": {
+       "flows": 128,
+       "flagged": 0.0
+      }
+     }
+    }
+   }
+  }
+ },
+ "mixed": {
+  "saved models": {
+   "benign flows": 6298,
+   "false alarms": 0.33836138456652903,
+   "95% CI": [
+    0.3267773438887865,
+    0.35014249490881194
+   ],
+   "attacks detected": 0.8297808012093726,
+   "macro detected": 0.5699516563178014,
+   "macro correct type": 0.5699516563178014,
+   "per class": {
+    "Bot": {
+     "flows": 49,
+     "detected": 0.02040816326530612,
+     "correct type": 0.02040816326530612
+    },
+    "DDoS": {
+     "flows": 3011,
+     "detected": 0.9521753570242444,
+     "correct type": 0.9521753570242444
+    },
+    "PortScan": {
+     "flows": 3555,
+     "detected": 0.7372714486638537,
+     "correct type": 0.7372714486638537
+    }
+   }
+  },
+  "new Stage 1, saved Stage 2": {
+   "benign flows": 6298,
+   "false alarms": 0.2537313432835821,
+   "95% CI": [
+    0.2431366426214855,
+    0.2646262944856611
+   ],
+   "attacks detected": 0.7005291005291006,
+   "macro detected": 0.48442966888089445,
+   "macro correct type": 0.48442966888089445,
+   "per class": {
+    "Bot": {
+     "flows": 49,
+     "detected": 0.02040816326530612,
+     "correct type": 0.02040816326530612
+    },
+    "DDoS": {
+     "flows": 3011,
+     "detected": 0.8472268349385587,
+     "correct type": 0.8472268349385587
+    },
+    "PortScan": {
+     "flows": 3555,
+     "detected": 0.5856540084388185,
+     "correct type": 0.5856540084388185
+    }
+   }
+  },
+  "parallel, chosen": {
+   "benign flows": 6298,
+   "false alarms": 0.2537313432835821,
+   "95% CI": [
+    0.2431366426214855,
+    0.2646262944856611
+   ],
+   "attacks detected": 0.9978835978835979,
+   "macro detected": 0.9449478812227697,
+   "macro correct type": 0.9449478812227697,
+   "per class": {
+    "Bot": {
+     "flows": 49,
+     "detected": 0.8367346938775511,
+     "correct type": 0.8367346938775511
+    },
+    "DDoS": {
+     "flows": 3011,
+     "detected": 0.9986715376951179,
+     "correct type": 0.9986715376951179
+    },
+    "PortScan": {
+     "flows": 3555,
+     "detected": 0.99943741209564,
+     "correct type": 0.99943741209564
+    }
+   }
+  }
+ }
+}

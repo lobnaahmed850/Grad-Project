@@ -1,0 +1,370 @@
+{
+ "as extracted": {
+  "benign flows": 99,
+  "attack flows": 76557,
+  "IF AUC": 0.5473188063610885,
+  "IF false alarms": {
+   "max-F1": 1.0,
+   "FPR<=3%": 1.0,
+   "FPR<=1%": 0.98989898989899,
+   "FPR<=0.1%": 0.5858585858585859
+  },
+  "IF recall": {
+   "max-F1": 1.0,
+   "FPR<=3%": 1.0,
+   "FPR<=1%": 0.9998040675575062,
+   "FPR<=0.1%": 0.8151312094256568
+  },
+  "RF correct, labels as filed": 0.007289053947313721,
+  "RF correct, true labels": 0.007760209525657193,
+  "RF confidence on attacks": 0.25733693005107405,
+  "per file": {
+   "Benign": {
+    "flows": 55,
+    "true class": "BENIGN",
+    "RF correct": 0.0,
+    "RF top": "DoS Hulk 62%",
+    "IF flagged": 1.0
+   },
+   "Benign-Scenarios": {
+    "flows": 44,
+    "true class": "BENIGN",
+    "RF correct": 0.0,
+    "RF top": "DoS Hulk 36%",
+    "IF flagged": 1.0
+   },
+   "Bot": {
+    "flows": 30,
+    "true class": "Bot",
+    "RF correct": 0.0,
+    "RF top": "DoS Slowhttptest 100%",
+    "IF flagged": 1.0
+   },
+   "DoS-GoldenEye-2nd": {
+    "flows": 5036,
+    "true class": "DoS GoldenEye",
+    "RF correct": 0.0,
+    "RF top": "Web Attack - Brute Force 37%",
+    "IF flagged": 1.0
+   },
+   "DoS-Slowloris": {
+    "flows": 1106,
+    "true class": "DoS slowloris",
+    "RF correct": 0.45750452079566006,
+    "RF top": "DoS Hulk 46%",
+    "IF flagged": 1.0
+   },
+   "FTP_Patator": {
+    "flows": 20,
+    "true class": "FTP-Patator",
+    "RF correct": 0.5,
+    "RF top": "FTP-Patator 50%",
+    "IF flagged": 1.0
+   },
+   "PortScan": {
+    "flows": 147,
+    "true class": "PortScan",
+    "RF correct": 0.06802721088435375,
+    "RF top": "DoS Hulk 31%",
+    "IF flagged": 1.0
+   },
+   "ddos_hping3": {
+    "flows": 4394,
+    "true class": "SYN flood",
+    "RF correct": 0.0,
+    "RF top": "DoS Hulk 100%",
+    "IF flagged": 1.0
+   },
+   "heartbleed_lab": {
+    "flows": 8,
+    "true class": "Heartbleed",
+    "RF correct": 0.0,
+    "RF top": "Bot 50%",
+    "IF flagged": 1.0
+   },
+   "infilteration": {
+    "flows": 65816,
+    "true class": "PortScan",
+    "RF correct": 0.0005165917102224383,
+    "RF top": "DoS Hulk 100%",
+    "IF flagged": 1.0
+   }
+  }
+ },
+ "flags fixed": {
+  "benign flows": 99,
+  "attack flows": 76557,
+  "IF AUC": 0.81597477445669,
+  "IF false alarms": {
+   "max-F1": 1.0,
+   "FPR<=3%": 1.0,
+   "FPR<=1%": 0.9797979797979798,
+   "FPR<=0.1%": 0.5454545454545454
+  },
+  "IF recall": {
+   "max-F1": 1.0,
+   "FPR<=3%": 1.0,
+   "FPR<=1%": 0.9997648810690074,
+   "FPR<=0.1%": 0.9322465613856342
+  },
+  "RF correct, labels as filed": 0.0075384892534955585,
+  "RF correct, true labels": 0.24102379335670635,
+  "RF confidence on attacks": 0.2484386433662574,
+  "per file": {
+   "Benign": {
+    "flows": 55,
+    "true class": "BENIGN",
+    "RF correct": 0.0,
+    "RF top": "DoS Hulk 53%",
+    "IF flagged": 1.0
+   },
+   "Benign-Scenarios": {
+    "flows": 44,
+    "true class": "BENIGN",
+    "RF correct": 0.0,
+    "RF top": "SSH-Patator 43%",
+    "IF flagged": 1.0
+   },
+   "Bot": {
+    "flows": 30,
+    "true class": "Bot",
+    "RF correct": 0.0,
+    "RF top": "DoS Slowhttptest 100%",
+    "IF flagged": 1.0
+   },
+   "DoS-GoldenEye-2nd": {
+    "flows": 5036,
+    "true class": "DoS GoldenEye",
+    "RF correct": 0.0,
+    "RF top": "Web Attack - Brute Force 45%",
+    "IF flagged": 1.0
+   },
+   "DoS-Slowloris": {
+    "flows": 1106,
+    "true class": "DoS slowloris",
+    "RF correct": 0.45840867992766726,
+    "RF top": "DoS slowloris 46%",
+    "IF flagged": 1.0
+   },
+   "FTP_Patator": {
+    "flows": 20,
+    "true class": "FTP-Patator",
+    "RF correct": 0.5,
+    "RF top": "FTP-Patator 50%",
+    "IF flagged": 1.0
+   },
+   "PortScan": {
+    "flows": 147,
+    "true class": "PortScan",
+    "RF correct": 0.1836734693877551,
+    "RF top": "Bot 24%",
+    "IF flagged": 1.0
+   },
+   "ddos_hping3": {
+    "flows": 4394,
+    "true class": "SYN flood",
+    "RF correct": 0.0,
+    "RF top": "DoS Hulk 99%",
+    "IF flagged": 1.0
+   },
+   "heartbleed_lab": {
+    "flows": 8,
+    "true class": "Heartbleed",
+    "RF correct": 0.0,
+    "RF top": "Bot 100%",
+    "IF flagged": 1.0
+   },
+   "infilteration": {
+    "flows": 65816,
+    "true class": "PortScan",
+    "RF correct": 0.25600158016287833,
+    "RF top": "DoS Hulk 74%",
+    "IF flagged": 1.0
+   }
+  }
+ },
+ "first packet fixed": {
+  "benign flows": 99,
+  "attack flows": 76557,
+  "IF AUC": 0.14074909260849144,
+  "IF false alarms": {
+   "max-F1": 0.5959595959595959,
+   "FPR<=3%": 0.5959595959595959,
+   "FPR<=1%": 0.5252525252525253,
+   "FPR<=0.1%": 0.13131313131313133
+  },
+  "IF recall": {
+   "max-F1": 0.20096137518450305,
+   "FPR<=3%": 0.08308841778021604,
+   "FPR<=1%": 0.07245581723421764,
+   "FPR<=0.1%": 0.007053567929777812
+  },
+  "RF correct, labels as filed": 0.007621634355556172,
+  "RF correct, true labels": 0.8005210426395798,
+  "RF confidence on attacks": 0.2483948628809066,
+  "per file": {
+   "Benign": {
+    "flows": 55,
+    "true class": "BENIGN",
+    "RF correct": 0.0,
+    "RF top": "SSH-Patator 40%",
+    "IF flagged": 0.5818181818181818
+   },
+   "Benign-Scenarios": {
+    "flows": 44,
+    "true class": "BENIGN",
+    "RF correct": 0.0,
+    "RF top": "SSH-Patator 39%",
+    "IF flagged": 0.6136363636363636
+   },
+   "Bot": {
+    "flows": 30,
+    "true class": "Bot",
+    "RF correct": 0.0,
+    "RF top": "DoS Slowhttptest 100%",
+    "IF flagged": 1.0
+   },
+   "DoS-GoldenEye-2nd": {
+    "flows": 5036,
+    "true class": "DoS GoldenEye",
+    "RF correct": 0.0,
+    "RF top": "DoS Slowhttptest 56%",
+    "IF flagged": 0.9992057188244639
+   },
+   "DoS-Slowloris": {
+    "flows": 1106,
+    "true class": "DoS slowloris",
+    "RF correct": 0.46835443037974683,
+    "RF top": "DoS slowloris 47%",
+    "IF flagged": 0.9918625678119349
+   },
+   "FTP_Patator": {
+    "flows": 20,
+    "true class": "FTP-Patator",
+    "RF correct": 0.5,
+    "RF top": "FTP-Patator 50%",
+    "IF flagged": 0.5
+   },
+   "PortScan": {
+    "flows": 147,
+    "true class": "PortScan",
+    "RF correct": 0.14965986394557823,
+    "RF top": "DoS Hulk 29%",
+    "IF flagged": 0.6190476190476191
+   },
+   "ddos_hping3": {
+    "flows": 4394,
+    "true class": "SYN flood",
+    "RF correct": 0.0,
+    "RF top": "DoS Hulk 98%",
+    "IF flagged": 0.017068730086481566
+   },
+   "heartbleed_lab": {
+    "flows": 8,
+    "true class": "Heartbleed",
+    "RF correct": 0.0,
+    "RF top": "Bot 50%",
+    "IF flagged": 1.0
+   },
+   "infilteration": {
+    "flows": 65816,
+    "true class": "PortScan",
+    "RF correct": 0.8693630728090433,
+    "RF top": "PortScan 87%",
+    "IF flagged": 0.00027348972894129087
+   }
+  }
+ },
+ "both fixed": {
+  "benign flows": 99,
+  "attack flows": 76557,
+  "IF AUC": 0.7169195118762108,
+  "IF false alarms": {
+   "max-F1": 0.5757575757575758,
+   "FPR<=3%": 0.5353535353535354,
+   "FPR<=1%": 0.2828282828282828,
+   "FPR<=0.1%": 0.1414141414141414
+  },
+  "IF recall": {
+   "max-F1": 0.9551706571574121,
+   "FPR<=3%": 0.9445641809370796,
+   "FPR<=1%": 0.9275703070914482,
+   "FPR<=0.1%": 0.007066630092610734
+  },
+  "RF correct, labels as filed": 0.007524631736485456,
+  "RF correct, true labels": 0.9186009450826601,
+  "RF confidence on attacks": 0.3127709928741481,
+  "per file": {
+   "Benign": {
+    "flows": 55,
+    "true class": "BENIGN",
+    "RF correct": 0.0,
+    "RF top": "SSH-Patator 40%",
+    "IF flagged": 0.5454545454545454
+   },
+   "Benign-Scenarios": {
+    "flows": 44,
+    "true class": "BENIGN",
+    "RF correct": 0.0,
+    "RF top": "SSH-Patator 39%",
+    "IF flagged": 0.5227272727272727
+   },
+   "Bot": {
+    "flows": 30,
+    "true class": "Bot",
+    "RF correct": 0.0,
+    "RF top": "DoS Slowhttptest 100%",
+    "IF flagged": 1.0
+   },
+   "DoS-GoldenEye-2nd": {
+    "flows": 5036,
+    "true class": "DoS GoldenEye",
+    "RF correct": 0.00019857029388403494,
+    "RF top": "DoS Slowhttptest 53%",
+    "IF flagged": 0.181890389197776
+   },
+   "DoS-Slowloris": {
+    "flows": 1106,
+    "true class": "DoS slowloris",
+    "RF correct": 0.46112115732368897,
+    "RF top": "DoS slowloris 46%",
+    "IF flagged": 0.9918625678119349
+   },
+   "FTP_Patator": {
+    "flows": 20,
+    "true class": "FTP-Patator",
+    "RF correct": 0.5,
+    "RF top": "FTP-Patator 50%",
+    "IF flagged": 0.5
+   },
+   "PortScan": {
+    "flows": 147,
+    "true class": "PortScan",
+    "RF correct": 0.14965986394557823,
+    "RF top": "DoS Hulk 29%",
+    "IF flagged": 0.6870748299319728
+   },
+   "ddos_hping3": {
+    "flows": 4394,
+    "true class": "SYN flood",
+    "RF correct": 0.0,
+    "RF top": "PortScan 60%",
+    "IF flagged": 1.0
+   },
+   "heartbleed_lab": {
+    "flows": 8,
+    "true class": "Heartbleed",
+    "RF correct": 0.0,
+    "RF top": "Bot 50%",
+    "IF flagged": 0.0
+   },
+   "infilteration": {
+    "flows": 65816,
+    "true class": "PortScan",
+    "RF correct": 0.9989364288318949,
+    "RF top": "PortScan 100%",
+    "IF flagged": 0.9992251124346664
+   }
+  }
+ }
+}

@@ -1,0 +1,103 @@
+{
+  "environment": {
+    "python": "3.11.17",
+    "sklearn": "1.9.1",
+    "numpy": "2.4.6",
+    "joblib": "1.5.3",
+    "pandas": "3.0.6"
+  },
+  "model_version": "lab-v2",
+  "capture_sha256": "a8ff5bb10595a7c23abc27dc35ef5411ed23bd600119beb381a1b5f31cc0b15e",
+  "hardware": {
+    "platform": "Linux-6.12.107+deb13-amd64-x86_64-with-glibc2.41",
+    "logical_cpus": 20,
+    "cpu_model": "13th Gen Intel(R) Core(TM) i7-13650HX"
+  },
+  "scope": "offline CPU benchmark, first 20000 frames; network delivery and flow completion are separate live measurements",
+  "packet_decode_ms": {
+    "samples": 20000,
+    "mean": 0.00236809485,
+    "median": 0.000925,
+    "p95": 0.001988,
+    "p99": 0.002542029999999995,
+    "max": 25.400104
+  },
+  "flow_construction_ms_per_packet": {
+    "samples": 20000,
+    "mean": 0.0032957853,
+    "median": 0.0025105,
+    "p95": 0.003668049999999999,
+    "p99": 0.00770467999999989,
+    "max": 0.6281709999999999
+  },
+  "feature_extraction_ms_per_emitted_flow": {
+    "samples": 234,
+    "mean": 0.007541662393162393,
+    "median": 0.0071595,
+    "p95": 0.010635599999999999,
+    "p99": 0.014235629999999999,
+    "max": 0.039057
+  },
+  "flow_engine": {
+    "packets": 20000,
+    "late_packets": 10,
+    "emitted": 234,
+    "capacity_evictions": 0,
+    "active_flows": 0,
+    "rate_events": 21,
+    "sources": 2,
+    "rate_evictions": 0
+  },
+  "flow_engine_wall_seconds": 0.07467675895895809,
+  "flow_engine_cpu_seconds": 0.12940081400000025,
+  "flow_engine_packets_per_second": 267820.9429387781,
+  "release_inference": {
+    "1": {
+      "samples": 100,
+      "mean": 4.16111006,
+      "median": 4.133381,
+      "p95": 4.3693342500000005,
+      "p99": 4.499691780000001,
+      "max": 4.623222,
+      "flows_per_second": 240.32048794210453,
+      "mean_ms_per_flow": 4.16111006
+    },
+    "32": {
+      "samples": 30,
+      "mean": 4.289321033333334,
+      "median": 4.231369,
+      "p95": 4.584454249999999,
+      "p99": 4.6665379499999995,
+      "max": 4.691839,
+      "flows_per_second": 7460.388194616442,
+      "mean_ms_per_flow": 0.13404128229166667
+    },
+    "256": {
+      "samples": 30,
+      "mean": 4.804915733333334,
+      "median": 4.779431000000001,
+      "p95": 4.9604405,
+      "p99": 5.0360599,
+      "max": 5.048469,
+      "flows_per_second": 53278.769953038085,
+      "mean_ms_per_flow": 0.018769202083333335
+    }
+  },
+  "alert_normalization_ms": {
+    "samples": 100,
+    "mean": 0.00774264,
+    "median": 0.0070480000000000004,
+    "p95": 0.008733099999999995,
+    "p99": 0.017471260000000117,
+    "max": 0.040267
+  },
+  "legacy_single_flow_inference_ms": {
+    "samples": 100,
+    "mean": 32.097701699999995,
+    "median": 30.913560500000003,
+    "p95": 36.3399328,
+    "p99": 60.5857778,
+    "max": 61.331624
+  },
+  "process_peak_rss_mb": 1161.90625
+}

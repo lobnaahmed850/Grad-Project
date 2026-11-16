@@ -1,0 +1,53 @@
+{
+ "baseline: timing det + original RF": {
+  "lab false alarm": 0.11780157607597494,
+  "detection": {
+   "PortScan": 0.9998000399920016,
+   "SYN flood": 1.0,
+   "HTTP flood": 0.0,
+   "Slowloris": 0.5088408644400786,
+   "wrk flood": 0.8177570093457944
+  },
+  "correct type": {
+   "PortScan": 0.9968006398720256,
+   "SYN flood": 0.0,
+   "HTTP flood": 0.0,
+   "Slowloris": 0.5009823182711198,
+   "wrk flood": 0.0
+  }
+ },
+ "invariant det + lab-trained RF": {
+  "lab false alarm": 0.05273792685390988,
+  "detection": {
+   "PortScan": 0.9996000799840032,
+   "SYN flood": 1.0,
+   "HTTP flood": 0.5028742814296426,
+   "Slowloris": 0.7190569744597249,
+   "wrk flood": 0.8691588785046729
+  },
+  "correct type": {
+   "PortScan": 0.9996000799840032,
+   "SYN flood": 0.99,
+   "HTTP flood": 0.5018745313671582,
+   "Slowloris": 0.7170923379174853,
+   "wrk flood": 0.6822429906542056
+  }
+ },
+ "timing det + lab-trained RF": {
+  "lab false alarm": 0.1196201252778339,
+  "detection": {
+   "PortScan": 0.9998000399920016,
+   "SYN flood": 1.0,
+   "HTTP flood": 0.5028742814296426,
+   "Slowloris": 0.7210216110019646,
+   "wrk flood": 0.8691588785046729
+  },
+  "correct type": {
+   "PortScan": 0.9996000799840032,
+   "SYN flood": 0.99,
+   "HTTP flood": 0.5018745313671582,
+   "Slowloris": 0.7170923379174853,
+   "wrk flood": 0.6822429906542056
+  }
+ }
+}

@@ -1,0 +1,230 @@
+{
+  "scope": "fresh concurrent synthetic benign and HTTP flood; no selection or threshold changes",
+  "started_unix": 1794845794.1742046,
+  "ended_unix": 1794845804.5556672,
+  "traffic": [
+    {
+      "scenario": "benign",
+      "seed": 7100,
+      "target": "10.77.0.10",
+      "started_unix": 1794845794.322567,
+      "ended_unix": 1794845804.5273998,
+      "operations": 105,
+      "errors": 0,
+      "tools": {
+        "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+      }
+    },
+    {
+      "scenario": "flood",
+      "seed": 7100,
+      "target": "10.77.0.10",
+      "started_unix": 1794845794.3172357,
+      "ended_unix": 1794845804.3332627,
+      "operations": 4512,
+      "errors": 0,
+      "tools": {
+        "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+      }
+    }
+  ],
+  "stored_flow_verdicts": 7093,
+  "metrics": {
+    "flows": 7093,
+    "binary_confusion_matrix": [
+      [
+        172,
+        11
+      ],
+      [
+        18,
+        6892
+      ]
+    ],
+    "precision": 0.9984064899319136,
+    "recall": 0.9973950795947901,
+    "f1": 0.9979005284876565,
+    "false_positive_rate": 0.060109289617486336,
+    "false_negative_rate": 0.0026049204052098407,
+    "macro_detection_rate": 0.9973950795947901,
+    "category_macro_f1": 0.9600762696057585,
+    "categories": {
+      "BENIGN": {
+        "flows": 183,
+        "detection_rate": 0.060109289617486336,
+        "correct_type_rate": 0.9398907103825137
+      },
+      "HTTP_FLOOD": {
+        "flows": 6910,
+        "detection_rate": 0.9973950795947901,
+        "correct_type_rate": 0.9973950795947901
+      }
+    },
+    "category_confusion_labels": [
+      "BENIGN",
+      "HTTP_FLOOD"
+    ],
+    "category_confusion_matrix": [
+      [
+        172,
+        11
+      ],
+      [
+        18,
+        6892
+      ]
+    ],
+    "false_positive_rate_95pct_wilson": [
+      0.03389181655604036,
+      0.10441571238826329
+    ]
+  },
+  "sensor_diagnostics": {
+    "updated_unix": 1794845808.3254168,
+    "status": "capturing",
+    "model_version": "lab-v1",
+    "uptime_seconds": 16.228477123077027,
+    "flow_engine": {
+      "packets": 76365,
+      "late_packets": 79,
+      "emitted": 9258,
+      "capacity_evictions": 0,
+      "active_flows": 0,
+      "rate_events": 0,
+      "sources": 0,
+      "rate_evictions": 0
+    },
+    "queue_dropped": 0,
+    "outbox_dropped": 0,
+    "inference_errors": 0,
+    "delivered": 7093,
+    "delivery_errors": 0,
+    "capture_restarts": 0,
+    "kernel_dropped": 0,
+    "queue_peak": 94,
+    "decoded_packets": 76365,
+    "ignored_or_malformed_packets": 0,
+    "verdicts": 7093,
+    "alerts": 6903,
+    "capture_truncated": 0,
+    "excluded_non_ingress_flows": 2165,
+    "queue_depth": 0,
+    "outbox_depth": 0,
+    "cpu_seconds": 10.453489,
+    "cpu_percent_of_one_core_lifetime": 64.41447907108333,
+    "peak_rss_mb": 242.6328125,
+    "throughput_flows_per_second": 437.0712018266764,
+    "timings_ms_last_4096_samples": {
+      "packet_to_flow_ms": {
+        "samples": 4096,
+        "mean": 0.014852621826171877,
+        "median": 0.008238,
+        "p95": 0.026012,
+        "p99": 0.06576705000000008,
+        "max": 4.007995
+      },
+      "feature_extraction_ms": {
+        "samples": 4096,
+        "mean": 0.08089894116210938,
+        "median": 0.035897,
+        "p95": 0.341351,
+        "p99": 0.9186457500000014,
+        "max": 5.611492
+      },
+      "queue_delay_ms": {
+        "samples": 4096,
+        "mean": 25.36344392626953,
+        "median": 20.716936,
+        "p95": 60.9930815,
+        "p99": 75.46508305,
+        "max": 118.065337
+      },
+      "inference_batch_ms": {
+        "samples": 317,
+        "mean": 12.280144678233437,
+        "median": 10.312421,
+        "p95": 24.34721619999999,
+        "p99": 43.024732839999984,
+        "max": 107.761249
+      },
+      "feature_preprocessing_ms": {
+        "samples": 317,
+        "mean": 1.4253417444794954,
+        "median": 0.808349,
+        "p95": 2.463412199999996,
+        "p99": 12.127395839999915,
+        "max": 81.709278
+      },
+      "classifier_inference_ms": {
+        "samples": 317,
+        "mean": 3.8920112239747633,
+        "median": 2.807927,
+        "p95": 9.2718762,
+        "p99": 15.094902199999982,
+        "max": 33.559245
+      },
+      "alert_normalization_ms": {
+        "samples": 4096,
+        "mean": 0.03458930126953125,
+        "median": 0.027468,
+        "p95": 0.07691674999999999,
+        "p99": 0.1103562,
+        "max": 4.319994
+      },
+      "ingestion_ms": {
+        "samples": 4096,
+        "mean": 12.521772157226563,
+        "median": 11.894084,
+        "p95": 18.782495,
+        "p99": 25.836488,
+        "max": 29.628113
+      },
+      "delivery_ms": {
+        "samples": 4096,
+        "mean": 15.944979916015624,
+        "median": 15.130111,
+        "p95": 26.755002,
+        "p99": 32.434467,
+        "max": 34.188996
+      },
+      "flow_completion_delay_ms": {
+        "samples": 4096,
+        "mean": 393.3512104492188,
+        "median": 0.0,
+        "p95": 1019.656,
+        "p99": 1041.3868,
+        "max": 1052.667
+      },
+      "end_to_end_since_flow_start_ms": {
+        "samples": 4096,
+        "mean": 2734.1847570190434,
+        "median": 2660.13575,
+        "p95": 3674.0545,
+        "p99": 3695.372225,
+        "max": 3702.1525
+      },
+      "end_to_end_since_last_packet_ms": {
+        "samples": 4096,
+        "mean": 2732.9302821655274,
+        "median": 2658.8383750000003,
+        "p95": 3674.0545,
+        "p99": 3695.372225,
+        "max": 3702.1525
+      }
+    }
+  },
+  "docker_stats": "{\"BlockIO\":\"6.44MB / 264MB\",\"CPUPerc\":\"2.03%\",\"Container\":\"netguard-integration-sensor-1\",\"ID\":\"dd5a97f43aac\",\"MemPerc\":\"18.76%\",\"MemUsage\":\"144.1MiB / 768MiB\",\"Name\":\"netguard-integration-sensor-1\",\"NetIO\":\"24.5MB / 220MB\",\"PIDs\":\"4\"}\n{\"BlockIO\":\"10.1MB / 157MB\",\"CPUPerc\":\"0.06%\",\"Container\":\"netguard-integration-ingest-1\",\"ID\":\"b13c748db424\",\"MemPerc\":\"5.47%\",\"MemUsage\":\"28.02MiB / 512MiB\",\"Name\":\"netguard-integration-ingest-1\",\"NetIO\":\"17.2MB / 33.2MB\",\"PIDs\":\"2\"}",
+  "loss_counters": {
+    "queue_dropped": 0,
+    "outbox_dropped": 0,
+    "inference_errors": 0,
+    "kernel_dropped": 0,
+    "capture_truncated": 0
+  },
+  "passed": false,
+  "processing_integrity_passed": true,
+  "quality_acceptance": {
+    "fpr_at_most_3pct": false,
+    "recall_at_least_70pct": true
+  }
+}

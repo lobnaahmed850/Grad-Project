@@ -1,0 +1,547 @@
+{
+ "max_samples": {
+  "portable": {
+   "4096": {
+    "val_ap": 0.7732081158181893,
+    "val_auc": 0.9634986431969543,
+    "nodes": 66932,
+    "fit seconds": 7.8,
+    "public AUC": 0.9631689391534565,
+    "public false alarms @3%": 0.029650702127862687,
+    "public recall @3%": 0.6415965925995522,
+    "public macro recall @3%": 0.3825336244972712,
+    "lab AUC": 0.6083460447529049,
+    "lab false alarms FPR<=3%": 0.2222222222222222,
+    "lab false alarms FPR<=3% 95% CI": [
+     0.15412441082279266,
+     0.3094025773461891
+    ],
+    "lab recall FPR<=3%": 0.013062162832921876,
+    "lab false alarms FPR<=1%": 0.12037037037037036,
+    "lab false alarms FPR<=1% 95% CI": [
+     0.07170995898043295,
+     0.19511025818384223
+    ],
+    "lab recall FPR<=1%": 0.007641365257259297,
+    "lab false alarms FPR<=0.1%": 0.08333333333333333,
+    "lab false alarms FPR<=0.1% 95% CI": [
+     0.044459900413239356,
+     0.15083058184023337
+    ],
+    "lab recall FPR<=0.1%": 0.0
+   },
+   "65536": {
+    "val_ap": 0.8794700993438984,
+    "val_auc": 0.9752145298079313,
+    "nodes": 356096,
+    "fit seconds": 10.3,
+    "public AUC": 0.9749096981864027,
+    "public false alarms @3%": 0.030086648274194217,
+    "public recall @3%": 0.8207200012527207,
+    "public macro recall @3%": 0.5153271553786899,
+    "lab AUC": 0.48156795783727346,
+    "lab false alarms FPR<=3%": 0.5,
+    "lab false alarms FPR<=3% 95% CI": [
+     0.407333152227769,
+     0.592666847772231
+    ],
+    "lab recall FPR<=3%": 0.01456431155870789,
+    "lab false alarms FPR<=1%": 0.25925925925925924,
+    "lab false alarms FPR<=1% 95% CI": [
+     0.18589005606832504,
+     0.3491666670114591
+    ],
+    "lab recall FPR<=1%": 0.014355316953381141,
+    "lab false alarms FPR<=0.1%": 0.06481481481481481,
+    "lab false alarms FPR<=0.1% 95% CI": [
+     0.03174778644278938,
+     0.12777782835528215
+    ],
+    "lab recall FPR<=0.1%": 0.007562992280261765
+   },
+   "262144": {
+    "val_ap": 0.9056442621200799,
+    "val_auc": 0.9788673980728019,
+    "nodes": 775996,
+    "fit seconds": 11.8,
+    "public AUC": 0.9785327408913781,
+    "public false alarms @3%": 0.029933908018545213,
+    "public recall @3%": 0.8253237500195738,
+    "public macro recall @3%": 0.5231054830734904,
+    "lab AUC": 0.48107220037938325,
+    "lab false alarms FPR<=3%": 0.5,
+    "lab false alarms FPR<=3% 95% CI": [
+     0.407333152227769,
+     0.592666847772231
+    ],
+    "lab recall FPR<=3%": 0.015047611583526,
+    "lab false alarms FPR<=1%": 0.3611111111111111,
+    "lab false alarms FPR<=1% 95% CI": [
+     0.2767340307537134,
+     0.45502946333077743
+    ],
+    "lab recall FPR<=1%": 0.014433689930378673,
+    "lab false alarms FPR<=0.1%": 0.1111111111111111,
+    "lab false alarms FPR<=0.1% 95% CI": [
+     0.0647120300165129,
+     0.18422575342006164
+    ],
+    "lab recall FPR<=0.1%": 0.007745862559922672
+   },
+   "0.9612": {
+    "val_ap": 0.9323347223788097,
+    "val_auc": 0.9840141283313377,
+    "nodes": 2434458,
+    "fit seconds": 18.6,
+    "public AUC": 0.9837556772427896,
+    "public false alarms @3%": 0.029959364727820046,
+    "public recall @3%": 0.877202048198431,
+    "public macro recall @3%": 0.5365159469495847,
+    "lab AUC": 0.4799437746457614,
+    "lab false alarms FPR<=3%": 0.5,
+    "lab false alarms FPR<=3% 95% CI": [
+     0.407333152227769,
+     0.592666847772231
+    ],
+    "lab recall FPR<=3%": 0.015204357537521062,
+    "lab false alarms FPR<=1%": 0.5,
+    "lab false alarms FPR<=1% 95% CI": [
+     0.407333152227769,
+     0.592666847772231
+    ],
+    "lab recall FPR<=1%": 0.015034549420693079,
+    "lab false alarms FPR<=0.1%": 0.2222222222222222,
+    "lab false alarms FPR<=0.1% 95% CI": [
+     0.15412441082279266,
+     0.3094025773461891
+    ],
+    "lab recall FPR<=0.1%": 0.0077850490484214375
+   }
+  },
+  "portable+timing": {
+   "4096": {
+    "val_ap": 0.7576173868768441,
+    "val_auc": 0.9592405320621675,
+    "nodes": 92566,
+    "fit seconds": 9.4,
+    "public AUC": 0.9591103817160582,
+    "public false alarms @3%": 0.030115287072128405,
+    "public recall @3%": 0.6026056591660012,
+    "public macro recall @3%": 0.3961205659406631,
+    "lab AUC": 0.7675022701555219,
+    "lab false alarms FPR<=3%": 0.14814814814814814,
+    "lab false alarms FPR<=3% 95% CI": [
+     0.093294517694531,
+     0.22717300065284596
+    ],
+    "lab recall FPR<=3%": 0.015139046723356453,
+    "lab false alarms FPR<=1%": 0.12962962962962962,
+    "lab false alarms FPR<=1% 95% CI": [
+     0.07881199094174576,
+     0.20589065995023
+    ],
+    "lab recall FPR<=1%": 0.000940475723970375,
+    "lab false alarms FPR<=0.1%": 0.009259259259259259,
+    "lab false alarms FPR<=0.1% 95% CI": [
+     0.0016363187318928635,
+     0.05059469369997506
+    ],
+    "lab recall FPR<=0.1%": 0.0
+   },
+   "65536": {
+    "val_ap": 0.8586561863583856,
+    "val_auc": 0.9767871425289698,
+    "nodes": 584924,
+    "fit seconds": 12.4,
+    "public AUC": 0.9767972340915647,
+    "public false alarms @3%": 0.02980344238351169,
+    "public recall @3%": 0.7948199996868198,
+    "public macro recall @3%": 0.5477074012209349,
+    "lab AUC": 0.7880296404663869,
+    "lab false alarms FPR<=3%": 0.2777777777777778,
+    "lab false alarms FPR<=3% 95% CI": [
+     0.20204904430713197,
+     0.36877254622805344
+    ],
+    "lab recall FPR<=3%": 0.9310448424050054,
+    "lab false alarms FPR<=1%": 0.16666666666666666,
+    "lab false alarms FPR<=1% 95% CI": [
+     0.10810385411647243,
+     0.24812853168630572
+    ],
+    "lab recall FPR<=1%": 0.13286832033648133,
+    "lab false alarms FPR<=0.1%": 0.06481481481481481,
+    "lab false alarms FPR<=0.1% 95% CI": [
+     0.03174778644278938,
+     0.12777782835528215
+    ],
+    "lab recall FPR<=0.1%": 0.0007184189558107031
+   },
+   "262144": {
+    "val_ap": 0.9096588068607936,
+    "val_auc": 0.9817246920523734,
+    "nodes": 1440788,
+    "fit seconds": 13.9,
+    "public AUC": 0.9816331338678471,
+    "public false alarms @3%": 0.030239388529843217,
+    "public recall @3%": 0.8216125647891515,
+    "public macro recall @3%": 0.5493726812466765,
+    "lab AUC": 0.6573564286885732,
+    "lab false alarms FPR<=3%": 0.39814814814814814,
+    "lab false alarms FPR<=3% 95% CI": [
+     0.31085532269880395,
+     0.49243790629648926
+    ],
+    "lab recall FPR<=3%": 0.9308358477996787,
+    "lab false alarms FPR<=1%": 0.2777777777777778,
+    "lab false alarms FPR<=1% 95% CI": [
+     0.20204904430713197,
+     0.36877254622805344
+    ],
+    "lab recall FPR<=1%": 0.1331426257559727,
+    "lab false alarms FPR<=0.1%": 0.08333333333333333,
+    "lab false alarms FPR<=0.1% 95% CI": [
+     0.044459900413239356,
+     0.15083058184023337
+    ],
+    "lab recall FPR<=0.1%": 0.0012017189806288126
+   },
+   "0.9612": {
+    "val_ap": 0.9471253620867833,
+    "val_auc": 0.9871254202641723,
+    "nodes": 5017842,
+    "fit seconds": 22.1,
+    "public AUC": 0.9869144143412643,
+    "public false alarms @3%": 0.03039212878549222,
+    "public recall @3%": 0.9084730899923271,
+    "public macro recall @3%": 0.5869695955653087,
+    "lab AUC": 0.703663005390803,
+    "lab false alarms FPR<=3%": 0.5,
+    "lab false alarms FPR<=3% 95% CI": [
+     0.407333152227769,
+     0.592666847772231
+    ],
+    "lab recall FPR<=3%": 0.9317240748723173,
+    "lab false alarms FPR<=1%": 0.3148148148148148,
+    "lab false alarms FPR<=1% 95% CI": [
+     0.234864190343351,
+     0.40748713510263684
+    ],
+    "lab recall FPR<=1%": 0.9279229854879371,
+    "lab false alarms FPR<=0.1%": 0.14814814814814814,
+    "lab false alarms FPR<=0.1% 95% CI": [
+     0.093294517694531,
+     0.22717300065284596
+    ],
+    "lab recall FPR<=0.1%": 0.011403268153140796
+   }
+  }
+ },
+ "classifier": {
+  "portable RF14": {
+   "lab": {
+    "flow-weighted correct": 0.010725718165819048,
+    "macro correct": 0.22531379851686303,
+    "attack confidence": 0.5044348664342496,
+    "per class": {
+     "Bot": {
+      "flows": 30,
+      "correct": 0.0,
+      "top": "DoS Slowhttptest 100%"
+     },
+     "DoS GoldenEye": {
+      "flows": 5036,
+      "correct": 0.01806989674344718,
+      "top": "Web Attack - Brute Force 78%"
+     },
+     "DoS slowloris": {
+      "flows": 1106,
+      "correct": 0.608499095840868,
+      "top": "DoS slowloris 61%"
+     },
+     "FTP-Patator": {
+      "flows": 20,
+      "correct": 0.5,
+      "top": "FTP-Patator 50%"
+     },
+     "PortScan": {
+      "flows": 65963,
+      "correct": 0.0,
+      "top": "SSH-Patator 100%"
+     }
+    }
+   },
+   "all test rows": {
+    "flows": 378120,
+    "correct on attacks": 0.9916537479839025,
+    "macro recall": 0.9046388615456653,
+    "benign false alarms": null,
+    "per class": {
+     "Bot": 1.0,
+     "DDoS": 0.9996354546401417,
+     "DoS GoldenEye": 1.0,
+     "DoS Hulk": 0.9930574304778802,
+     "DoS Slowhttptest": 0.9897959183673469,
+     "DoS slowloris": 0.9913366336633663,
+     "FTP-Patator": 0.9955056179775281,
+     "PortScan": 0.99331079094384,
+     "SSH-Patator": 0.9337474120082816,
+     "Web Attack - Brute Force": 0.09545454545454546,
+     "Web Attack - XSS": 0.9591836734693877
+    }
+   },
+   "unseen test rows": {
+    "flows": 58889,
+    "correct on attacks": 0.9995754917220886,
+    "macro recall": 1.0,
+    "benign false alarms": null,
+    "per class": {
+     "DoS GoldenEye": 1.0,
+     "DoS Hulk": 1.0,
+     "FTP-Patator": 1.0
+    }
+   }
+  },
+  "portable RF15": {
+   "lab": {
+    "flow-weighted correct": 0.007968072280808725,
+    "macro correct": 0.10397830018083183,
+    "attack confidence": 0.9797388974499605,
+    "per class": {
+     "Bot": {
+      "flows": 30,
+      "correct": 0.0,
+      "top": "BENIGN 100%"
+     },
+     "DoS GoldenEye": {
+      "flows": 5036,
+      "correct": 0.0,
+      "top": "BENIGN 100%"
+     },
+     "DoS slowloris": {
+      "flows": 1106,
+      "correct": 0.5198915009041591,
+      "top": "DoS slowloris 52%"
+     },
+     "FTP-Patator": {
+      "flows": 20,
+      "correct": 0.0,
+      "top": "BENIGN 50%"
+     },
+     "PortScan": {
+      "flows": 65963,
+      "correct": 0.0,
+      "top": "BENIGN 100%"
+     }
+    }
+   },
+   "all test rows": {
+    "flows": 378120,
+    "correct on attacks": 0.9910117285980489,
+    "macro recall": 0.9020806403406257,
+    "benign false alarms": 0.1440022401904162,
+    "per class": {
+     "Bot": 0.9863013698630136,
+     "DDoS": 0.9988022081033225,
+     "DoS GoldenEye": 0.9954633830200907,
+     "DoS Hulk": 0.9926717321710957,
+     "DoS Slowhttptest": 0.9897959183673469,
+     "DoS slowloris": 0.9913366336633663,
+     "FTP-Patator": 0.9955056179775281,
+     "PortScan": 0.99331079094384,
+     "SSH-Patator": 0.9296066252587992,
+     "Web Attack - Brute Force": 0.09090909090909091,
+     "Web Attack - XSS": 0.9591836734693877
+    }
+   },
+   "unseen test rows": {
+    "flows": 58889,
+    "correct on attacks": 0.9974529503325315,
+    "macro recall": 0.9967547519703291,
+    "benign false alarms": 5.78904712284358e-05,
+    "per class": {
+     "DoS GoldenEye": 0.9902642559109874,
+     "DoS Hulk": 1.0,
+     "FTP-Patator": 1.0
+    }
+   }
+  },
+  "portable+timing RF14": {
+   "lab": {
+    "flow-weighted correct": 0.014356387622465806,
+    "macro correct": 0.1447446301595038,
+    "attack confidence": 0.4494834399975762,
+    "per class": {
+     "Bot": {
+      "flows": 30,
+      "correct": 0.0,
+      "top": "DoS Slowhttptest 100%"
+     },
+     "DoS GoldenEye": {
+      "flows": 5036,
+      "correct": 0.09888800635424941,
+      "top": "DoS Slowhttptest 70%"
+     },
+     "DoS slowloris": {
+      "flows": 1106,
+      "correct": 0.47468354430379744,
+      "top": "DoS slowloris 47%"
+     },
+     "FTP-Patator": {
+      "flows": 20,
+      "correct": 0.15,
+      "top": "DoS Hulk 50%"
+     },
+     "PortScan": {
+      "flows": 65963,
+      "correct": 0.00015160013947212832,
+      "top": "SSH-Patator 87%"
+     }
+    }
+   },
+   "all test rows": {
+    "flows": 378120,
+    "correct on attacks": 0.9974319224565854,
+    "macro recall": 0.929944779695245,
+    "benign false alarms": null,
+    "per class": {
+     "Bot": 1.0,
+     "DDoS": 0.9998437662743465,
+     "DoS GoldenEye": 0.9980557355800389,
+     "DoS Hulk": 0.9995371620318587,
+     "DoS Slowhttptest": 0.9961734693877551,
+     "DoS slowloris": 0.9913366336633663,
+     "FTP-Patator": 0.996629213483146,
+     "PortScan": 0.9995589532490444,
+     "SSH-Patator": 0.968944099378882,
+     "Web Attack - Brute Force": 0.6772727272727272,
+     "Web Attack - XSS": 0.6020408163265306
+    }
+   },
+   "unseen test rows": {
+    "flows": 289752,
+    "correct on attacks": 0.9976240865710977,
+    "macro recall": 0.9355050162340963,
+    "benign false alarms": null,
+    "per class": {
+     "Bot": 1.0,
+     "DDoS": 1.0,
+     "DoS GoldenEye": 0.9980532121998702,
+     "DoS Hulk": 0.9997274037150979,
+     "DoS Slowhttptest": 0.9961734693877551,
+     "DoS slowloris": 0.9937965260545906,
+     "FTP-Patator": 0.9988738738738738,
+     "PortScan": 0.9798387096774194,
+     "SSH-Patator": 1.0,
+     "Web Attack - Brute Force": 0.7070707070707071,
+     "Web Attack - XSS": 0.6170212765957447
+    }
+   }
+  },
+  "portable+timing RF15": {
+   "lab": {
+    "flow-weighted correct": 5.543006804040852e-05,
+    "macro correct": 0.0007233273056057866,
+    "attack confidence": 0.7780632974195415,
+    "per class": {
+     "Bot": {
+      "flows": 30,
+      "correct": 0.0,
+      "top": "BENIGN 100%"
+     },
+     "DoS GoldenEye": {
+      "flows": 5036,
+      "correct": 0.0,
+      "top": "BENIGN 100%"
+     },
+     "DoS slowloris": {
+      "flows": 1106,
+      "correct": 0.003616636528028933,
+      "top": "BENIGN 100%"
+     },
+     "FTP-Patator": {
+      "flows": 20,
+      "correct": 0.0,
+      "top": "BENIGN 95%"
+     },
+     "PortScan": {
+      "flows": 65963,
+      "correct": 0.0,
+      "top": "BENIGN 100%"
+     }
+    }
+   },
+   "all test rows": {
+    "flows": 378120,
+    "correct on attacks": 0.9947698908567044,
+    "macro recall": 0.9229741387517,
+    "benign false alarms": 0.05039473809819289,
+    "per class": {
+     "Bot": 0.9691780821917808,
+     "DDoS": 0.9991146755546297,
+     "DoS GoldenEye": 0.9922229423201555,
+     "DoS Hulk": 0.9951787711651946,
+     "DoS Slowhttptest": 0.9961734693877551,
+     "DoS slowloris": 0.9900990099009901,
+     "FTP-Patator": 0.996629213483146,
+     "PortScan": 0.9994854454572185,
+     "SSH-Patator": 0.9399585921325052,
+     "Web Attack - Brute Force": 0.6318181818181818,
+     "Web Attack - XSS": 0.6428571428571429
+    }
+   },
+   "unseen test rows": {
+    "flows": 289752,
+    "correct on attacks": 0.9966457692768438,
+    "macro recall": 0.9339181747790414,
+    "benign false alarms": 0.003112665125633173,
+    "per class": {
+     "Bot": 0.9893048128342246,
+     "DDoS": 0.9992707953539247,
+     "DoS GoldenEye": 0.9922128487994809,
+     "DoS Hulk": 0.9991822111452938,
+     "DoS Slowhttptest": 0.9961734693877551,
+     "DoS slowloris": 0.9925558312655087,
+     "FTP-Patator": 0.9988738738738738,
+     "PortScan": 0.9758064516129032,
+     "SSH-Patator": 0.9933774834437086,
+     "Web Attack - Brute Force": 0.6767676767676768,
+     "Web Attack - XSS": 0.6595744680851063
+    }
+   }
+  }
+ },
+ "pipelines": {},
+ "saved lab classifier": {
+  "flow-weighted correct": 0.9186009450826601,
+  "macro correct": 0.3916727049795733,
+  "attack confidence": 0.3127709928741481,
+  "per class": {
+   "Bot": {
+    "flows": 30,
+    "correct": 0.0,
+    "top": "DoS Slowhttptest 100%"
+   },
+   "DoS GoldenEye": {
+    "flows": 5036,
+    "correct": 0.00019857029388403494,
+    "top": "DoS Slowhttptest 53%"
+   },
+   "DoS slowloris": {
+    "flows": 1106,
+    "correct": 0.46112115732368897,
+    "top": "DoS slowloris 46%"
+   },
+   "FTP-Patator": {
+    "flows": 20,
+    "correct": 0.5,
+    "top": "FTP-Patator 50%"
+   },
+   "PortScan": {
+    "flows": 65963,
+    "correct": 0.9970437972802935,
+    "top": "PortScan 100%"
+   }
+  }
+ }
+}

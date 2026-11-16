@@ -1,0 +1,425 @@
+{
+ "public benign, held out": {
+  "flows": 314259,
+  "flagged": 0.02980344238351169,
+  "by size": {
+   "under 2 kB": {
+    "flows": 252438,
+    "flagged": 0.024560486139170806
+   },
+   "2 to 100 kB": {
+    "flows": 58623,
+    "flagged": 0.0422530406154581
+   },
+   "100 kB to 1 MB": {
+    "flows": 2939,
+    "flagged": 0.15345355563116705
+   },
+   "over 1 MB": {
+    "flows": 259,
+    "flagged": 0.918918918918919
+   }
+  }
+ },
+ "public benign, web ports": {
+  "flows": 103222,
+  "flagged": 0.040592121834492643,
+  "by size": {
+   "under 2 kB": {
+    "flows": 47847,
+    "flagged": 0.05964846280853554
+   },
+   "2 to 100 kB": {
+    "flows": 52185,
+    "flagged": 0.012551499473028648
+   },
+   "100 kB to 1 MB": {
+    "flows": 2931,
+    "flagged": 0.15114295462299557
+   },
+   "over 1 MB": {
+    "flows": 259,
+    "flagged": 0.918918918918919
+   }
+  }
+ },
+ "lab": {
+  "lan": {
+   "flows": 2061,
+   "flagged": 0.4119359534206696,
+   "by size": {
+    "under 2 kB": {
+     "flows": 1537,
+     "flagged": 0.27065712426805466
+    },
+    "2 to 100 kB": {
+     "flows": 187,
+     "flagged": 0.5240641711229946
+    },
+    "100 kB to 1 MB": {
+     "flows": 297,
+     "flagged": 0.9932659932659933
+    },
+    "over 1 MB": {
+     "flows": 40,
+     "flagged": 1.0
+    }
+   },
+   "flagged at public size mix": 0.3252876315202787
+  },
+  "wan": {
+   "flows": 2090,
+   "flagged": 0.20956937799043063,
+   "by size": {
+    "under 2 kB": {
+     "flows": 1596,
+     "flagged": 0.02568922305764411
+    },
+    "2 to 100 kB": {
+     "flows": 188,
+     "flagged": 0.4946808510638298
+    },
+    "100 kB to 1 MB": {
+     "flows": 273,
+     "flagged": 0.9926739926739927
+    },
+    "over 1 MB": {
+     "flows": 33,
+     "flagged": 1.0
+    }
+   },
+   "flagged at public size mix": 0.12302298577482051
+  },
+  "slow": {
+   "flows": 2147,
+   "flagged": 0.1448532836516069,
+   "by size": {
+    "under 2 kB": {
+     "flows": 1644,
+     "flagged": 0.0
+    },
+    "2 to 100 kB": {
+     "flows": 190,
+     "flagged": 0.12105263157894737
+    },
+    "100 kB to 1 MB": {
+     "flows": 270,
+     "flagged": 0.9074074074074074
+    },
+    "over 1 MB": {
+     "flows": 43,
+     "flagged": 1.0
+    }
+   },
+   "flagged at public size mix": 0.031891970608393085
+  }
+ },
+ "large web flows": {
+  "lab flows": 948,
+  "public flows": 3190,
+  "swap test": [
+   {
+    "feature": "bwd packet length std",
+    "alarms removed": 0.040261153427638696,
+    "lab median": 176.67064304888598,
+    "public median": 826.5741954,
+    "lab median's public percentile": 0.0034482758620689655
+   },
+   {
+    "feature": "flow iat min",
+    "alarms removed": 0.0380848748639826,
+    "lab median": 13.0,
+    "public median": 1.0,
+    "lab median's public percentile": 0.993103448275862
+   },
+   {
+    "feature": "max packet length",
+    "alarms removed": 0.027203482045701888,
+    "lab median": 1448.0,
+    "public median": 4344.0,
+    "lab median's public percentile": 0.01818181818181818
+   },
+   {
+    "feature": "fwd packet length std",
+    "alarms removed": 0.021762785636561532,
+    "lab median": 20.421726222170527,
+    "public median": 99.23966442,
+    "lab median's public percentile": 0.013793103448275862
+   },
+   {
+    "feature": "fwd packet length max",
+    "alarms removed": 0.018498367791077275,
+    "lab median": 98.0,
+    "public median": 509.5,
+    "lab median's public percentile": 0.0006269592476489029
+   },
+   {
+    "feature": "fwd packet length mean",
+    "alarms removed": 0.018498367791077275,
+    "lab median": 4.5156249999999964,
+    "public median": 29.1422908236,
+    "lab median's public percentile": 0.027899686520376176
+   },
+   {
+    "feature": "total backward packets",
+    "alarms removed": 0.015233949945593017,
+    "lab median": 217.0,
+    "public median": 128.5,
+    "lab median's public percentile": 0.7181818181818181
+   },
+   {
+    "feature": "total length of fwd packets",
+    "alarms removed": 0.006528835690968404,
+    "lab median": 574.0,
+    "public median": 2977.0,
+    "lab median's public percentile": 0.016927899686520375
+   },
+   {
+    "feature": "total fwd packets",
+    "alarms removed": 0.0032644178454842576,
+    "lab median": 124.0,
+    "public median": 89.0,
+    "lab median's public percentile": 0.6601880877742947
+   },
+   {
+    "feature": "packet length variance",
+    "alarms removed": 0.0021762785636560977,
+    "lab median": 484700.9056853137,
+    "public median": 1073782.4399365098,
+    "lab median's public percentile": 0.05141065830721003
+   },
+   {
+    "feature": "flow bytes/s",
+    "alarms removed": 0.0021762785636560977,
+    "lab median": 3630987.2128305156,
+    "public median": 5012.740349,
+    "lab median's public percentile": 0.9946708463949844
+   },
+   {
+    "feature": "bwd packets/s",
+    "alarms removed": 0.0021762785636560977,
+    "lab median": 2580.917443106191,
+    "public median": 3.1482426845,
+    "lab median's public percentile": 0.9990595611285267
+   },
+   {
+    "feature": "total length of bwd packets",
+    "alarms removed": 0.0010881392818280489,
+    "lab median": 307805.0,
+    "public median": 197665.0,
+    "lab median's public percentile": 0.6808777429467084
+   },
+   {
+    "feature": "packet length mean",
+    "alarms removed": 0.0010881392818280489,
+    "lab median": 899.890909090909,
+    "public median": 984.35909510135,
+    "lab median's public percentile": 0.3219435736677116
+   },
+   {
+    "feature": "flow iat mean",
+    "alarms removed": 0.0010881392818280489,
+    "lab median": 248.25,
+    "public median": 191282.74815,
+    "lab median's public percentile": 0.001567398119122257
+   },
+   {
+    "feature": "fwd packet length min",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 0.0,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "bwd packet length mean",
+    "alarms removed": 0.0,
+    "lab median": 1419.184834123223,
+    "public median": 1616.915586,
+    "lab median's public percentile": 0.2755485893416928
+   },
+   {
+    "feature": "min packet length",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 0.0,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "packet length std",
+    "alarms removed": 0.0,
+    "lab median": 696.2046435390342,
+    "public median": 1036.2347400491,
+    "lab median's public percentile": 0.05141065830721003
+   },
+   {
+    "feature": "average packet size",
+    "alarms removed": 0.0,
+    "lab median": 902.2203947368421,
+    "public median": 989.9683368386,
+    "lab median's public percentile": 0.3175548589341693
+   },
+   {
+    "feature": "down/up ratio",
+    "alarms removed": 0.0,
+    "lab median": 1.0,
+    "public median": 1.0,
+    "lab median's public percentile": 0.028526645768025077
+   },
+   {
+    "feature": "act_data_pkt_fwd",
+    "alarms removed": 0.0,
+    "lab median": 6.0,
+    "public median": 29.0,
+    "lab median's public percentile": 0.1341692789968652
+   },
+   {
+    "feature": "fin flag count",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 0.0,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "syn flag count",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 0.0,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "psh flag count",
+    "alarms removed": 0.0,
+    "lab median": 1.0,
+    "public median": 1.0,
+    "lab median's public percentile": 0.03949843260188088
+   },
+   {
+    "feature": "ack flag count",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 0.0,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "urg flag count",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 0.0,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "flow duration",
+    "alarms removed": 0.0,
+    "lab median": 94163.0,
+    "public median": 68882434.5,
+    "lab median's public percentile": 0.0006269592476489029
+   },
+   {
+    "feature": "flow packets/s",
+    "alarms removed": 0.0,
+    "lab median": 4044.4401130494102,
+    "public median": 5.242808024,
+    "lab median's public percentile": 0.9984326018808778
+   },
+   {
+    "feature": "fwd packets/s",
+    "alarms removed": 0.0,
+    "lab median": 1443.599907481995,
+    "public median": 2.0653319984999996,
+    "lab median's public percentile": 0.9959247648902821
+   },
+   {
+    "feature": "flow iat std",
+    "alarms removed": 0.0,
+    "lab median": 359.2029855657848,
+    "public median": 1565817.751,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "flow iat max",
+    "alarms removed": 0.0,
+    "lab median": 2550.0,
+    "public median": 10000000.0,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "active mean",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 223540.9583333335,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "active std",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 158840.7787691555,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "active max",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 1057202.0,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "active min",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 23916.0,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "idle mean",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 9995614.4545,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "idle std",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 5973.655177500001,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "idle max",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 10000000.0,
+    "lab median's public percentile": 0.0
+   },
+   {
+    "feature": "idle min",
+    "alarms removed": 0.0,
+    "lab median": 0.0,
+    "public median": 9950190.0,
+    "lab median's public percentile": 0.0
+   }
+  ],
+  "group swap test": {
+   "packet counts": {
+    "features": 2,
+    "alarms removed": 0.017410228509249226
+   },
+   "packet and flow sizes": {
+    "features": 14,
+    "alarms removed": 0.24265505984766045
+   },
+   "flags, headers and windows": {
+    "features": 7,
+    "alarms removed": 0.0
+   },
+   "speed and timing": {
+    "features": 17,
+    "alarms removed": 0.7083786724700762
+   },
+   "speed, timing and sizes": {
+    "features": 31,
+    "alarms removed": 0.9782372143634385
+   }
+  }
+ }
+}

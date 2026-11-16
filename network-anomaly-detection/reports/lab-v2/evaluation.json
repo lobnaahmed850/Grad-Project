@@ -1,0 +1,1548 @@
+{
+  "flows": 26097,
+  "binary_confusion_matrix": [
+    [
+      977,
+      4
+    ],
+    [
+      48,
+      25068
+    ]
+  ],
+  "precision": 0.9998404594767071,
+  "recall": 0.998088867654085,
+  "f1": 0.9989638957519725,
+  "false_positive_rate": 0.004077471967380225,
+  "false_negative_rate": 0.0019111323459149545,
+  "macro_detection_rate": 0.9993523316062176,
+  "category_macro_f1": 0.9924070257715372,
+  "categories": {
+    "BENIGN": {
+      "flows": 981,
+      "detection_rate": 0.004077471967380225,
+      "correct_type_rate": 0.9959225280326198
+    },
+    "HTTP_FLOOD": {
+      "flows": 24704,
+      "detection_rate": 0.9980569948186528,
+      "correct_type_rate": 0.9979760362694301
+    },
+    "PORT_SCAN": {
+      "flows": 297,
+      "detection_rate": 1.0,
+      "correct_type_rate": 1.0
+    },
+    "SLOW_HTTP": {
+      "flows": 115,
+      "detection_rate": 1.0,
+      "correct_type_rate": 1.0
+    }
+  },
+  "class_metrics": {
+    "BENIGN": {
+      "precision": 0.953170731707317,
+      "recall": 0.9959225280326198,
+      "f1": 0.9740777666999003,
+      "support": 981
+    },
+    "HTTP_FLOOD": {
+      "precision": 0.9998377808419174,
+      "recall": 0.9979760362694301,
+      "f1": 0.9989060410842349,
+      "support": 24704
+    },
+    "PORT_SCAN": {
+      "precision": 0.9933110367892977,
+      "recall": 1.0,
+      "f1": 0.9966442953020134,
+      "support": 297
+    },
+    "SLOW_HTTP": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 115
+    }
+  },
+  "category_confusion_labels": [
+    "BENIGN",
+    "HTTP_FLOOD",
+    "PORT_SCAN",
+    "SLOW_HTTP"
+  ],
+  "category_confusion_matrix": [
+    [
+      977,
+      4,
+      0,
+      0
+    ],
+    [
+      48,
+      24654,
+      2,
+      0
+    ],
+    [
+      0,
+      0,
+      297,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      115
+    ]
+  ],
+  "false_positive_rate_95pct_wilson": [
+    0.0015867315496850892,
+    0.010437130967901494
+  ],
+  "sessions": {
+    "test-benign-3000-1794846368506565807": {
+      "flows": 158,
+      "binary_confusion_matrix": [
+        [
+          156,
+          2
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "false_positive_rate": 0.012658227848101266,
+      "false_negative_rate": null,
+      "macro_detection_rate": null,
+      "category_macro_f1": 0.4968152866242038,
+      "categories": {
+        "BENIGN": {
+          "flows": 158,
+          "detection_rate": 0.012658227848101266,
+          "correct_type_rate": 0.9873417721518988
+        }
+      },
+      "class_metrics": {
+        "BENIGN": {
+          "precision": 1.0,
+          "recall": 0.9873417721518988,
+          "f1": 0.9936305732484076,
+          "support": 158
+        },
+        "HTTP_FLOOD": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "category_confusion_labels": [
+        "BENIGN",
+        "HTTP_FLOOD"
+      ],
+      "category_confusion_matrix": [
+        [
+          156,
+          2
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "false_positive_rate_95pct_wilson": [
+        0.0034781615921472622,
+        0.04497415227523912
+      ]
+    },
+    "test-benign-3017-1794846381462493982": {
+      "flows": 162,
+      "binary_confusion_matrix": [
+        [
+          162,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": null,
+      "macro_detection_rate": null,
+      "category_macro_f1": 1.0,
+      "categories": {
+        "BENIGN": {
+          "flows": 162,
+          "detection_rate": 0.0,
+          "correct_type_rate": 1.0
+        }
+      },
+      "class_metrics": {
+        "BENIGN": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 162
+        }
+      },
+      "category_confusion_labels": [
+        "BENIGN"
+      ],
+      "category_confusion_matrix": [
+        [
+          162
+        ]
+      ],
+      "false_positive_rate_95pct_wilson": [
+        -1.734723475976807e-18,
+        0.023164272414159054
+      ]
+    },
+    "test-benign-3034-1794846394273981212": {
+      "flows": 162,
+      "binary_confusion_matrix": [
+        [
+          161,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "false_positive_rate": 0.006172839506172839,
+      "false_negative_rate": null,
+      "macro_detection_rate": null,
+      "category_macro_f1": 0.4984520123839009,
+      "categories": {
+        "BENIGN": {
+          "flows": 162,
+          "detection_rate": 0.006172839506172839,
+          "correct_type_rate": 0.9938271604938271
+        }
+      },
+      "class_metrics": {
+        "BENIGN": {
+          "precision": 1.0,
+          "recall": 0.9938271604938271,
+          "f1": 0.9969040247678018,
+          "support": 162
+        },
+        "HTTP_FLOOD": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "category_confusion_labels": [
+        "BENIGN",
+        "HTTP_FLOOD"
+      ],
+      "category_confusion_matrix": [
+        [
+          161,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "false_positive_rate_95pct_wilson": [
+        0.00109046202853268,
+        0.034133510726192307
+      ]
+    },
+    "test-benign-3051-1794846407047879751": {
+      "flows": 165,
+      "binary_confusion_matrix": [
+        [
+          165,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": null,
+      "macro_detection_rate": null,
+      "category_macro_f1": 1.0,
+      "categories": {
+        "BENIGN": {
+          "flows": 165,
+          "detection_rate": 0.0,
+          "correct_type_rate": 1.0
+        }
+      },
+      "class_metrics": {
+        "BENIGN": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 165
+        }
+      },
+      "category_confusion_labels": [
+        "BENIGN"
+      ],
+      "category_confusion_matrix": [
+        [
+          165
+        ]
+      ],
+      "false_positive_rate_95pct_wilson": [
+        0.0,
+        0.02275268654170536
+      ]
+    },
+    "test-flood-3136-1794846862930030620": {
+      "flows": 6030,
+      "binary_confusion_matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          15,
+          6015
+        ]
+      ],
+      "precision": 1.0,
+      "recall": 0.9975124378109452,
+      "f1": 0.9987546699875467,
+      "false_positive_rate": null,
+      "false_negative_rate": 0.0024875621890547263,
+      "macro_detection_rate": 0.9975124378109452,
+      "category_macro_f1": 0.33289051256503926,
+      "categories": {
+        "HTTP_FLOOD": {
+          "flows": 6030,
+          "detection_rate": 0.9975124378109452,
+          "correct_type_rate": 0.997346600331675
+        }
+      },
+      "class_metrics": {
+        "BENIGN": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "HTTP_FLOOD": {
+          "precision": 1.0,
+          "recall": 0.997346600331675,
+          "f1": 0.9986715376951179,
+          "support": 6030
+        },
+        "PORT_SCAN": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "category_confusion_labels": [
+        "BENIGN",
+        "HTTP_FLOOD",
+        "PORT_SCAN"
+      ],
+      "category_confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          15,
+          6014,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "test-flood-3153-1794846875700713921": {
+      "flows": 7263,
+      "binary_confusion_matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          12,
+          7251
+        ]
+      ],
+      "precision": 1.0,
+      "recall": 0.9983477901693515,
+      "f1": 0.9991732120711038,
+      "false_positive_rate": null,
+      "false_negative_rate": 0.0016522098306484924,
+      "macro_detection_rate": 0.9983477901693515,
+      "category_macro_f1": 0.4995866060355519,
+      "categories": {
+        "HTTP_FLOOD": {
+          "flows": 7263,
+          "detection_rate": 0.9983477901693515,
+          "correct_type_rate": 0.9983477901693515
+        }
+      },
+      "class_metrics": {
+        "BENIGN": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "HTTP_FLOOD": {
+          "precision": 1.0,
+          "recall": 0.9983477901693515,
+          "f1": 0.9991732120711038,
+          "support": 7263
+        }
+      },
+      "category_confusion_labels": [
+        "BENIGN",
+        "HTTP_FLOOD"
+      ],
+      "category_confusion_matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          12,
+          7251
+        ]
+      ]
+    },
+    "test-mixed-3068-1794846419873860584": {
+      "flows": 5333,
+      "binary_confusion_matrix": [
+        [
+          157,
+          0
+        ],
+        [
+          8,
+          5168
+        ]
+      ],
+      "precision": 1.0,
+      "recall": 0.9984544049459042,
+      "f1": 0.9992266047950503,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0015455950540958269,
+      "macro_detection_rate": 0.9984544049459042,
+      "category_macro_f1": 0.6580950419253156,
+      "categories": {
+        "BENIGN": {
+          "flows": 157,
+          "detection_rate": 0.0,
+          "correct_type_rate": 1.0
+        },
+        "HTTP_FLOOD": {
+          "flows": 5176,
+          "detection_rate": 0.9984544049459042,
+          "correct_type_rate": 0.9982612055641422
+        }
+      },
+      "class_metrics": {
+        "BENIGN": {
+          "precision": 0.9515151515151515,
+          "recall": 1.0,
+          "f1": 0.9751552795031055,
+          "support": 157
+        },
+        "HTTP_FLOOD": {
+          "precision": 1.0,
+          "recall": 0.9982612055641422,
+          "f1": 0.9991298462728415,
+          "support": 5176
+        },
+        "PORT_SCAN": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "category_confusion_labels": [
+        "BENIGN",
+        "HTTP_FLOOD",
+        "PORT_SCAN"
+      ],
+      "category_confusion_matrix": [
+        [
+          157,
+          0,
+          0
+        ],
+        [
+          8,
+          5167,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "false_positive_rate_95pct_wilson": [
+        0.0,
+        0.02388436822314625
+      ]
+    },
+    "test-mixed-3085-1794846832145524592": {
+      "flows": 6412,
+      "binary_confusion_matrix": [
+        [
+          176,
+          1
+        ],
+        [
+          13,
+          6222
+        ]
+      ],
+      "precision": 0.9998393058010606,
+      "recall": 0.9979149959903769,
+      "f1": 0.9988762241130198,
+      "false_positive_rate": 0.005649717514124294,
+      "false_negative_rate": 0.0020850040096230954,
+      "macro_detection_rate": 0.9979149959903769,
+      "category_macro_f1": 0.9803124289964006,
+      "categories": {
+        "BENIGN": {
+          "flows": 177,
+          "detection_rate": 0.005649717514124294,
+          "correct_type_rate": 0.9943502824858758
+        },
+        "HTTP_FLOOD": {
+          "flows": 6235,
+          "detection_rate": 0.9979149959903769,
+          "correct_type_rate": 0.9979149959903769
+        }
+      },
+      "class_metrics": {
+        "BENIGN": {
+          "precision": 0.9312169312169312,
+          "recall": 0.9943502824858758,
+          "f1": 0.9617486338797814,
+          "support": 177
+        },
+        "HTTP_FLOOD": {
+          "precision": 0.9998393058010606,
+          "recall": 0.9979149959903769,
+          "f1": 0.9988762241130198,
+          "support": 6235
+        }
+      },
+      "category_confusion_labels": [
+        "BENIGN",
+        "HTTP_FLOOD"
+      ],
+      "category_confusion_matrix": [
+        [
+          176,
+          1
+        ],
+        [
+          13,
+          6222
+        ]
+      ],
+      "false_positive_rate_95pct_wilson": [
+        0.0009979853431591884,
+        0.03130431678201555
+      ]
+    },
+    "test-scan-3102-1794846845110225725": {
+      "flows": 149,
+      "binary_confusion_matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          149
+        ]
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_rate": null,
+      "false_negative_rate": 0.0,
+      "macro_detection_rate": 1.0,
+      "category_macro_f1": 1.0,
+      "categories": {
+        "PORT_SCAN": {
+          "flows": 149,
+          "detection_rate": 1.0,
+          "correct_type_rate": 1.0
+        }
+      },
+      "class_metrics": {
+        "PORT_SCAN": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 149
+        }
+      },
+      "category_confusion_labels": [
+        "PORT_SCAN"
+      ],
+      "category_confusion_matrix": [
+        [
+          149
+        ]
+      ]
+    },
+    "test-scan-3119-1794846853979736772": {
+      "flows": 148,
+      "binary_confusion_matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          148
+        ]
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_rate": null,
+      "false_negative_rate": 0.0,
+      "macro_detection_rate": 1.0,
+      "category_macro_f1": 1.0,
+      "categories": {
+        "PORT_SCAN": {
+          "flows": 148,
+          "detection_rate": 1.0,
+          "correct_type_rate": 1.0
+        }
+      },
+      "class_metrics": {
+        "PORT_SCAN": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 148
+        }
+      },
+      "category_confusion_labels": [
+        "PORT_SCAN"
+      ],
+      "category_confusion_matrix": [
+        [
+          148
+        ]
+      ]
+    },
+    "test-slow-3170-1794846888528749713": {
+      "flows": 57,
+      "binary_confusion_matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          57
+        ]
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_rate": null,
+      "false_negative_rate": 0.0,
+      "macro_detection_rate": 1.0,
+      "category_macro_f1": 1.0,
+      "categories": {
+        "SLOW_HTTP": {
+          "flows": 57,
+          "detection_rate": 1.0,
+          "correct_type_rate": 1.0
+        }
+      },
+      "class_metrics": {
+        "SLOW_HTTP": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 57
+        }
+      },
+      "category_confusion_labels": [
+        "SLOW_HTTP"
+      ],
+      "category_confusion_matrix": [
+        [
+          57
+        ]
+      ]
+    },
+    "test-slow-3187-1794846901672624687": {
+      "flows": 58,
+      "binary_confusion_matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          58
+        ]
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_rate": null,
+      "false_negative_rate": 0.0,
+      "macro_detection_rate": 1.0,
+      "category_macro_f1": 1.0,
+      "categories": {
+        "SLOW_HTTP": {
+          "flows": 58,
+          "detection_rate": 1.0,
+          "correct_type_rate": 1.0
+        }
+      },
+      "class_metrics": {
+        "SLOW_HTTP": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 58
+        }
+      },
+      "category_confusion_labels": [
+        "SLOW_HTTP"
+      ],
+      "category_confusion_matrix": [
+        [
+          58
+        ]
+      ]
+    }
+  },
+  "all_independent_session_rows_secondary": {
+    "flows": 40518,
+    "binary_confusion_matrix": [
+      [
+        1180,
+        12
+      ],
+      [
+        71,
+        39255
+      ]
+    ],
+    "precision": 0.99969439987776,
+    "recall": 0.9981945786502568,
+    "f1": 0.9989439263038693,
+    "false_positive_rate": 0.010067114093959731,
+    "false_negative_rate": 0.0018054213497431726,
+    "macro_detection_rate": 0.9993575997756122,
+    "category_macro_f1": 0.9911109578181525,
+    "categories": {
+      "BENIGN": {
+        "flows": 1192,
+        "detection_rate": 0.010067114093959731,
+        "correct_type_rate": 0.9899328859060402
+      },
+      "HTTP_FLOOD": {
+        "flows": 36841,
+        "detection_rate": 0.9980727993268369,
+        "correct_type_rate": 0.998018511983931
+      },
+      "PORT_SCAN": {
+        "flows": 2341,
+        "detection_rate": 1.0,
+        "correct_type_rate": 1.0
+      },
+      "SLOW_HTTP": {
+        "flows": 144,
+        "detection_rate": 1.0,
+        "correct_type_rate": 1.0
+      }
+    },
+    "class_metrics": {
+      "BENIGN": {
+        "precision": 0.9432454036770583,
+        "recall": 0.9899328859060402,
+        "f1": 0.9660253786328284,
+        "support": 1192
+      },
+      "HTTP_FLOOD": {
+        "precision": 0.999673735725938,
+        "recall": 0.998018511983931,
+        "f1": 0.9988454381222749,
+        "support": 36841
+      },
+      "PORT_SCAN": {
+        "precision": 0.9991463935125907,
+        "recall": 1.0,
+        "f1": 0.9995730145175064,
+        "support": 2341
+      },
+      "SLOW_HTTP": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 144
+      }
+    },
+    "category_confusion_labels": [
+      "BENIGN",
+      "HTTP_FLOOD",
+      "PORT_SCAN",
+      "SLOW_HTTP"
+    ],
+    "category_confusion_matrix": [
+      [
+        1180,
+        12,
+        0,
+        0
+      ],
+      [
+        71,
+        36768,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        2341,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        144
+      ]
+    ],
+    "false_positive_rate_95pct_wilson": [
+      0.005768032741030918,
+      0.017513980528954004
+    ],
+    "sessions": {
+      "test-benign-3000-1794846368506565807": {
+        "flows": 188,
+        "binary_confusion_matrix": [
+          [
+            184,
+            4
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.02127659574468085,
+        "false_negative_rate": null,
+        "macro_detection_rate": null,
+        "category_macro_f1": 0.4946236559139785,
+        "categories": {
+          "BENIGN": {
+            "flows": 188,
+            "detection_rate": 0.02127659574468085,
+            "correct_type_rate": 0.9787234042553191
+          }
+        },
+        "class_metrics": {
+          "BENIGN": {
+            "precision": 1.0,
+            "recall": 0.9787234042553191,
+            "f1": 0.989247311827957,
+            "support": 188
+          },
+          "HTTP_FLOOD": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            184,
+            4
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "false_positive_rate_95pct_wilson": [
+          0.00830428256845268,
+          0.053421641318754265
+        ]
+      },
+      "test-benign-3017-1794846381462493982": {
+        "flows": 193,
+        "binary_confusion_matrix": [
+          [
+            193,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.0,
+        "false_negative_rate": null,
+        "macro_detection_rate": null,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "BENIGN": {
+            "flows": 193,
+            "detection_rate": 0.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "class_metrics": {
+          "BENIGN": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 193
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN"
+        ],
+        "category_confusion_matrix": [
+          [
+            193
+          ]
+        ],
+        "false_positive_rate_95pct_wilson": [
+          0.0,
+          0.019516199827678698
+        ]
+      },
+      "test-benign-3034-1794846394273981212": {
+        "flows": 192,
+        "binary_confusion_matrix": [
+          [
+            188,
+            4
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.020833333333333332,
+        "false_negative_rate": null,
+        "macro_detection_rate": null,
+        "category_macro_f1": 0.49473684210526314,
+        "categories": {
+          "BENIGN": {
+            "flows": 192,
+            "detection_rate": 0.020833333333333332,
+            "correct_type_rate": 0.9791666666666666
+          }
+        },
+        "class_metrics": {
+          "BENIGN": {
+            "precision": 1.0,
+            "recall": 0.9791666666666666,
+            "f1": 0.9894736842105263,
+            "support": 192
+          },
+          "HTTP_FLOOD": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            188,
+            4
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "false_positive_rate_95pct_wilson": [
+          0.008130652411583922,
+          0.052334539866256934
+        ]
+      },
+      "test-benign-3051-1794846407047879751": {
+        "flows": 187,
+        "binary_confusion_matrix": [
+          [
+            186,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.0053475935828877,
+        "false_negative_rate": null,
+        "macro_detection_rate": null,
+        "category_macro_f1": 0.49865951742627346,
+        "categories": {
+          "BENIGN": {
+            "flows": 187,
+            "detection_rate": 0.0053475935828877,
+            "correct_type_rate": 0.9946524064171123
+          }
+        },
+        "class_metrics": {
+          "BENIGN": {
+            "precision": 1.0,
+            "recall": 0.9946524064171123,
+            "f1": 0.9973190348525469,
+            "support": 187
+          },
+          "HTTP_FLOOD": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            186,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "false_positive_rate_95pct_wilson": [
+          0.0009445818095611402,
+          0.02966509658340978
+        ]
+      },
+      "test-flood-3136-1794846862930030620": {
+        "flows": 9109,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            19,
+            9090
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 0.9979141508398287,
+        "f1": 0.9989559865926699,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0020858491601712594,
+        "macro_detection_rate": 0.9979141508398287,
+        "category_macro_f1": 0.3329669927098216,
+        "categories": {
+          "HTTP_FLOOD": {
+            "flows": 9109,
+            "detection_rate": 0.9979141508398287,
+            "correct_type_rate": 0.9978043693050829
+          }
+        },
+        "class_metrics": {
+          "BENIGN": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "HTTP_FLOOD": {
+            "precision": 1.0,
+            "recall": 0.9978043693050829,
+            "f1": 0.9989009781294648,
+            "support": 9109
+          },
+          "PORT_SCAN": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD",
+          "PORT_SCAN"
+        ],
+        "category_confusion_matrix": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            19,
+            9089,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "test-flood-3153-1794846875700713921": {
+        "flows": 10764,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            19,
+            10745
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 0.9982348569305091,
+        "f1": 0.9991166488446697,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0017651430694908955,
+        "macro_detection_rate": 0.9982348569305091,
+        "category_macro_f1": 0.49955832442233483,
+        "categories": {
+          "HTTP_FLOOD": {
+            "flows": 10764,
+            "detection_rate": 0.9982348569305091,
+            "correct_type_rate": 0.9982348569305091
+          }
+        },
+        "class_metrics": {
+          "BENIGN": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "HTTP_FLOOD": {
+            "precision": 1.0,
+            "recall": 0.9982348569305091,
+            "f1": 0.9991166488446697,
+            "support": 10764
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            19,
+            10745
+          ]
+        ]
+      },
+      "test-mixed-3068-1794846419873860584": {
+        "flows": 7934,
+        "binary_confusion_matrix": [
+          [
+            205,
+            1
+          ],
+          [
+            14,
+            7714
+          ]
+        ],
+        "precision": 0.9998703823720025,
+        "recall": 0.9981884057971014,
+        "f1": 0.9990286861361134,
+        "false_positive_rate": 0.0048543689320388345,
+        "false_negative_rate": 0.0018115942028985507,
+        "macro_detection_rate": 0.9981884057971014,
+        "category_macro_f1": 0.6545565823790985,
+        "categories": {
+          "BENIGN": {
+            "flows": 206,
+            "detection_rate": 0.0048543689320388345,
+            "correct_type_rate": 0.9951456310679612
+          },
+          "HTTP_FLOOD": {
+            "flows": 7728,
+            "detection_rate": 0.9981884057971014,
+            "correct_type_rate": 0.9980590062111802
+          }
+        },
+        "class_metrics": {
+          "BENIGN": {
+            "precision": 0.9360730593607306,
+            "recall": 0.9951456310679612,
+            "f1": 0.9647058823529412,
+            "support": 206
+          },
+          "HTTP_FLOOD": {
+            "precision": 0.9998703655690951,
+            "recall": 0.9980590062111802,
+            "f1": 0.9989638647843544,
+            "support": 7728
+          },
+          "PORT_SCAN": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD",
+          "PORT_SCAN"
+        ],
+        "category_confusion_matrix": [
+          [
+            205,
+            1,
+            0
+          ],
+          [
+            14,
+            7713,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "false_positive_rate_95pct_wilson": [
+          0.0008574078343957636,
+          0.026980732934641448
+        ]
+      },
+      "test-mixed-3085-1794846832145524592": {
+        "flows": 9466,
+        "binary_confusion_matrix": [
+          [
+            224,
+            2
+          ],
+          [
+            19,
+            9221
+          ]
+        ],
+        "precision": 0.9997831508186057,
+        "recall": 0.9979437229437229,
+        "f1": 0.9988625900449548,
+        "false_positive_rate": 0.008849557522123894,
+        "false_negative_rate": 0.0020562770562770564,
+        "macro_detection_rate": 0.9979437229437229,
+        "category_macro_f1": 0.9770432353209848,
+        "categories": {
+          "BENIGN": {
+            "flows": 226,
+            "detection_rate": 0.008849557522123894,
+            "correct_type_rate": 0.9911504424778761
+          },
+          "HTTP_FLOOD": {
+            "flows": 9240,
+            "detection_rate": 0.9979437229437229,
+            "correct_type_rate": 0.9979437229437229
+          }
+        },
+        "class_metrics": {
+          "BENIGN": {
+            "precision": 0.9218106995884774,
+            "recall": 0.9911504424778761,
+            "f1": 0.9552238805970149,
+            "support": 226
+          },
+          "HTTP_FLOOD": {
+            "precision": 0.9997831508186057,
+            "recall": 0.9979437229437229,
+            "f1": 0.9988625900449548,
+            "support": 9240
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            224,
+            2
+          ],
+          [
+            19,
+            9221
+          ]
+        ],
+        "false_positive_rate_95pct_wilson": [
+          0.0024301812332489566,
+          0.031687228321853333
+        ]
+      },
+      "test-scan-3102-1794846845110225725": {
+        "flows": 1175,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1175
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "macro_detection_rate": 1.0,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "PORT_SCAN": {
+            "flows": 1175,
+            "detection_rate": 1.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "class_metrics": {
+          "PORT_SCAN": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1175
+          }
+        },
+        "category_confusion_labels": [
+          "PORT_SCAN"
+        ],
+        "category_confusion_matrix": [
+          [
+            1175
+          ]
+        ]
+      },
+      "test-scan-3119-1794846853979736772": {
+        "flows": 1166,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1166
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "macro_detection_rate": 1.0,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "PORT_SCAN": {
+            "flows": 1166,
+            "detection_rate": 1.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "class_metrics": {
+          "PORT_SCAN": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1166
+          }
+        },
+        "category_confusion_labels": [
+          "PORT_SCAN"
+        ],
+        "category_confusion_matrix": [
+          [
+            1166
+          ]
+        ]
+      },
+      "test-slow-3170-1794846888528749713": {
+        "flows": 70,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            70
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "macro_detection_rate": 1.0,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "SLOW_HTTP": {
+            "flows": 70,
+            "detection_rate": 1.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "class_metrics": {
+          "SLOW_HTTP": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 70
+          }
+        },
+        "category_confusion_labels": [
+          "SLOW_HTTP"
+        ],
+        "category_confusion_matrix": [
+          [
+            70
+          ]
+        ]
+      },
+      "test-slow-3187-1794846901672624687": {
+        "flows": 74,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            74
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "macro_detection_rate": 1.0,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "SLOW_HTTP": {
+            "flows": 74,
+            "detection_rate": 1.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "class_metrics": {
+          "SLOW_HTTP": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 74
+          }
+        },
+        "category_confusion_labels": [
+          "SLOW_HTTP"
+        ],
+        "category_confusion_matrix": [
+          [
+            74
+          ]
+        ]
+      }
+    }
+  },
+  "latency_single_flow": {
+    "mean_ms": 4.171337664999999,
+    "p50_ms": 4.163294499999999,
+    "p95_ms": 4.29137975,
+    "p99_ms": 4.339795049999999,
+    "max_ms": 4.372469
+  },
+  "overlap": {
+    "reference_rows": 81816,
+    "target_rows": 40518,
+    "overlap_rows": 14421,
+    "novel_rows": 26097,
+    "rounding_decimals": 3,
+    "policy": "primary metrics exclude signed-log1p feature fingerprints rounded to 3 decimals matching earlier roles",
+    "limitation": "quantized near-duplicate screening is not an exhaustive nearest-neighbor search"
+  },
+  "acceptance": {
+    "fpr_point_estimate_at_most_3pct": true,
+    "macro_detection_at_least_70pct": true,
+    "p95_single_flow_at_most_5ms": true,
+    "scope": "independent synthetic Docker sessions; sample uncertainty and external validation remain",
+    "passed": true
+  },
+  "reload_predictions_identical": true
+}

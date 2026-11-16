@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1080" viewBox="0 0 1280 1080" role="img" aria-labelledby="title description">
+  <title id="title">AI-NetGuard implemented Docker laboratory topology</title>
+  <desc id="description">Two internal Docker networks carry traffic and management. Two clients and a controlled simulator communicate with a server. Capture and inference share the server network namespace. Inference sends normalized events to ingestion and SQLite. Only ingestion also joins a dedicated dashboard bridge for a loopback-only host port.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#50617a" stroke-width="1.5"/></marker>
+    <marker id="blueArrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#2563eb" stroke-width="1.5"/></marker>
+    <style>
+      text{font-family:Inter,Arial,sans-serif;fill:#16243a}
+      .title{font-size:30px;font-weight:700}.subtitle{font-size:15px;fill:#52627a}
+      .section{font-size:18px;font-weight:700}.name{font-size:17px;font-weight:700}
+      .body{font-size:14px}.small{font-size:12px;fill:#52627a}
+      .box{fill:white;stroke:#c7d3e3;stroke-width:1.5;rx:12}
+      .link{fill:none;stroke:#50617a;stroke-width:2;marker-end:url(#arrow)}
+      .data{fill:none;stroke:#2563eb;stroke-width:2.5;marker-end:url(#blueArrow)}
+      .observe{fill:none;stroke:#50617a;stroke-width:2;stroke-dasharray:6 5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1280" height="1080" fill="#f7f9fc"/>
+  <text x="48" y="55" class="title">AI-NetGuard · Implemented lab topology</text>
+  <text x="48" y="83" class="subtitle">Docker Compose: netguard-integration · Configuration view, not a live service-status display</text>
+  <rect x="32" y="111" width="1216" height="444" rx="18" fill="#eef5ff" stroke="#b7d0f6"/>
+  <text x="56" y="145" class="section">TRAFFIC NETWORK</text>
+  <text x="56" y="169" class="body">10.77.0.0/24 · internal Docker bridge · no public service bindings</text>
+  <rect x="56" y="197" width="230" height="91" class="box"/>
+  <text x="75" y="225" class="name">Normal client A</text>
+  <text x="75" y="248" class="body">client-a · 10.77.0.20</text>
+  <text x="75" y="270" class="small">HTTP / DNS / SSH activity</text>
+  <rect x="56" y="307" width="230" height="91" class="box"/>
+  <text x="75" y="335" class="name">Normal client B</text>
+  <text x="75" y="358" class="body">client-b · 10.77.0.21</text>
+  <text x="75" y="380" class="small">Independent client / capture runs</text>
+  <rect x="56" y="417" width="230" height="108" class="box"/>
+  <text x="75" y="445" class="name">Controlled simulator</text>
+  <text x="75" y="468" class="body">simulator · 10.77.0.30</text>
+  <text x="75" y="490" class="small">Bounded scenarios; client containers</text>
+  <text x="75" y="508" class="small">can also run the scenario tools</text>
+  <path d="M286 242H345V352H412" class="link"/>
+  <path d="M286 352H412" class="link"/>
+  <path d="M286 471H345V352" fill="none" stroke="#50617a" stroke-width="2"/>
+  <text x="330" y="222" class="small">Actual packets</text>
+  <rect x="414" y="197" width="335" height="328" rx="14" fill="#fff" stroke="#92afd4" stroke-width="1.8"/>
+  <text x="435" y="227" class="name">Server network namespace</text>
+  <text x="435" y="251" class="body">server · 10.77.0.10 · lab0</text>
+  <text x="435" y="280" class="body">HTTP application :8080</text>
+  <text x="435" y="305" class="body">DNS support :5353 / UDP</text>
+  <text x="435" y="330" class="body">SSH service :2222 / TCP</text>
+  <path d="M435 348H728" stroke="#d8e1ee"/>
+  <text x="435" y="375" class="body">Capture and sensor attach here</text>
+  <text x="435" y="399" class="small">network_mode: service:server</text>
+  <text x="435" y="433" class="small">Observes traffic reaching this server.</text>
+  <text x="435" y="454" class="small">Not an inline gateway or a mirror of all</text>
+  <text x="435" y="475" class="small">traffic between every lab participant.</text>
+  <rect x="850" y="197" width="364" height="111" class="box"/>
+  <text x="870" y="226" class="name">Packet capture · capture</text>
+  <text x="870" y="251" class="body">tcpdump → retained PCAP files</text>
+  <text x="870" y="276" class="small">capture-data volume → session datasets</text>
+  <text x="870" y="295" class="small">Offline replay, training and independent tests</text>
+  <rect x="850" y="342" width="364" height="183" class="box"/>
+  <text x="870" y="371" class="name">Live sensor · sensor</text>
+  <text x="870" y="397" class="body">AF_PACKET → bidirectional flow state</text>
+  <text x="870" y="422" class="body">Causal features → released ML bundle</text>
+  <text x="870" y="447" class="body">Verdicts → normalized ML events</text>
+  <text x="870" y="473" class="small">Durable SQLite outbox · sensor volume</text>
+  <text x="870" y="496" class="small">Only server-destined flows enter inference</text>
+  <path d="M749 253H850" class="observe"/>
+  <path d="M749 433H850" class="observe"/>
+  <rect x="32" y="581" width="1216" height="280" rx="18" fill="#edf8f4" stroke="#b4dccb"/>
+  <text x="56" y="616" class="section">MANAGEMENT NETWORK</text>
+  <text x="56" y="640" class="body">Separate internal Docker bridge · automatic IP allocation · service-name discovery</text>
+  <rect x="56" y="672" width="285" height="158" class="box"/>
+  <text x="76" y="701" class="name">Syslog senders</text>
+  <text x="76" y="726" class="body">Client / simulator containers</text>
+  <text x="76" y="751" class="small">Send Linux, Cisco and Windows-format</text>
+  <text x="76" y="771" class="small">messages to the common collector.</text>
+  <text x="76" y="802" class="small">No Cisco or Windows OS VM is present.</text>
+  <rect x="453" y="672" width="338" height="158" class="box"/>
+  <text x="473" y="701" class="name">Ingestion + alert service · ingest</text>
+  <text x="473" y="726" class="body">UDP :5514 → syslog normalization</text>
+  <text x="473" y="751" class="body">HTTP :8090 → authenticated ML input</text>
+  <text x="473" y="777" class="body">Common event schema + dashboard API</text>
+  <text x="473" y="803" class="small">Both input paths share storage and queries</text>
+  <rect x="924" y="672" width="290" height="158" class="box"/>
+  <text x="944" y="701" class="name">Persistent event storage</text>
+  <text x="944" y="728" class="body">SQLite WAL · events volume</text>
+  <text x="944" y="755" class="small">Alerts, normal verdicts, diagnostics</text>
+  <text x="944" y="778" class="small">Bounded retention and quarantine</text>
+  <text x="944" y="803" class="small">Embedded in ingest; no database server</text>
+  <path d="M341 741H453" class="link"/>
+  <text x="353" y="727" class="small">Syslog</text>
+  <path d="M1030 525V567H822V660H702V672" class="data"/>
+  <text x="864" y="558" class="small">HTTP events + diagnostics via mgmt0</text>
+  <path d="M791 751H924" class="link"/>
+  <text x="811" y="737" class="small">Local writes</text>
+  <rect x="453" y="902" width="338" height="91" class="box"/>
+  <text x="473" y="932" class="name">Your browser · host machine</text>
+  <text x="473" y="957" class="body">http://127.0.0.1:8090</text>
+  <text x="473" y="979" class="small">Dedicated dashboard bridge; loopback-only port</text>
+  <path d="M622 902V830" class="link"/>
+  <text x="810" y="923" class="small">Network membership:</text>
+  <text x="810" y="945" class="small">Server, clients and simulator join both bridges.</text>
+  <text x="810" y="967" class="small">Only ingest also joins the dashboard bridge.</text>
+  <text x="48" y="1030" class="small">Solid gray = traffic / service connection · dashed gray = shared-interface observation · blue = ML event delivery</text>
+  <text x="48" y="1053" class="small">Synthetic isolated lab. No R1/IOU2 routers, external uplink, or production-network validation is represented.</text>
+</svg>

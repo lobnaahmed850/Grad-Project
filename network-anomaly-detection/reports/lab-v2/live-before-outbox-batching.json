@@ -1,0 +1,539 @@
+{
+  "scope": "fresh synthetic live Docker scenarios; separate from release selection",
+  "model_version": "lab-v2",
+  "model_sha256": "9a895917ab1964abcf8e59ad20a0518a4cbeab8718f3f9a51fffd0d5cca8bec0",
+  "cases": [
+    {
+      "scenario": "benign",
+      "traffic": {
+        "scenario": "benign",
+        "seed": 5000,
+        "target": "10.77.0.10",
+        "started_unix": 1794847340.6697116,
+        "ended_unix": 1794847344.7000592,
+        "operations": 39,
+        "errors": 0,
+        "tools": {
+          "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+        }
+      },
+      "metrics": {
+        "flows": 55,
+        "binary_confusion_matrix": [
+          [
+            54,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_positive_rate": 0.01818181818181818,
+        "false_negative_rate": null,
+        "macro_detection_rate": null,
+        "category_macro_f1": 0.4954128440366973,
+        "categories": {
+          "BENIGN": {
+            "flows": 55,
+            "detection_rate": 0.01818181818181818,
+            "correct_type_rate": 0.9818181818181818
+          }
+        },
+        "class_metrics": {
+          "BENIGN": {
+            "precision": 1.0,
+            "recall": 0.9818181818181818,
+            "f1": 0.9908256880733946,
+            "support": 55
+          },
+          "HTTP_FLOOD": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            54,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "false_positive_rate_95pct_wilson": [
+          0.003216697592252786,
+          0.09606000460483224
+        ]
+      },
+      "sample_alert_ids": [
+        "646a66aa-cb5e-42f4-bbc0-a2119b44c55e",
+        "16b868e0-4a52-4da1-8e12-f66cc11f7ea4",
+        "1a87e8fe-d919-4087-8c21-cf58c5574a4e"
+      ]
+    },
+    {
+      "scenario": "scan",
+      "traffic": {
+        "scenario": "scan",
+        "seed": 5001,
+        "target": "10.77.0.10",
+        "started_unix": 1794847346.6365423,
+        "ended_unix": 1794847349.3161004,
+        "operations": 400,
+        "errors": 0,
+        "tools": {
+          "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+        }
+      },
+      "metrics": {
+        "flows": 400,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            400
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "macro_detection_rate": 1.0,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "PORT_SCAN": {
+            "flows": 400,
+            "detection_rate": 1.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "class_metrics": {
+          "PORT_SCAN": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 400
+          }
+        },
+        "category_confusion_labels": [
+          "PORT_SCAN"
+        ],
+        "category_confusion_matrix": [
+          [
+            400
+          ]
+        ]
+      },
+      "sample_alert_ids": [
+        "4af8686c-2255-4168-bbe6-134babac474f",
+        "2cd5bb78-e6de-460b-87a8-767cfd1a4827",
+        "6b6cb201-136a-444d-95ac-5d0768fbee72"
+      ]
+    },
+    {
+      "scenario": "flood",
+      "traffic": {
+        "scenario": "flood",
+        "seed": 5002,
+        "target": "10.77.0.10",
+        "started_unix": 1794847352.6003308,
+        "ended_unix": 1794847356.613083,
+        "operations": 2184,
+        "errors": 0,
+        "tools": {
+          "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+        }
+      },
+      "metrics": {
+        "flows": 3264,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            19,
+            3245
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 0.9941789215686274,
+        "f1": 0.9970809648179444,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.005821078431372549,
+        "macro_detection_rate": 0.9941789215686274,
+        "category_macro_f1": 0.4985404824089722,
+        "categories": {
+          "HTTP_FLOOD": {
+            "flows": 3264,
+            "detection_rate": 0.9941789215686274,
+            "correct_type_rate": 0.9941789215686274
+          }
+        },
+        "class_metrics": {
+          "BENIGN": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "HTTP_FLOOD": {
+            "precision": 1.0,
+            "recall": 0.9941789215686274,
+            "f1": 0.9970809648179444,
+            "support": 3264
+          }
+        },
+        "category_confusion_labels": [
+          "BENIGN",
+          "HTTP_FLOOD"
+        ],
+        "category_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            19,
+            3245
+          ]
+        ]
+      },
+      "sample_alert_ids": [
+        "35d87794-88f4-400f-a10c-db0909b6eecc",
+        "51e0275f-494c-4ec3-9aa9-8c2961ce8fae",
+        "b775f761-5e4c-4706-84e4-fcb5ac1ce4d5"
+      ]
+    },
+    {
+      "scenario": "slow",
+      "traffic": {
+        "scenario": "slow",
+        "seed": 5003,
+        "target": "10.77.0.10",
+        "started_unix": 1794847358.8951426,
+        "ended_unix": 1794847363.104756,
+        "operations": 380,
+        "errors": 0,
+        "tools": {
+          "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+        }
+      },
+      "metrics": {
+        "flows": 38,
+        "binary_confusion_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            38
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "macro_detection_rate": 1.0,
+        "category_macro_f1": 1.0,
+        "categories": {
+          "SLOW_HTTP": {
+            "flows": 38,
+            "detection_rate": 1.0,
+            "correct_type_rate": 1.0
+          }
+        },
+        "class_metrics": {
+          "SLOW_HTTP": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 38
+          }
+        },
+        "category_confusion_labels": [
+          "SLOW_HTTP"
+        ],
+        "category_confusion_matrix": [
+          [
+            38
+          ]
+        ]
+      },
+      "sample_alert_ids": [
+        "485d7402-e826-41d6-a833-c1f512e1a785",
+        "dca67f29-1905-49ab-a94c-cbe1eca0d484",
+        "852cf7a7-d955-4ec3-86b3-ca2c89cedd86"
+      ]
+    }
+  ],
+  "shared_ingestion": {
+    "event_sources": [
+      "ml",
+      "syslog"
+    ],
+    "syslog_events": 3
+  },
+  "recovery": {
+    "ingestion_restart": {
+      "pending_during_outage": 200,
+      "drained": true,
+      "stored_events_preserved": true
+    },
+    "sensor_restart": {
+      "restarted": true,
+      "flow_policy": "in-memory active flows flushed on graceful shutdown; crash starts new segments"
+    }
+  },
+  "sensor_final_diagnostics": {
+    "status": "stopped",
+    "model_version": "lab-v2",
+    "uptime_seconds": 91.85337181400973,
+    "model_sha256": "9a895917ab1964abcf8e59ad20a0518a4cbeab8718f3f9a51fffd0d5cca8bec0",
+    "flow_engine": {
+      "packets": 34439,
+      "late_packets": 27,
+      "emitted": 5094,
+      "capacity_evictions": 0,
+      "active_flows": 0,
+      "rate_events": 0,
+      "sources": 0,
+      "rate_evictions": 0
+    },
+    "queue_dropped": 0,
+    "outbox_dropped": 0,
+    "inference_errors": 0,
+    "delivered": 3957,
+    "delivery_errors": 19,
+    "capture_restarts": 0,
+    "kernel_dropped": 0,
+    "queue_peak": 48,
+    "decoded_packets": 34439,
+    "ignored_or_malformed_packets": 4,
+    "verdicts": 3957,
+    "alerts": 3884,
+    "capture_truncated": 0,
+    "excluded_non_ingress_flows": 1137,
+    "queue_depth": 0,
+    "outbox_depth": 0,
+    "cpu_seconds": 8.742208,
+    "cpu_percent_of_one_core_lifetime": 9.517568955118763,
+    "peak_rss_mb": 234.57421875,
+    "throughput_flows_per_second": 43.079529056509465,
+    "timings_ms_last_4096_samples": {
+      "packet_to_flow_ms": {
+        "samples": 4096,
+        "mean": 0.016766252929687503,
+        "median": 0.010787000000000001,
+        "p95": 0.044094,
+        "p99": 0.07343945000000046,
+        "max": 2.036957
+      },
+      "feature_extraction_ms": {
+        "samples": 3430,
+        "mean": 0.05425325451895044,
+        "median": 0.032619499999999996,
+        "p95": 0.11718359999999964,
+        "p99": 0.5475822400000001,
+        "max": 2.027053
+      },
+      "queue_delay_ms": {
+        "samples": 3957,
+        "mean": 15.413272498610059,
+        "median": 13.42509,
+        "p95": 34.189463599999996,
+        "p99": 47.010961040000005,
+        "max": 56.187732
+      },
+      "inference_batch_ms": {
+        "samples": 535,
+        "mean": 8.4458061682243,
+        "median": 6.795588,
+        "p95": 16.490914999999987,
+        "p99": 20.88891298,
+        "max": 33.57448
+      },
+      "feature_preprocessing_ms": {
+        "samples": 535,
+        "mean": 0.7286124560747663,
+        "median": 0.560107,
+        "p95": 1.286456699999999,
+        "p99": 4.829182719999962,
+        "max": 8.356581
+      },
+      "classifier_inference_ms": {
+        "samples": 535,
+        "mean": 3.909118080373832,
+        "median": 3.133359,
+        "p95": 7.109472099999993,
+        "p99": 10.763608619999996,
+        "max": 21.464725
+      },
+      "alert_normalization_ms": {
+        "samples": 3957,
+        "mean": 0.025945695981804396,
+        "median": 0.022146,
+        "p95": 0.057653399999999966,
+        "p99": 0.08090204000000004,
+        "max": 0.241033
+      },
+      "ingestion_ms": {
+        "samples": 3957,
+        "mean": 12.567633683851403,
+        "median": 12.078418,
+        "p95": 19.394463,
+        "p99": 33.571002,
+        "max": 35.707474
+      },
+      "delivery_ms": {
+        "samples": 3957,
+        "mean": 15.796690458175386,
+        "median": 14.795225,
+        "p95": 24.869398,
+        "p99": 35.130304,
+        "max": 37.448135
+      },
+      "flow_completion_delay_ms": {
+        "samples": 3957,
+        "mean": 281.5743234773819,
+        "median": 0.0,
+        "p95": 1016.5032,
+        "p99": 1042.9383599999999,
+        "max": 1051.115
+      },
+      "end_to_end_since_flow_start_ms": {
+        "samples": 3957,
+        "mean": 802.5411803133686,
+        "median": 511.941,
+        "p95": 3269.6665999999996,
+        "p99": 4104.37969,
+        "max": 4295.544
+      },
+      "end_to_end_since_last_packet_ms": {
+        "samples": 3957,
+        "mean": 762.018064569118,
+        "median": 448.1835,
+        "p95": 3070.370049999999,
+        "p99": 3907.38293,
+        "max": 4119.3995
+      }
+    }
+  },
+  "service_summary": {
+    "counts": [
+      {
+        "source": "ml",
+        "decision": "alert",
+        "count": 26094
+      },
+      {
+        "source": "ml",
+        "decision": "benign",
+        "count": 934
+      },
+      {
+        "source": "syslog",
+        "decision": "alert",
+        "count": 6
+      }
+    ],
+    "counters": {
+      "quarantined": 2
+    },
+    "sensors": {
+      "lab-sensor": {
+        "updated_unix": 1794847378.3783872,
+        "status": "capturing",
+        "model_version": "lab-v2",
+        "uptime_seconds": 2.028638113057241,
+        "model_sha256": "9a895917ab1964abcf8e59ad20a0518a4cbeab8718f3f9a51fffd0d5cca8bec0",
+        "flow_engine": {
+          "packets": 0,
+          "late_packets": 0,
+          "emitted": 0,
+          "capacity_evictions": 0,
+          "active_flows": 0,
+          "rate_events": 0,
+          "sources": 0,
+          "rate_evictions": 0
+        },
+        "queue_dropped": 0,
+        "outbox_dropped": 0,
+        "inference_errors": 0,
+        "delivered": 0,
+        "delivery_errors": 0,
+        "capture_restarts": 0,
+        "kernel_dropped": 0,
+        "queue_peak": 0,
+        "decoded_packets": 0,
+        "ignored_or_malformed_packets": 0,
+        "verdicts": 0,
+        "alerts": 0,
+        "capture_truncated": 0,
+        "queue_depth": 0,
+        "outbox_depth": 0,
+        "cpu_seconds": 1.192661,
+        "cpu_percent_of_one_core_lifetime": 58.79121526523087,
+        "peak_rss_mb": 223.85546875,
+        "throughput_flows_per_second": 0.0,
+        "timings_ms_last_4096_samples": {
+          "packet_to_flow_ms": {
+            "samples": 0
+          },
+          "feature_extraction_ms": {
+            "samples": 0
+          },
+          "queue_delay_ms": {
+            "samples": 0
+          },
+          "inference_batch_ms": {
+            "samples": 0
+          },
+          "feature_preprocessing_ms": {
+            "samples": 0
+          },
+          "classifier_inference_ms": {
+            "samples": 0
+          },
+          "alert_normalization_ms": {
+            "samples": 0
+          },
+          "ingestion_ms": {
+            "samples": 0
+          },
+          "delivery_ms": {
+            "samples": 0
+          },
+          "flow_completion_delay_ms": {
+            "samples": 0
+          },
+          "end_to_end_since_flow_start_ms": {
+            "samples": 0
+          },
+          "end_to_end_since_last_packet_ms": {
+            "samples": 0
+          }
+        }
+      }
+    }
+  },
+  "stored_events_in_demo": 4060,
+  "passed": true
+}

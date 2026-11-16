@@ -1,0 +1,98 @@
+{
+  "environment": {
+    "python": "3.11.17",
+    "sklearn": "1.9.1",
+    "numpy": "2.4.6",
+    "joblib": "1.5.3",
+    "pandas": "3.0.6"
+  },
+  "model_version": "lab-v1",
+  "capture_sha256": "71d778a08f58c6b7d6a9e9c7f8c8a30cb8759ea303c6ca42039228a465de7b34",
+  "scope": "offline CPU benchmark, first 20000 frames; network delivery and flow completion are separate live measurements",
+  "packet_decode_ms": {
+    "samples": 12145,
+    "mean": 0.0010660441333882255,
+    "median": 0.000898,
+    "p95": 0.001966,
+    "p99": 0.002543719999999994,
+    "max": 0.061704
+  },
+  "flow_construction_ms_per_packet": {
+    "samples": 12145,
+    "mean": 0.0059176204199258954,
+    "median": 0.002644,
+    "p95": 0.004207399999999997,
+    "p99": 0.01023739999999984,
+    "max": 29.138332
+  },
+  "feature_extraction_ms_per_emitted_flow": {
+    "samples": 123,
+    "mean": 0.008532536585365853,
+    "median": 0.007227,
+    "p95": 0.0160361,
+    "p99": 0.027443160000000005,
+    "max": 0.04999
+  },
+  "flow_engine": {
+    "packets": 12145,
+    "late_packets": 7,
+    "emitted": 123,
+    "capacity_evictions": 0,
+    "active_flows": 0,
+    "rate_events": 21,
+    "sources": 2,
+    "rate_evictions": 0
+  },
+  "flow_engine_wall_seconds": 0.07734403607901186,
+  "flow_engine_cpu_seconds": 0.09821868799999933,
+  "flow_engine_packets_per_second": 157025.68181977354,
+  "release_inference": {
+    "1": {
+      "samples": 100,
+      "mean": 3.0218827100000003,
+      "median": 2.9923335,
+      "p95": 3.3986519499999996,
+      "p99": 3.5049671300000007,
+      "max": 3.590516,
+      "flows_per_second": 330.91952797863553,
+      "mean_ms_per_flow": 3.0218827100000003
+    },
+    "32": {
+      "samples": 30,
+      "mean": 3.1446544666666667,
+      "median": 3.1174575,
+      "p95": 3.4164196,
+      "p99": 3.46873613,
+      "max": 3.476016,
+      "flows_per_second": 10175.998774809748,
+      "mean_ms_per_flow": 0.09827045208333333
+    },
+    "256": {
+      "samples": 30,
+      "mean": 3.4319731333333325,
+      "median": 3.4105905,
+      "p95": 3.72618095,
+      "p99": 3.74308961,
+      "max": 3.748829,
+      "flows_per_second": 74592.65852450245,
+      "mean_ms_per_flow": 0.01340614505208333
+    }
+  },
+  "alert_normalization_ms": {
+    "samples": 100,
+    "mean": 0.00782456,
+    "median": 0.007291000000000001,
+    "p95": 0.0086353,
+    "p99": 0.015829700000000127,
+    "max": 0.040451
+  },
+  "legacy_single_flow_inference_ms": {
+    "samples": 100,
+    "mean": 33.647900119999996,
+    "median": 32.3389985,
+    "p95": 36.9917563,
+    "p99": 60.40192921000001,
+    "max": 63.558268
+  },
+  "process_peak_rss_mb": 1152.00390625
+}

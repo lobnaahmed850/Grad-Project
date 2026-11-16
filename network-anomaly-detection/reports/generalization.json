@@ -1,0 +1,138 @@
+{
+ "day test": {
+  "saved feature set, full size": {
+   "unseen day false alarms (target 3%)": 0.11895481068081451,
+   "unseen day AUC": 0.9261596633799838,
+   "unseen attack macro recall": 0.45635727893631683,
+   "per class": {
+    "Bot": 0.2741273100616016,
+    "DDoS": 0.92735169590826,
+    "Infiltration": 0.9166666666666666,
+    "PortScan": 0.9992612521225219,
+    "Web Attack - Brute Force": 0.05102040816326531,
+    "Web Attack - Sql Injection": 0.0,
+    "Web Attack - XSS": 0.02607361963190184
+   }
+  },
+  "saved feature set, same smaller size": {
+   "unseen day false alarms (target 3%)": 0.10620188092821305,
+   "unseen day AUC": 0.9108447019102639,
+   "unseen attack macro recall": 0.35983723228490533,
+   "per class": {
+    "Bot": 0.2731006160164271,
+    "DDoS": 0.7505741559516927,
+    "Infiltration": 0.8611111111111112,
+    "PortScan": 0.5605552737777582,
+    "Web Attack - Brute Force": 0.04897959183673469,
+    "Web Attack - Sql Injection": 0.0,
+    "Web Attack - XSS": 0.024539877300613498
+   }
+  },
+  "portable features with timing": {
+   "unseen day false alarms (target 3%)": 0.11746304870363872,
+   "unseen day AUC": 0.9429667114549976,
+   "unseen attack macro recall": 0.4413093342092994,
+   "per class": {
+    "Bot": 0.2746406570841889,
+    "DDoS": 0.8536566313059509,
+    "Infiltration": 0.8888888888888888,
+    "PortScan": 0.9991399651575628,
+    "Web Attack - Brute Force": 0.04829931972789116,
+    "Web Attack - Sql Injection": 0.0,
+    "Web Attack - XSS": 0.024539877300613498
+   }
+  },
+  "portable features": {
+   "unseen day false alarms (target 3%)": 0.11807057065555769,
+   "unseen day AUC": 0.9289771120703301,
+   "unseen attack macro recall": 0.402996603536443,
+   "per class": {
+    "Bot": 0.2741273100616016,
+    "DDoS": 0.6453044198290812,
+    "Infiltration": 0.8611111111111112,
+    "PortScan": 0.9934946082431032,
+    "Web Attack - Brute Force": 0.04693877551020408,
+    "Web Attack - Sql Injection": 0.0,
+    "Web Attack - XSS": 0.0
+   }
+  }
+ },
+ "local threshold": {
+  "saved target 5%": {
+   "target false alarms": 0.05,
+   "benign flows": 108,
+   "false alarms median": 0.05555555555555555,
+   "false alarms 5th to 95th percentile": [
+    0.0,
+    0.1305555555555547
+   ],
+   "attack recall median": 0.00016980811682798438,
+   "macro attack recall median": 0.0007186220016719606,
+   "per class median": {
+    "Bot": 0.0,
+    "DoS GoldenEye": 0.0,
+    "DoS slowloris": 0.0018083182640144665,
+    "FTP-Patator": 0.0,
+    "PortScan": 0.0,
+    "SYN flood": 0.0025034137460172965
+   }
+  },
+  "saved target 10%": {
+   "target false alarms": 0.1,
+   "benign flows": 108,
+   "false alarms median": 0.09259259259259259,
+   "false alarms 5th to 95th percentile": [
+    0.037037037037037035,
+    0.2037037037037037
+   ],
+   "attack recall median": 0.006805386835952297,
+   "macro attack recall median": 0.07054695619581665,
+   "per class median": {
+    "Bot": 0.0,
+    "DoS GoldenEye": 0.0,
+    "DoS slowloris": 0.4077757685352622,
+    "FTP-Patator": 0.0,
+    "PortScan": 3.0320027894425662e-05,
+    "SYN flood": 0.015475648611743286
+   }
+  },
+  "timing65536 target 5%": {
+   "target false alarms": 0.05,
+   "benign flows": 108,
+   "false alarms median": 0.05555555555555555,
+   "false alarms 5th to 95th percentile": [
+    0.018518518518518517,
+    0.12962962962962962
+   ],
+   "attack recall median": 9.143513983045313e-05,
+   "macro attack recall median": 0.00023010973681095637,
+   "per class median": {
+    "Bot": 0.0,
+    "DoS GoldenEye": 0.0,
+    "DoS slowloris": 0.0,
+    "FTP-Patator": 0.0,
+    "PortScan": 1.5160013947212831e-05,
+    "SYN flood": 0.0013654984069185253
+   }
+  },
+  "timing65536 target 10%": {
+   "target false alarms": 0.1,
+   "benign flows": 108,
+   "false alarms median": 0.1111111111111111,
+   "false alarms 5th to 95th percentile": [
+    0.037037037037037035,
+    0.2222222222222222
+   ],
+   "attack recall median": 0.00842509502723461,
+   "macro attack recall median": 0.08964855845777904,
+   "per class median": {
+    "Bot": 0.0,
+    "DoS GoldenEye": 0.0,
+    "DoS slowloris": 0.523508137432188,
+    "FTP-Patator": 0.0,
+    "PortScan": 4.5480041841638496e-05,
+    "SYN flood": 0.014337733272644515
+   }
+  }
+ }
+}

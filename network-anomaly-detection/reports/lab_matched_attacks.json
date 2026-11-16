@@ -1,0 +1,61 @@
+{
+ "benign_lan (normal)": {
+  "flows": 2061,
+  "alert rate": 0.4119359534206696,
+  "median duration s": 0.000936,
+  "median bytes": 104,
+  "typed": null
+ },
+ "PortScan (nmap)": {
+  "flows": 10002,
+  "alert rate": 0.9999000199960008,
+  "median duration s": 0.00026,
+  "median bytes": 0,
+  "typed": {
+   "PortScan": 9972,
+   "SSH-Patator": 29
+  }
+ },
+ "HTTP flood (curl, 8080)": {
+  "flows": 8001,
+  "alert rate": 0.5000624921884764,
+  "median duration s": 0.000424,
+  "median bytes": 892,
+  "typed": {
+   "PortScan": 3975,
+   "Web Attack - Brute Force": 25,
+   "DoS Slowhttptest": 1
+  }
+ },
+ "SYN flood (nping, 8080)": {
+  "flows": 800,
+  "alert rate": 1.0,
+  "median duration s": 0.000559,
+  "median bytes": 0,
+  "typed": {
+   "PortScan": 800
+  }
+ },
+ "Slowloris (slowhttptest)": {
+  "flows": 1018,
+  "alert rate": 0.5039292730844793,
+  "median duration s": 0.001236,
+  "median bytes": 230,
+  "typed": {
+   "DoS slowloris": 500,
+   "DoS Slowhttptest": 11,
+   "Web Attack - Brute Force": 2
+  }
+ },
+ "wrk flood (200 conn)": {
+  "flows": 428,
+  "alert rate": 0.8551401869158879,
+  "median duration s": 6.9347415,
+  "median bytes": 585184,
+  "typed": {
+   "Web Attack - Brute Force": 203,
+   "DoS Slowhttptest": 90,
+   "Bot": 51
+  }
+ }
+}

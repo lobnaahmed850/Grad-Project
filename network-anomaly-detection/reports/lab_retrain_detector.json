@@ -1,0 +1,29 @@
+{
+ "baseline": {
+  "lab false alarm": 0.24656084656084656,
+  "public false alarm": 0.02980344238351169,
+  "public recall": 0.7948199996868198,
+  "threshold": 0.023249628589168327,
+  "PortScan": 0.9999000199960008,
+  "SYN flood": 1.0,
+  "HTTP flood": 0.9515072083879423
+ },
+ "threshold (recalibrated on lab)": {
+  "lab false alarm": 0.030687830687830688,
+  "public false alarm": 0.0019728949687996206,
+  "public recall": 0.06365387325597782,
+  "threshold": 0.11739616070987231,
+  "PortScan": 0.0,
+  "SYN flood": 0.00125,
+  "HTTP flood": 0.0
+ },
+ "retrained (IF + lab normal)": {
+  "lab false alarm": 0.16507936507936508,
+  "public false alarm": 0.029386588769136284,
+  "public recall": 0.7866616557836551,
+  "threshold": 0.019334551810894385,
+  "PortScan": 0.9999000199960008,
+  "SYN flood": 1.0,
+  "HTTP flood": 0.9515072083879423
+ }
+}

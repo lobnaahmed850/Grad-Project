@@ -1,0 +1,44 @@
+{
+  "scope": "Friday real-packet feature parity and preserved-model diagnostic; cached original random-split holdouts are not independent-session release validation",
+  "extracted_flows": 702803,
+  "published_rows": 703245,
+  "paired_rows": 702651,
+  "compared_features": 76,
+  "minimum_feature_agreement": 0.9989098428665155,
+  "features_at_least_99pct": 76,
+  "inputs": {
+    "pcap": {
+      "path": "/home/mahmoud/dev/isd/mentorship/ai-netguard-ml-fix/network-anomaly-detection/data/raw/pcap/Friday-WorkingHours.pcap",
+      "sha256": "beff0dcce1eebc9b2454582f4dc8ed0ba0112b2c619a710bf03af93147254cd0"
+    },
+    "published_zip": {
+      "path": "artifacts/scratch/dl/cicids2017/GeneratedLabelledFlows.zip",
+      "sha256": "7bdbef286f8893f31c6db12105fa097fa5c2dcc6733179037a08129d150ea27a"
+    },
+    "heldout_if": {
+      "path": "artifacts/scratch/parity/holdout_if.parquet",
+      "sha256": "8c2efece119a6592bba175ccf18f32e76a7a535ba8bcc52661db48d7f3fc2dab"
+    },
+    "heldout_rf": {
+      "path": "artifacts/scratch/parity/holdout_rf.parquet",
+      "sha256": "924e8f8116b3adf53f6f996659c37f8ca4de9b083a1d41f687ae3a4a63d1db4c"
+    },
+    "extractor": {
+      "path": "network-anomaly-detection/src/flow_extractor.py",
+      "sha256": "76ca19d77d1cde4b9d1041c3942882d804ca97f73dbfc7784ed2ab335a5bf43e"
+    },
+    "original_if": {
+      "path": "network-anomaly-detection/models/iforest_v0.1.0.joblib",
+      "sha256": "e1ef25c0a5f9762a7516437bf37bfd7e254ce2d276fc15ca1d8f3237d95a7111"
+    },
+    "original_rf": {
+      "path": "network-anomaly-detection/models/random_forest_final.joblib",
+      "sha256": "8e7db626d4609432d95b3476abe144b9df4f0dee5817dca1a163f91aa1edb8ef"
+    }
+  },
+  "known_limitations": [
+    "Only Friday packets were compared.",
+    "Published labels and cached historical split membership retain original dataset limitations.",
+    "The current stricter parser paired 98 fewer rows than the historical report; that difference was not separately attributed."
+  ]
+}

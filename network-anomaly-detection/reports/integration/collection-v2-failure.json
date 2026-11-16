@@ -1,0 +1,6 @@
+{
+  "admission": "rejected",
+  "reason": "tcpdump reported kernel capture loss; this capture is not in the release manifest",
+  "statistics": "dropped privs to root\ntcpdump: listening on lab0, link-type EN10MB (Ethernet), snapshot length 262144 bytes\n85773 packets captured\n99054 packets received by filter\n12734 packets dropped by kernel\n",
+  "valid_admitted_sessions": 29
+}

@@ -1,0 +1,115 @@
+{
+ "false alarm rate": 0.2537313432835821,
+ "macro F1 all": 0.41047772451083386,
+ "macro F1 attacks": 0.3621270926808139,
+ "per class": {
+  "BENIGN": {
+   "precision": 0.5071212775140268,
+   "recall": 0.746268656716418,
+   "f1-score": 0.6038802518309135,
+   "support": 6298.0
+  },
+  "DDoS": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "f1-score": 0.0,
+   "support": 800.0
+  },
+  "DoS Hulk": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "f1-score": 0.0,
+   "support": 8429.0
+  },
+  "DoS slowloris": {
+   "precision": 0.9881422924901185,
+   "recall": 0.4911591355599214,
+   "f1-score": 0.6561679790026247,
+   "support": 1018.0
+  },
+  "PortScan": {
+   "precision": 0.6573933680532665,
+   "recall": 0.997000599880024,
+   "f1-score": 0.7923403917206309,
+   "support": 10002.0
+  },
+  "micro avg": {
+   "precision": 0.6079012741405562,
+   "recall": 0.5715146720910084,
+   "f1-score": 0.5891466847878847,
+   "support": 26547.0
+  },
+  "macro avg": {
+   "precision": 0.43053138761148235,
+   "recall": 0.44688567843127275,
+   "f1-score": 0.41047772451083386,
+   "support": 26547.0
+  },
+  "weighted avg": {
+   "precision": 0.40588492586006153,
+   "recall": 0.5715146720910084,
+   "f1-score": 0.4669531557857956,
+   "support": 26547.0
+  }
+ },
+ "confusion": {
+  "labels": [
+   "BENIGN",
+   "DDoS",
+   "DoS Hulk",
+   "DoS slowloris",
+   "PortScan",
+   "other attack"
+  ],
+  "matrix": [
+   [
+    4700,
+    15,
+    0,
+    6,
+    421,
+    1156
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    800,
+    0
+   ],
+   [
+    4062,
+    0,
+    0,
+    0,
+    3976,
+    391
+   ],
+   [
+    505,
+    0,
+    0,
+    500,
+    0,
+    13
+   ],
+   [
+    1,
+    0,
+    0,
+    0,
+    9972,
+    29
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  ]
+ }
+}

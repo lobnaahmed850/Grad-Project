@@ -1,0 +1,881 @@
+{
+  "scope": "fresh concurrent synthetic benign and HTTP flood; no selection or threshold changes",
+  "started_unix": 1794848061.7397163,
+  "ended_unix": 1794848072.0650413,
+  "traffic": [
+    {
+      "scenario": "benign",
+      "seed": 7100,
+      "target": "10.77.0.10",
+      "started_unix": 1794848061.8723931,
+      "ended_unix": 1794848071.8731916,
+      "operations": 105,
+      "errors": 0,
+      "tools": {
+        "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+      }
+    },
+    {
+      "scenario": "flood",
+      "seed": 7100,
+      "target": "10.77.0.10",
+      "started_unix": 1794848061.8880246,
+      "ended_unix": 1794848071.894929,
+      "operations": 4716,
+      "errors": 0,
+      "tools": {
+        "python": "3.12.13 (main, Apr 10 2026, 14:16:31) [GCC 13.2.1 20240309]"
+      }
+    }
+  ],
+  "stored_flow_verdicts": 7095,
+  "metrics": {
+    "flows": 7095,
+    "binary_confusion_matrix": [
+      [
+        174,
+        3
+      ],
+      [
+        20,
+        6898
+      ]
+    ],
+    "precision": 0.9995652803941458,
+    "recall": 0.9971089910378722,
+    "f1": 0.9983356248643173,
+    "false_positive_rate": 0.01694915254237288,
+    "false_negative_rate": 0.0028910089621277824,
+    "macro_detection_rate": 0.9971089910378722,
+    "category_macro_f1": 0.9681705078499484,
+    "categories": {
+      "BENIGN": {
+        "flows": 177,
+        "detection_rate": 0.01694915254237288,
+        "correct_type_rate": 0.9830508474576272
+      },
+      "HTTP_FLOOD": {
+        "flows": 6918,
+        "detection_rate": 0.9971089910378722,
+        "correct_type_rate": 0.9971089910378722
+      }
+    },
+    "class_metrics": {
+      "BENIGN": {
+        "precision": 0.8969072164948454,
+        "recall": 0.9830508474576272,
+        "f1": 0.9380053908355795,
+        "support": 177
+      },
+      "HTTP_FLOOD": {
+        "precision": 0.9995652803941458,
+        "recall": 0.9971089910378722,
+        "f1": 0.9983356248643173,
+        "support": 6918
+      }
+    },
+    "category_confusion_labels": [
+      "BENIGN",
+      "HTTP_FLOOD"
+    ],
+    "category_confusion_matrix": [
+      [
+        174,
+        3
+      ],
+      [
+        20,
+        6898
+      ]
+    ],
+    "false_positive_rate_95pct_wilson": [
+      0.005780598394886531,
+      0.048640508253141354
+    ]
+  },
+  "sensor_diagnostics": {
+    "updated_unix": 1794848073.8860228,
+    "status": "capturing",
+    "model_version": "lab-v2",
+    "uptime_seconds": 14.205820958013646,
+    "model_sha256": "9a895917ab1964abcf8e59ad20a0518a4cbeab8718f3f9a51fffd0d5cca8bec0",
+    "flow_engine": {
+      "packets": 78983,
+      "late_packets": 71,
+      "emitted": 9664,
+      "capacity_evictions": 0,
+      "active_flows": 0,
+      "rate_events": 0,
+      "sources": 0,
+      "rate_evictions": 0
+    },
+    "queue_dropped": 0,
+    "outbox_dropped": 0,
+    "inference_errors": 0,
+    "delivered": 7095,
+    "delivery_errors": 0,
+    "capture_restarts": 0,
+    "kernel_dropped": 0,
+    "queue_peak": 41,
+    "decoded_packets": 78983,
+    "ignored_or_malformed_packets": 0,
+    "verdicts": 7095,
+    "alerts": 6901,
+    "capture_truncated": 0,
+    "excluded_non_ingress_flows": 2569,
+    "queue_depth": 0,
+    "outbox_depth": 0,
+    "cpu_seconds": 8.18383,
+    "cpu_percent_of_one_core_lifetime": 57.608990175139574,
+    "peak_rss_mb": 233.9921875,
+    "throughput_flows_per_second": 499.44315228030797,
+    "timings_ms_last_4096_samples": {
+      "packet_to_flow_ms": {
+        "samples": 4096,
+        "mean": 0.014835249511718749,
+        "median": 0.008244999999999999,
+        "p95": 0.030503000000000002,
+        "p99": 0.09789745000000041,
+        "max": 1.347607
+      },
+      "feature_extraction_ms": {
+        "samples": 4096,
+        "mean": 0.06289681689453125,
+        "median": 0.028308,
+        "p95": 0.26771775000000003,
+        "p99": 0.6867605000000001,
+        "max": 2.415508
+      },
+      "queue_delay_ms": {
+        "samples": 4096,
+        "mean": 8.003089499023439,
+        "median": 6.66439,
+        "p95": 16.658105,
+        "p99": 23.5138541,
+        "max": 43.905371
+      },
+      "inference_batch_ms": {
+        "samples": 497,
+        "mean": 8.59997105633803,
+        "median": 7.167357,
+        "p95": 15.053156799999996,
+        "p99": 25.154297360000122,
+        "max": 47.610051
+      },
+      "feature_preprocessing_ms": {
+        "samples": 497,
+        "mean": 0.7871180402414487,
+        "median": 0.550549,
+        "p95": 1.3533968,
+        "p99": 5.094772640000014,
+        "max": 27.958494
+      },
+      "classifier_inference_ms": {
+        "samples": 497,
+        "mean": 3.8914994728370225,
+        "median": 3.18619,
+        "p95": 7.223706599999999,
+        "p99": 10.870684560000013,
+        "max": 34.24146
+      },
+      "alert_normalization_ms": {
+        "samples": 4096,
+        "mean": 0.012582336181640626,
+        "median": 0.0083605,
+        "p95": 0.032388,
+        "p99": 0.042752800000000014,
+        "max": 5.196873
+      },
+      "ingestion_ms": {
+        "samples": 4096,
+        "mean": 16.566207588378905,
+        "median": 15.248339,
+        "p95": 24.08387,
+        "p99": 29.802879,
+        "max": 53.181936
+      },
+      "delivery_ms": {
+        "samples": 4096,
+        "mean": 19.55432487133789,
+        "median": 18.109812,
+        "p95": 28.510458,
+        "p99": 39.808637,
+        "max": 55.558499
+      },
+      "flow_completion_delay_ms": {
+        "samples": 4096,
+        "mean": 361.8830686035156,
+        "median": 0.0,
+        "p95": 1020.009,
+        "p99": 1046.25545,
+        "max": 1052.209
+      },
+      "end_to_end_since_flow_start_ms": {
+        "samples": 4096,
+        "mean": 439.7300524291992,
+        "median": 107.11375000000001,
+        "p95": 1120.1540625,
+        "p99": 1146.768075,
+        "max": 1195.63775
+      },
+      "end_to_end_since_last_packet_ms": {
+        "samples": 4096,
+        "mean": 438.61379754638665,
+        "median": 105.297,
+        "p95": 1120.1540625,
+        "p99": 1146.762375,
+        "max": 1195.63775
+      }
+    }
+  },
+  "during_load": [
+    {
+      "unix": 1794848061.7412856,
+      "diagnostics": {
+        "updated_unix": 1794848061.6733809,
+        "status": "capturing",
+        "model_version": "lab-v2",
+        "uptime_seconds": 2.0121546000009403,
+        "model_sha256": "9a895917ab1964abcf8e59ad20a0518a4cbeab8718f3f9a51fffd0d5cca8bec0",
+        "flow_engine": {
+          "packets": 0,
+          "late_packets": 0,
+          "emitted": 0,
+          "capacity_evictions": 0,
+          "active_flows": 0,
+          "rate_events": 0,
+          "sources": 0,
+          "rate_evictions": 0
+        },
+        "queue_dropped": 0,
+        "outbox_dropped": 0,
+        "inference_errors": 0,
+        "delivered": 0,
+        "delivery_errors": 0,
+        "capture_restarts": 0,
+        "kernel_dropped": 0,
+        "queue_peak": 0,
+        "decoded_packets": 0,
+        "ignored_or_malformed_packets": 0,
+        "verdicts": 0,
+        "alerts": 0,
+        "capture_truncated": 0,
+        "queue_depth": 0,
+        "outbox_depth": 0,
+        "cpu_seconds": 1.194971,
+        "cpu_percent_of_one_core_lifetime": 59.3876335346917,
+        "peak_rss_mb": 222.21875,
+        "throughput_flows_per_second": 0.0,
+        "timings_ms_last_4096_samples": {
+          "packet_to_flow_ms": {
+            "samples": 0
+          },
+          "feature_extraction_ms": {
+            "samples": 0
+          },
+          "queue_delay_ms": {
+            "samples": 0
+          },
+          "inference_batch_ms": {
+            "samples": 0
+          },
+          "feature_preprocessing_ms": {
+            "samples": 0
+          },
+          "classifier_inference_ms": {
+            "samples": 0
+          },
+          "alert_normalization_ms": {
+            "samples": 0
+          },
+          "ingestion_ms": {
+            "samples": 0
+          },
+          "delivery_ms": {
+            "samples": 0
+          },
+          "flow_completion_delay_ms": {
+            "samples": 0
+          },
+          "end_to_end_since_flow_start_ms": {
+            "samples": 0
+          },
+          "end_to_end_since_last_packet_ms": {
+            "samples": 0
+          }
+        }
+      },
+      "docker_stats": "{\"BlockIO\":\"13.1MB / 2.95MB\",\"CPUPerc\":\"62.91%\",\"Container\":\"netguard-integration-sensor-1\",\"ID\":\"4fd31d06c706\",\"MemPerc\":\"16.48%\",\"MemUsage\":\"126.6MiB / 768MiB\",\"Name\":\"netguard-integration-sensor-1\",\"NetIO\":\"7.67MB / 66.2MB\",\"PIDs\":\"4\"}\n{\"BlockIO\":\"930kB / 13.1MB\",\"CPUPerc\":\"75.70%\",\"Container\":\"netguard-integration-ingest-1\",\"ID\":\"e403f2ace176\",\"MemPerc\":\"5.52%\",\"MemUsage\":\"28.26MiB / 512MiB\",\"Name\":\"netguard-integration-ingest-1\",\"NetIO\":\"1.9MB / 18.3MB\",\"PIDs\":\"3\"}"
+    },
+    {
+      "unix": 1794848064.0437136,
+      "diagnostics": {
+        "updated_unix": 1794848063.708964,
+        "status": "capturing",
+        "model_version": "lab-v2",
+        "uptime_seconds": 4.044746797066182,
+        "model_sha256": "9a895917ab1964abcf8e59ad20a0518a4cbeab8718f3f9a51fffd0d5cca8bec0",
+        "flow_engine": {
+          "packets": 14959,
+          "late_packets": 20,
+          "emitted": 1255,
+          "capacity_evictions": 0,
+          "active_flows": 495,
+          "rate_events": 984,
+          "sources": 3,
+          "rate_evictions": 0
+        },
+        "queue_dropped": 0,
+        "outbox_dropped": 0,
+        "inference_errors": 0,
+        "delivered": 1029,
+        "delivery_errors": 0,
+        "capture_restarts": 0,
+        "kernel_dropped": 0,
+        "queue_peak": 24,
+        "decoded_packets": 14959,
+        "ignored_or_malformed_packets": 0,
+        "verdicts": 1049,
+        "alerts": 1002,
+        "capture_truncated": 0,
+        "excluded_non_ingress_flows": 194,
+        "queue_depth": 0,
+        "outbox_depth": 20,
+        "cpu_seconds": 2.406296,
+        "cpu_percent_of_one_core_lifetime": 59.49188220497223,
+        "peak_rss_mb": 231.765625,
+        "throughput_flows_per_second": 262.31555477578627,
+        "timings_ms_last_4096_samples": {
+          "packet_to_flow_ms": {
+            "samples": 4096,
+            "mean": 0.010839305419921876,
+            "median": 0.007195,
+            "p95": 0.0245825,
+            "p99": 0.05345265000000007,
+            "max": 2.429849
+          },
+          "feature_extraction_ms": {
+            "samples": 942,
+            "mean": 0.0445398067940552,
+            "median": 0.027298500000000003,
+            "p95": 0.07016419999999972,
+            "p99": 0.5222061300000004,
+            "max": 1.002222
+          },
+          "queue_delay_ms": {
+            "samples": 1049,
+            "mean": 7.7395613479504295,
+            "median": 5.992252,
+            "p95": 17.40206099999998,
+            "p99": 34.859605479999985,
+            "max": 47.779075
+          },
+          "inference_batch_ms": {
+            "samples": 83,
+            "mean": 8.735617277108432,
+            "median": 6.850167,
+            "p95": 16.387353199999993,
+            "p99": 38.77420275999999,
+            "max": 40.144449
+          },
+          "feature_preprocessing_ms": {
+            "samples": 83,
+            "mean": 1.0460348072289158,
+            "median": 0.535985,
+            "p95": 1.3591640999999999,
+            "p99": 8.649517759999826,
+            "max": 27.958494
+          },
+          "classifier_inference_ms": {
+            "samples": 83,
+            "mean": 3.8685780000000007,
+            "median": 3.051079,
+            "p95": 6.3618744000000005,
+            "p99": 10.979095699999878,
+            "max": 24.648754
+          },
+          "alert_normalization_ms": {
+            "samples": 1049,
+            "mean": 0.01525939180171592,
+            "median": 0.008189,
+            "p95": 0.03206599999999998,
+            "p99": 0.040313919999999996,
+            "max": 3.289634
+          },
+          "ingestion_ms": {
+            "samples": 1029,
+            "mean": 15.655972187560739,
+            "median": 14.503786,
+            "p95": 23.629283,
+            "p99": 24.805771,
+            "max": 24.805771
+          },
+          "delivery_ms": {
+            "samples": 1029,
+            "mean": 19.110397627793972,
+            "median": 16.947237,
+            "p95": 26.124306,
+            "p99": 75.074442,
+            "max": 75.074442
+          },
+          "flow_completion_delay_ms": {
+            "samples": 1049,
+            "mean": 183.5503670162059,
+            "median": 0.0,
+            "p95": 1011.7586,
+            "p99": 1018.77184,
+            "max": 1020.07
+          },
+          "end_to_end_since_flow_start_ms": {
+            "samples": 1029,
+            "mean": 233.85375170068028,
+            "median": 56.54675,
+            "p95": 1058.9370999999999,
+            "p99": 1076.82749,
+            "max": 1082.7445
+          },
+          "end_to_end_since_last_packet_ms": {
+            "samples": 1029,
+            "mean": 232.4660918367347,
+            "median": 55.088,
+            "p95": 1058.9370999999999,
+            "p99": 1076.82749,
+            "max": 1082.7445
+          }
+        }
+      },
+      "docker_stats": "{\"BlockIO\":\"13.1MB / 16.4MB\",\"CPUPerc\":\"70.37%\",\"Container\":\"netguard-integration-sensor-1\",\"ID\":\"4fd31d06c706\",\"MemPerc\":\"16.59%\",\"MemUsage\":\"127.4MiB / 768MiB\",\"Name\":\"netguard-integration-sensor-1\",\"NetIO\":\"8.7MB / 76.6MB\",\"PIDs\":\"4\"}\n{\"BlockIO\":\"930kB / 31.7MB\",\"CPUPerc\":\"79.12%\",\"Container\":\"netguard-integration-ingest-1\",\"ID\":\"e403f2ace176\",\"MemPerc\":\"5.58%\",\"MemUsage\":\"28.57MiB / 512MiB\",\"Name\":\"netguard-integration-ingest-1\",\"NetIO\":\"3.51MB / 18.4MB\",\"PIDs\":\"3\"}"
+    },
+    {
+      "unix": 1794848066.0504096,
+      "diagnostics": {
+        "updated_unix": 1794848065.7359324,
+        "status": "capturing",
+        "model_version": "lab-v2",
+        "uptime_seconds": 6.075334288994782,
+        "model_sha256": "9a895917ab1964abcf8e59ad20a0518a4cbeab8718f3f9a51fffd0d5cca8bec0",
+        "flow_engine": {
+          "packets": 31664,
+          "late_packets": 33,
+          "emitted": 3226,
+          "capacity_evictions": 0,
+          "active_flows": 484,
+          "rate_events": 961,
+          "sources": 3,
+          "rate_evictions": 0
+        },
+        "queue_dropped": 0,
+        "outbox_dropped": 0,
+        "inference_errors": 0,
+        "delivered": 2462,
+        "delivery_errors": 0,
+        "capture_restarts": 0,
+        "kernel_dropped": 0,
+        "queue_peak": 24,
+        "decoded_packets": 31664,
+        "ignored_or_malformed_packets": 0,
+        "verdicts": 2482,
+        "alerts": 2396,
+        "capture_truncated": 0,
+        "excluded_non_ingress_flows": 729,
+        "queue_depth": 0,
+        "outbox_depth": 20,
+        "cpu_seconds": 3.787282,
+        "cpu_percent_of_one_core_lifetime": 62.33866022583326,
+        "peak_rss_mb": 232.2734375,
+        "throughput_flows_per_second": 408.53719020795955,
+        "timings_ms_last_4096_samples": {
+          "packet_to_flow_ms": {
+            "samples": 4096,
+            "mean": 0.012339969970703125,
+            "median": 0.00749,
+            "p95": 0.025911999999999998,
+            "p99": 0.054876400000000276,
+            "max": 2.131622
+          },
+          "feature_extraction_ms": {
+            "samples": 2175,
+            "mean": 0.055196143448275864,
+            "median": 0.027896,
+            "p95": 0.14038579999999795,
+            "p99": 0.6206786199999984,
+            "max": 2.131622
+          },
+          "queue_delay_ms": {
+            "samples": 2482,
+            "mean": 8.105721366639807,
+            "median": 6.941321,
+            "p95": 17.584607199999994,
+            "p99": 25.611355340000042,
+            "max": 47.779075
+          },
+          "inference_batch_ms": {
+            "samples": 178,
+            "mean": 8.760810224719101,
+            "median": 7.0171995,
+            "p95": 15.704929550000001,
+            "p99": 33.22615497999993,
+            "max": 40.144449
+          },
+          "feature_preprocessing_ms": {
+            "samples": 178,
+            "mean": 0.8939080842696628,
+            "median": 0.5491935,
+            "p95": 1.4104580500000012,
+            "p99": 6.069457929999999,
+            "max": 27.958494
+          },
+          "classifier_inference_ms": {
+            "samples": 178,
+            "mean": 3.910554601123595,
+            "median": 3.2351075,
+            "p95": 7.2845522500000035,
+            "p99": 11.205636829999904,
+            "max": 24.648754
+          },
+          "alert_normalization_ms": {
+            "samples": 2482,
+            "mean": 0.013365122078968573,
+            "median": 0.0081795,
+            "p95": 0.033193099999999996,
+            "p99": 0.043109830000000036,
+            "max": 3.289634
+          },
+          "ingestion_ms": {
+            "samples": 2462,
+            "mean": 15.691906675873275,
+            "median": 14.503786,
+            "p95": 23.629283,
+            "p99": 25.238026,
+            "max": 45.623714
+          },
+          "delivery_ms": {
+            "samples": 2462,
+            "mean": 18.78689914500406,
+            "median": 16.9689315,
+            "p95": 27.874166,
+            "p99": 47.173962,
+            "max": 75.074442
+          },
+          "flow_completion_delay_ms": {
+            "samples": 2482,
+            "mean": 265.439485898469,
+            "median": 0.0,
+            "p95": 1015.8774,
+            "p99": 1019.14333,
+            "max": 1020.486
+          },
+          "end_to_end_since_flow_start_ms": {
+            "samples": 2462,
+            "mean": 321.42697075548335,
+            "median": 63.240625,
+            "p95": 1073.40105,
+            "p99": 1082.8416849999999,
+            "max": 1096.7805
+          },
+          "end_to_end_since_last_packet_ms": {
+            "samples": 2462,
+            "mean": 320.2130170593014,
+            "median": 61.844875,
+            "p95": 1073.40105,
+            "p99": 1082.8416849999999,
+            "max": 1096.7805
+          }
+        }
+      },
+      "docker_stats": "{\"BlockIO\":\"13.1MB / 25.5MB\",\"CPUPerc\":\"65.78%\",\"Container\":\"netguard-integration-sensor-1\",\"ID\":\"4fd31d06c706\",\"MemPerc\":\"16.67%\",\"MemUsage\":\"128MiB / 768MiB\",\"Name\":\"netguard-integration-sensor-1\",\"NetIO\":\"9.37MB / 82.8MB\",\"PIDs\":\"4\"}\n{\"BlockIO\":\"950kB / 50.2MB\",\"CPUPerc\":\"76.29%\",\"Container\":\"netguard-integration-ingest-1\",\"ID\":\"e403f2ace176\",\"MemPerc\":\"6.87%\",\"MemUsage\":\"35.15MiB / 512MiB\",\"Name\":\"netguard-integration-ingest-1\",\"NetIO\":\"5.13MB / 18.5MB\",\"PIDs\":\"3\"}"
+    },
+    {
+      "unix": 1794848068.0563025,
+      "diagnostics": {
+        "updated_unix": 1794848067.7872193,
+        "status": "capturing",
+        "model_version": "lab-v2",
+        "uptime_seconds": 8.100877000018954,
+        "model_sha256": "9a895917ab1964abcf8e59ad20a0518a4cbeab8718f3f9a51fffd0d5cca8bec0",
+        "flow_engine": {
+          "packets": 45979,
+          "late_packets": 38,
+          "emitted": 5196,
+          "capacity_evictions": 0,
+          "active_flows": 482,
+          "rate_events": 960,
+          "sources": 3,
+          "rate_evictions": 0
+        },
+        "queue_dropped": 0,
+        "outbox_dropped": 0,
+        "inference_errors": 0,
+        "delivered": 3927,
+        "delivery_errors": 0,
+        "capture_restarts": 0,
+        "kernel_dropped": 0,
+        "queue_peak": 24,
+        "decoded_packets": 45979,
+        "ignored_or_malformed_packets": 0,
+        "verdicts": 3950,
+        "alerts": 3834,
+        "capture_truncated": 0,
+        "excluded_non_ingress_flows": 1234,
+        "queue_depth": 0,
+        "outbox_depth": 23,
+        "cpu_seconds": 5.064836,
+        "cpu_percent_of_one_core_lifetime": 62.52207014114828,
+        "peak_rss_mb": 232.5859375,
+        "throughput_flows_per_second": 487.6015275865512,
+        "timings_ms_last_4096_samples": {
+          "packet_to_flow_ms": {
+            "samples": 4096,
+            "mean": 0.01373232666015625,
+            "median": 0.007991,
+            "p95": 0.02873975,
+            "p99": 0.0674940000000002,
+            "max": 0.890764
+          },
+          "feature_extraction_ms": {
+            "samples": 3500,
+            "mean": 0.05532979228571428,
+            "median": 0.0278605,
+            "p95": 0.1529140999999998,
+            "p99": 0.6244245199999997,
+            "max": 2.409423
+          },
+          "queue_delay_ms": {
+            "samples": 3950,
+            "mean": 7.8342507762025315,
+            "median": 6.8322065,
+            "p95": 16.494035099999998,
+            "p99": 22.635540169999725,
+            "max": 47.779075
+          },
+          "inference_batch_ms": {
+            "samples": 277,
+            "mean": 8.355417844765343,
+            "median": 6.956061,
+            "p95": 14.448608399999994,
+            "p99": 26.537755960000062,
+            "max": 40.144449
+          },
+          "feature_preprocessing_ms": {
+            "samples": 277,
+            "mean": 0.7928236714801445,
+            "median": 0.54763,
+            "p95": 1.2360907999999997,
+            "p99": 4.801295600000015,
+            "max": 27.958494
+          },
+          "classifier_inference_ms": {
+            "samples": 277,
+            "mean": 3.7848102490974735,
+            "median": 3.18619,
+            "p95": 6.951020799999997,
+            "p99": 9.464702120000016,
+            "max": 24.648754
+          },
+          "alert_normalization_ms": {
+            "samples": 3950,
+            "mean": 0.013564899746835444,
+            "median": 0.008103,
+            "p95": 0.03222374999999999,
+            "p99": 0.040469769999999995,
+            "max": 5.196873
+          },
+          "ingestion_ms": {
+            "samples": 3927,
+            "mean": 15.421069927934807,
+            "median": 14.374646,
+            "p95": 22.01805,
+            "p99": 24.805771,
+            "max": 45.623714
+          },
+          "delivery_ms": {
+            "samples": 3927,
+            "mean": 18.327402728291318,
+            "median": 16.948922,
+            "p95": 25.967952,
+            "p99": 33.843666,
+            "max": 75.074442
+          },
+          "flow_completion_delay_ms": {
+            "samples": 3950,
+            "mean": 287.7616440506329,
+            "median": 0.0,
+            "p95": 1013.7067999999999,
+            "p99": 1019.07161,
+            "max": 1020.595
+          },
+          "end_to_end_since_flow_start_ms": {
+            "samples": 3927,
+            "mean": 343.6737765469824,
+            "median": 61.97375,
+            "p95": 1072.20105,
+            "p99": 1083.217285,
+            "max": 1096.7805
+          },
+          "end_to_end_since_last_packet_ms": {
+            "samples": 3927,
+            "mean": 342.4731941685765,
+            "median": 60.56425,
+            "p95": 1072.20105,
+            "p99": 1083.217285,
+            "max": 1096.7805
+          }
+        }
+      },
+      "docker_stats": "{\"BlockIO\":\"13.1MB / 34.3MB\",\"CPUPerc\":\"69.98%\",\"Container\":\"netguard-integration-sensor-1\",\"ID\":\"4fd31d06c706\",\"MemPerc\":\"16.78%\",\"MemUsage\":\"128.9MiB / 768MiB\",\"Name\":\"netguard-integration-sensor-1\",\"NetIO\":\"10MB / 91MB\",\"PIDs\":\"4\"}\n{\"BlockIO\":\"1.01MB / 68.6MB\",\"CPUPerc\":\"77.27%\",\"Container\":\"netguard-integration-ingest-1\",\"ID\":\"e403f2ace176\",\"MemPerc\":\"6.82%\",\"MemUsage\":\"34.93MiB / 512MiB\",\"Name\":\"netguard-integration-ingest-1\",\"NetIO\":\"6.69MB / 18.6MB\",\"PIDs\":\"3\"}"
+    },
+    {
+      "unix": 1794848070.0602784,
+      "diagnostics": {
+        "updated_unix": 1794848069.8309097,
+        "status": "capturing",
+        "model_version": "lab-v2",
+        "uptime_seconds": 10.170838891994208,
+        "model_sha256": "9a895917ab1964abcf8e59ad20a0518a4cbeab8718f3f9a51fffd0d5cca8bec0",
+        "flow_engine": {
+          "packets": 63562,
+          "late_packets": 55,
+          "emitted": 7193,
+          "capacity_evictions": 0,
+          "active_flows": 482,
+          "rate_events": 958,
+          "sources": 3,
+          "rate_evictions": 0
+        },
+        "queue_dropped": 0,
+        "outbox_dropped": 0,
+        "inference_errors": 0,
+        "delivered": 5317,
+        "delivery_errors": 0,
+        "capture_restarts": 0,
+        "kernel_dropped": 0,
+        "queue_peak": 41,
+        "decoded_packets": 63562,
+        "ignored_or_malformed_packets": 0,
+        "verdicts": 5369,
+        "alerts": 5217,
+        "capture_truncated": 0,
+        "excluded_non_ingress_flows": 1798,
+        "queue_depth": 12,
+        "outbox_depth": 52,
+        "cpu_seconds": 6.49718,
+        "cpu_percent_of_one_core_lifetime": 63.88047307596366,
+        "peak_rss_mb": 233.9921875,
+        "throughput_flows_per_second": 529.2582113592548,
+        "timings_ms_last_4096_samples": {
+          "packet_to_flow_ms": {
+            "samples": 4096,
+            "mean": 0.0160552568359375,
+            "median": 0.008570999999999999,
+            "p95": 0.037457500000000005,
+            "p99": 0.10637835000000032,
+            "max": 1.24486
+          },
+          "feature_extraction_ms": {
+            "samples": 4096,
+            "mean": 0.06004680004882812,
+            "median": 0.0280015,
+            "p95": 0.219628,
+            "p99": 0.6481893500000007,
+            "max": 2.409423
+          },
+          "queue_delay_ms": {
+            "samples": 4096,
+            "mean": 7.9800065688476565,
+            "median": 6.9642515,
+            "p95": 16.675798999999998,
+            "p99": 23.0730462,
+            "max": 43.905371
+          },
+          "inference_batch_ms": {
+            "samples": 376,
+            "mean": 8.52232980319149,
+            "median": 7.07807,
+            "p95": 14.92600375,
+            "p99": 26.605138,
+            "max": 47.610051
+          },
+          "feature_preprocessing_ms": {
+            "samples": 376,
+            "mean": 0.8021767712765958,
+            "median": 0.5481205,
+            "p95": 1.35380875,
+            "p99": 5.8039369999999995,
+            "max": 27.958494
+          },
+          "classifier_inference_ms": {
+            "samples": 376,
+            "mean": 3.8707460930851063,
+            "median": 3.1825915,
+            "p95": 7.19173225,
+            "p99": 10.08719075,
+            "max": 34.24146
+          },
+          "alert_normalization_ms": {
+            "samples": 4096,
+            "mean": 0.012533197265624999,
+            "median": 0.008184,
+            "p95": 0.0324825,
+            "p99": 0.04142300000000002,
+            "max": 5.196873
+          },
+          "ingestion_ms": {
+            "samples": 4096,
+            "mean": 15.580189830810546,
+            "median": 14.487176,
+            "p95": 22.079833,
+            "p99": 29.802879,
+            "max": 45.623714
+          },
+          "delivery_ms": {
+            "samples": 4096,
+            "mean": 18.446178428466798,
+            "median": 17.125016,
+            "p95": 26.898024,
+            "p99": 39.808637,
+            "max": 47.173962
+          },
+          "flow_completion_delay_ms": {
+            "samples": 4096,
+            "mean": 323.21931274414067,
+            "median": 0.0,
+            "p95": 1016.4755,
+            "p99": 1019.87155,
+            "max": 1020.675
+          },
+          "end_to_end_since_flow_start_ms": {
+            "samples": 4096,
+            "mean": 378.9773122558594,
+            "median": 66.70175,
+            "p95": 1078.7975000000001,
+            "p99": 1095.0691,
+            "max": 1141.1595
+          },
+          "end_to_end_since_last_packet_ms": {
+            "samples": 4096,
+            "mean": 377.8260793457031,
+            "median": 64.9075,
+            "p95": 1078.7841250000001,
+            "p99": 1095.0691,
+            "max": 1141.1595
+          }
+        }
+      },
+      "docker_stats": "{\"BlockIO\":\"13.1MB / 43.5MB\",\"CPUPerc\":\"67.93%\",\"Container\":\"netguard-integration-sensor-1\",\"ID\":\"4fd31d06c706\",\"MemPerc\":\"16.79%\",\"MemUsage\":\"128.9MiB / 768MiB\",\"Name\":\"netguard-integration-sensor-1\",\"NetIO\":\"10.7MB / 97MB\",\"PIDs\":\"4\"}\n{\"BlockIO\":\"1.02MB / 85.5MB\",\"CPUPerc\":\"79.92%\",\"Container\":\"netguard-integration-ingest-1\",\"ID\":\"e403f2ace176\",\"MemPerc\":\"6.85%\",\"MemUsage\":\"35.06MiB / 512MiB\",\"Name\":\"netguard-integration-ingest-1\",\"NetIO\":\"8.34MB / 18.7MB\",\"PIDs\":\"3\"}"
+    }
+  ],
+  "docker_stats": "{\"BlockIO\":\"13.1MB / 45.6MB\",\"CPUPerc\":\"2.54%\",\"Container\":\"netguard-integration-sensor-1\",\"ID\":\"4fd31d06c706\",\"MemPerc\":\"16.79%\",\"MemUsage\":\"128.9MiB / 768MiB\",\"Name\":\"netguard-integration-sensor-1\",\"NetIO\":\"10.8MB / 97.5MB\",\"PIDs\":\"4\"}\n{\"BlockIO\":\"1.02MB / 90.8MB\",\"CPUPerc\":\"17.43%\",\"Container\":\"netguard-integration-ingest-1\",\"ID\":\"e403f2ace176\",\"MemPerc\":\"8.42%\",\"MemUsage\":\"43.13MiB / 512MiB\",\"Name\":\"netguard-integration-ingest-1\",\"NetIO\":\"8.74MB / 26.8MB\",\"PIDs\":\"2\"}",
+  "loss_counters": {
+    "queue_dropped": 0,
+    "outbox_dropped": 0,
+    "inference_errors": 0,
+    "kernel_dropped": 0,
+    "capture_truncated": 0
+  },
+  "passed": true,
+  "processing_integrity_passed": true,
+  "quality_acceptance": {
+    "fpr_at_most_3pct": true,
+    "recall_at_least_70pct": true
+  }
+}

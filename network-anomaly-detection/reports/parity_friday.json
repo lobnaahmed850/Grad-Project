@@ -1,0 +1,463 @@
+{
+ "published_rows": 703245,
+ "paired_rows": 702749,
+ "packets": 9997874,
+ "features": [
+  {
+   "feature": "fwd header length.1",
+   "match_share": 0.9989099948914903,
+   "median_published": 52.0,
+   "median_extracted": 52.0
+  },
+  {
+   "feature": "fwd header length",
+   "match_share": 0.9989099948914903,
+   "median_published": 52.0,
+   "median_extracted": 52.0
+  },
+  {
+   "feature": "min_seg_size_forward",
+   "match_share": 0.9989256477063646,
+   "median_published": 20.0,
+   "median_extracted": 20.0
+  },
+  {
+   "feature": "flow iat std",
+   "match_share": 0.9992287431216552,
+   "median_published": 117.7794549,
+   "median_extracted": 117.77945491468364
+  },
+  {
+   "feature": "flow iat max",
+   "match_share": 0.9992529338355516,
+   "median_published": 29210.0,
+   "median_extracted": 29210.0
+  },
+  {
+   "feature": "fwd iat max",
+   "match_share": 0.999299892280174,
+   "median_published": 4.0,
+   "median_extracted": 4.0
+  },
+  {
+   "feature": "flow bytes/s",
+   "match_share": 0.9994066160179524,
+   "median_published": 13093.69403,
+   "median_extracted": 13093.694027546167
+  },
+  {
+   "feature": "fwd iat std",
+   "match_share": 0.9994179998833154,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd header length",
+   "match_share": 0.99973674811348,
+   "median_published": 32.0,
+   "median_extracted": 32.0
+  },
+  {
+   "feature": "average packet size",
+   "match_share": 0.999766630760058,
+   "median_published": 53.84615385,
+   "median_extracted": 53.84615384615385
+  },
+  {
+   "feature": "subflow bwd bytes",
+   "match_share": 0.9997708997095692,
+   "median_published": 58.0,
+   "median_extracted": 58.0
+  },
+  {
+   "feature": "subflow fwd bytes",
+   "match_share": 0.99977374567591,
+   "median_published": 30.0,
+   "median_extracted": 30.0
+  },
+  {
+   "feature": "total length of fwd packets",
+   "match_share": 0.99977374567591,
+   "median_published": 30.0,
+   "median_extracted": 30.0
+  },
+  {
+   "feature": "packet length mean",
+   "match_share": 0.999778014625421,
+   "median_published": 44.0,
+   "median_extracted": 44.0
+  },
+  {
+   "feature": "max packet length",
+   "match_share": 0.9997822835749322,
+   "median_published": 55.0,
+   "median_extracted": 55.0
+  },
+  {
+   "feature": "fwd packet length mean",
+   "match_share": 0.9997837065581026,
+   "median_published": 8.666666667,
+   "median_extracted": 8.666666666666668
+  },
+  {
+   "feature": "avg fwd segment size",
+   "match_share": 0.9997837065581026,
+   "median_published": 8.666666667,
+   "median_extracted": 8.666666666666666
+  },
+  {
+   "feature": "fwd packet length max",
+   "match_share": 0.999785129541273,
+   "median_published": 20.0,
+   "median_extracted": 20.0
+  },
+  {
+   "feature": "fwd packet length min",
+   "match_share": 0.9998007823561472,
+   "median_published": 2.0,
+   "median_extracted": 2.0
+  },
+  {
+   "feature": "min packet length",
+   "match_share": 0.9998007823561472,
+   "median_published": 2.0,
+   "median_extracted": 2.0
+  },
+  {
+   "feature": "total length of bwd packets",
+   "match_share": 0.9998107432383396,
+   "median_published": 58.0,
+   "median_extracted": 58.0
+  },
+  {
+   "feature": "avg bwd segment size",
+   "match_share": 0.9998135892046804,
+   "median_published": 23.0,
+   "median_extracted": 23.0
+  },
+  {
+   "feature": "bwd packet length mean",
+   "match_share": 0.9998135892046804,
+   "median_published": 23.0,
+   "median_extracted": 23.0
+  },
+  {
+   "feature": "bwd packet length max",
+   "match_share": 0.9998135892046804,
+   "median_published": 41.0,
+   "median_extracted": 41.0
+  },
+  {
+   "feature": "bwd packet length min",
+   "match_share": 0.9998135892046804,
+   "median_published": 6.0,
+   "median_extracted": 6.0
+  },
+  {
+   "feature": "fwd iat min",
+   "match_share": 0.999819281137362,
+   "median_published": 3.0,
+   "median_extracted": 3.0
+  },
+  {
+   "feature": "packet length variance",
+   "match_share": 0.9998320879858954,
+   "median_published": 156.25,
+   "median_extracted": 156.24999999999997
+  },
+  {
+   "feature": "packet length std",
+   "match_share": 0.9998320879858954,
+   "median_published": 12.5,
+   "median_extracted": 12.499999999999998
+  },
+  {
+   "feature": "fwd iat mean",
+   "match_share": 0.9998320879858954,
+   "median_published": 4.0,
+   "median_extracted": 4.0
+  },
+  {
+   "feature": "flow iat min",
+   "match_share": 0.9998363569354064,
+   "median_published": 17.0,
+   "median_extracted": 17.0
+  },
+  {
+   "feature": "fwd iat total",
+   "match_share": 0.99984916378394,
+   "median_published": 4.0,
+   "median_extracted": 4.0
+  },
+  {
+   "feature": "bwd iat mean",
+   "match_share": 0.9998548557166216,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd iat max",
+   "match_share": 0.9998562786997918,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd iat total",
+   "match_share": 0.9998562786997918,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd iat min",
+   "match_share": 0.9998633936156436,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "flow packets/s",
+   "match_share": 0.9999188899592883,
+   "median_published": 129.2490629,
+   "median_extracted": 129.24906294429366
+  },
+  {
+   "feature": "active max",
+   "match_share": 0.9999786552524444,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "active mean",
+   "match_share": 0.9999786552524444,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "active min",
+   "match_share": 0.9999786552524444,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "fwd packet length std",
+   "match_share": 0.9999800782356149,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "total fwd packets",
+   "match_share": 0.9999829242019554,
+   "median_published": 2.0,
+   "median_extracted": 2.0
+  },
+  {
+   "feature": "fwd packets/s",
+   "match_share": 0.9999829242019554,
+   "median_published": 65.36161312,
+   "median_extracted": 65.3616131246119
+  },
+  {
+   "feature": "subflow fwd packets",
+   "match_share": 0.9999829242019554,
+   "median_published": 2.0,
+   "median_extracted": 2.0
+  },
+  {
+   "feature": "fwd psh flags",
+   "match_share": 0.9999829242019554,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "syn flag count",
+   "match_share": 0.9999829242019554,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd iat std",
+   "match_share": 0.9999857701682964,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "urg flag count",
+   "match_share": 0.9999857701682964,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "flow iat mean",
+   "match_share": 0.9999857701682964,
+   "median_published": 9792.333333,
+   "median_extracted": 9792.333333333332
+  },
+  {
+   "feature": "act_data_pkt_fwd",
+   "match_share": 0.9999871931514666,
+   "median_published": 1.0,
+   "median_extracted": 1.0
+  },
+  {
+   "feature": "bwd packets/s",
+   "match_share": 0.9999957310504888,
+   "median_published": 32.91747589,
+   "median_extracted": 32.91747588794891
+  },
+  {
+   "feature": "subflow bwd packets",
+   "match_share": 0.9999957310504888,
+   "median_published": 1.0,
+   "median_extracted": 1.0
+  },
+  {
+   "feature": "total backward packets",
+   "match_share": 0.9999957310504888,
+   "median_published": 1.0,
+   "median_extracted": 1.0
+  },
+  {
+   "feature": "down/up ratio",
+   "match_share": 0.9999957310504888,
+   "median_published": 1.0,
+   "median_extracted": 1.0
+  },
+  {
+   "feature": "init_win_bytes_forward",
+   "match_share": 0.9999971540336592,
+   "median_published": 359.0,
+   "median_extracted": 359.0
+  },
+  {
+   "feature": "active std",
+   "match_share": 0.9999985770168296,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd packet length std",
+   "match_share": 0.9999985770168296,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "idle mean",
+   "match_share": 0.9999985770168296,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "idle min",
+   "match_share": 0.9999985770168296,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "idle std",
+   "match_share": 0.9999985770168296,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "fwd avg packets/bulk",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd urg flags",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "fwd avg bytes/bulk",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd psh flags",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "fwd urg flags",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "init_win_bytes_backward",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd avg packets/bulk",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd avg bytes/bulk",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "fwd avg bulk rate",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "bwd avg bulk rate",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "idle max",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "rst flag count",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "fin flag count",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "psh flag count",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "ack flag count",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "cwe flag count",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  },
+  {
+   "feature": "ece flag count",
+   "match_share": 1.0,
+   "median_published": 0.0,
+   "median_extracted": 0.0
+  }
+ ]
+}

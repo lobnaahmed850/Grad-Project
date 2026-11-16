@@ -1,0 +1,607 @@
+{
+ "designs": {
+  "serial": {
+   "public, all test rows": {
+    "benign flows": 314259,
+    "false alarms": 0.02980344238351169,
+    "false alarms 95% CI": [
+     0.02921463391974966,
+     0.03040374636539826
+    ],
+    "attacks detected": 0.7948199996868198,
+    "macro detected": 0.5152639651902807,
+    "macro correct type": 0.5145196479139752,
+    "per class": {
+     "Bot": {
+      "flows": 292,
+      "detected": 0.03767123287671233,
+      "correct type": 0.03767123287671233
+     },
+     "DDoS": {
+      "flows": 19202,
+      "detected": 0.8566295177585668,
+      "correct type": 0.8566295177585668
+     },
+     "DoS GoldenEye": {
+      "flows": 1543,
+      "detected": 0.5780946208684381,
+      "correct type": 0.577446532728451
+     },
+     "DoS Hulk": {
+      "flows": 25927,
+      "detected": 0.8724110001157095,
+      "correct type": 0.8724110001157095
+     },
+     "DoS Slowhttptest": {
+      "flows": 784,
+      "detected": 0.9668367346938775,
+      "correct type": 0.9630102040816326
+     },
+     "DoS slowloris": {
+      "flows": 808,
+      "detected": 0.948019801980198,
+      "correct type": 0.9443069306930693
+     },
+     "FTP-Patator": {
+      "flows": 890,
+      "detected": 0.6898876404494382,
+      "correct type": 0.6898876404494382
+     },
+     "PortScan": {
+      "flows": 13604,
+      "detected": 0.6340047044986769,
+      "correct type": 0.6340047044986769
+     },
+     "SSH-Patator": {
+      "flows": 483,
+      "detected": 0.008281573498964804,
+      "correct type": 0.008281573498964804
+     },
+     "Web Attack - Brute Force": {
+      "flows": 220,
+      "detected": 0.045454545454545456,
+      "correct type": 0.045454545454545456
+     },
+     "Web Attack - XSS": {
+      "flows": 98,
+      "detected": 0.030612244897959183,
+      "correct type": 0.030612244897959183
+     }
+    }
+   },
+   "public, unseen rows": {
+    "benign flows": 239666,
+    "false alarms": 0.035115535787303996,
+    "false alarms 95% CI": [
+     0.03438600189088327,
+     0.03585997268650386
+    ],
+    "attacks detected": 0.8457253523938825,
+    "macro detected": 0.5488320085132091,
+    "macro correct type": 0.5480867772181001,
+    "per class": {
+     "Bot": {
+      "flows": 187,
+      "detected": 0.058823529411764705,
+      "correct type": 0.058823529411764705
+     },
+     "DDoS": {
+      "flows": 19199,
+      "detected": 0.8567633730923485,
+      "correct type": 0.8567633730923485
+     },
+     "DoS GoldenEye": {
+      "flows": 1541,
+      "detected": 0.5775470473718365,
+      "correct type": 0.5768981181051266
+     },
+     "DoS Hulk": {
+      "flows": 25679,
+      "detected": 0.8804081155808248,
+      "correct type": 0.8804081155808248
+     },
+     "DoS Slowhttptest": {
+      "flows": 784,
+      "detected": 0.9668367346938775,
+      "correct type": 0.9630102040816326
+     },
+     "DoS slowloris": {
+      "flows": 806,
+      "detected": 0.9503722084367245,
+      "correct type": 0.9466501240694789
+     },
+     "FTP-Patator": {
+      "flows": 888,
+      "detected": 0.6914414414414415,
+      "correct type": 0.6914414414414415
+     },
+     "PortScan": {
+      "flows": 248,
+      "detected": 0.9637096774193549,
+      "correct type": 0.9637096774193549
+     },
+     "SSH-Patator": {
+      "flows": 453,
+      "detected": 0.008830022075055188,
+      "correct type": 0.008830022075055188
+     },
+     "Web Attack - Brute Force": {
+      "flows": 198,
+      "detected": 0.050505050505050504,
+      "correct type": 0.050505050505050504
+     },
+     "Web Attack - XSS": {
+      "flows": 94,
+      "detected": 0.031914893617021274,
+      "correct type": 0.031914893617021274
+     }
+    }
+   },
+   "lab": {
+    "benign flows": 108,
+    "false alarms": 0.2777777777777778,
+    "false alarms 95% CI": [
+     0.20204904430713197,
+     0.36877254622805344
+    ],
+    "attacks detected": 0.9310448424050054,
+    "macro detected": 0.5788401368487789,
+    "macro correct type": 0.39338261279084646,
+    "per class": {
+     "Bot": {
+      "flows": 30,
+      "detected": 0.0,
+      "correct type": 0.0
+     },
+     "DoS GoldenEye": {
+      "flows": 5036,
+      "detected": 0.0,
+      "correct type": 0.0
+     },
+     "DoS slowloris": {
+      "flows": 1106,
+      "detected": 0.9755877034358047,
+      "correct type": 0.47106690777576854
+     },
+     "FTP-Patator": {
+      "flows": 20,
+      "detected": 0.5,
+      "correct type": 0.5
+     },
+     "PortScan": {
+      "flows": 65963,
+      "detected": 0.9974531176568683,
+      "correct type": 0.9958461561784637
+     },
+     "SYN flood": {
+      "flows": 4394,
+      "detected": 1.0,
+      "correct type": 0.0
+     }
+    }
+   }
+  },
+  "parallel, RF15 confidence 0.5": {
+   "public, all test rows": {
+    "benign flows": 314259,
+    "false alarms": 0.06522327125078359,
+    "false alarms 95% CI": [
+     0.06436526361286739,
+     0.0660919084513465
+    ],
+    "attacks detected": 0.9960852476472338,
+    "macro detected": 0.9605174087395277,
+    "macro correct type": 0.9096166917980731,
+    "per class": {
+     "Bot": {
+      "flows": 292,
+      "detected": 0.9726027397260274,
+      "correct type": 0.9726027397260274
+     },
+     "DDoS": {
+      "flows": 19202,
+      "detected": 0.999166753463181,
+      "correct type": 0.999166753463181
+     },
+     "DoS GoldenEye": {
+      "flows": 1543,
+      "detected": 0.9928710304601426,
+      "correct type": 0.9915748541801686
+     },
+     "DoS Hulk": {
+      "flows": 25927,
+      "detected": 0.9950244918424808,
+      "correct type": 0.9947545030277317
+     },
+     "DoS Slowhttptest": {
+      "flows": 784,
+      "detected": 1.0,
+      "correct type": 0.9961734693877551
+     },
+     "DoS slowloris": {
+      "flows": 808,
+      "detected": 0.995049504950495,
+      "correct type": 0.9900990099009901
+     },
+     "FTP-Patator": {
+      "flows": 890,
+      "detected": 0.998876404494382,
+      "correct type": 0.996629213483146
+     },
+     "PortScan": {
+      "flows": 13604,
+      "detected": 0.9998529844163482,
+      "correct type": 0.9995589532490444
+     },
+     "SSH-Patator": {
+      "flows": 483,
+      "detected": 0.94824016563147,
+      "correct type": 0.9358178053830227
+     },
+     "Web Attack - Brute Force": {
+      "flows": 220,
+      "detected": 0.8272727272727273,
+      "correct type": 0.5681818181818182
+     },
+     "Web Attack - XSS": {
+      "flows": 98,
+      "detected": 0.8367346938775511,
+      "correct type": 0.5612244897959183
+     }
+    }
+   },
+   "public, unseen rows": {
+    "benign flows": 239666,
+    "false alarms": 0.03682207739103586,
+    "false alarms 95% CI": [
+     0.036075490276393354,
+     0.03758351280111358
+    ],
+    "attacks detected": 0.9982629876612227,
+    "macro detected": 0.9759174301736434,
+    "macro correct type": 0.9228785980638444,
+    "per class": {
+     "Bot": {
+      "flows": 187,
+      "detected": 0.9946524064171123,
+      "correct type": 0.9946524064171123
+     },
+     "DDoS": {
+      "flows": 19199,
+      "detected": 0.999322881400073,
+      "correct type": 0.999322881400073
+     },
+     "DoS GoldenEye": {
+      "flows": 1541,
+      "detected": 0.9928617780661908,
+      "correct type": 0.9915639195327709
+     },
+     "DoS Hulk": {
+      "flows": 25679,
+      "detected": 0.9991432688188793,
+      "correct type": 0.998987499513221
+     },
+     "DoS Slowhttptest": {
+      "flows": 784,
+      "detected": 1.0,
+      "correct type": 0.9961734693877551
+     },
+     "DoS slowloris": {
+      "flows": 806,
+      "detected": 0.9975186104218362,
+      "correct type": 0.9925558312655087
+     },
+     "FTP-Patator": {
+      "flows": 888,
+      "detected": 1.0,
+      "correct type": 0.9988738738738738
+     },
+     "PortScan": {
+      "flows": 248,
+      "detected": 0.9919354838709677,
+      "correct type": 0.9798387096774194
+     },
+     "SSH-Patator": {
+      "flows": 453,
+      "detected": 0.9933774834437086,
+      "correct type": 0.9933774834437086
+     },
+     "Web Attack - Brute Force": {
+      "flows": 198,
+      "detected": 0.8939393939393939,
+      "correct type": 0.6212121212121212
+     },
+     "Web Attack - XSS": {
+      "flows": 94,
+      "detected": 0.8723404255319149,
+      "correct type": 0.5851063829787234
+     }
+    }
+   },
+   "lab": {
+    "benign flows": 108,
+    "false alarms": 0.2777777777777778,
+    "false alarms 95% CI": [
+     0.20204904430713197,
+     0.36877254622805344
+    ],
+    "attacks detected": 0.9310709667306712,
+    "macro detected": 0.5871759968511033,
+    "macro correct type": 0.39338261279084646,
+    "per class": {
+     "Bot": {
+      "flows": 30,
+      "detected": 0.0,
+      "correct type": 0.0
+     },
+     "DoS GoldenEye": {
+      "flows": 5036,
+      "detected": 0.0,
+      "correct type": 0.0
+     },
+     "DoS slowloris": {
+      "flows": 1106,
+      "detected": 0.9755877034358047,
+      "correct type": 0.47106690777576854
+     },
+     "FTP-Patator": {
+      "flows": 20,
+      "detected": 0.55,
+      "correct type": 0.5
+     },
+     "PortScan": {
+      "flows": 65963,
+      "detected": 0.9974682776708155,
+      "correct type": 0.9958461561784637
+     },
+     "SYN flood": {
+      "flows": 4394,
+      "detected": 1.0,
+      "correct type": 0.0
+     }
+    }
+   }
+  },
+  "parallel, RF15 confidence 0.9": {
+   "public, all test rows": {
+    "benign flows": 314259,
+    "false alarms": 0.04343232811152584,
+    "false alarms 95% CI": [
+     0.04272524123823952,
+     0.0441505772995128
+    ],
+    "attacks detected": 0.9863453437935517,
+    "macro detected": 0.8023257963496355,
+    "macro correct type": 0.8006538352885433,
+    "per class": {
+     "Bot": {
+      "flows": 292,
+      "detected": 0.8287671232876712,
+      "correct type": 0.8287671232876712
+     },
+     "DDoS": {
+      "flows": 19202,
+      "detected": 0.9986980522862202,
+      "correct type": 0.9986980522862202
+     },
+     "DoS GoldenEye": {
+      "flows": 1543,
+      "detected": 0.9675955930006481,
+      "correct type": 0.9669475048606611
+     },
+     "DoS Hulk": {
+      "flows": 25927,
+      "detected": 0.9849191962047287,
+      "correct type": 0.9849191962047287
+     },
+     "DoS Slowhttptest": {
+      "flows": 784,
+      "detected": 0.9974489795918368,
+      "correct type": 0.9936224489795918
+     },
+     "DoS slowloris": {
+      "flows": 808,
+      "detected": 0.9913366336633663,
+      "correct type": 0.9876237623762376
+     },
+     "FTP-Patator": {
+      "flows": 890,
+      "detected": 0.9943820224719101,
+      "correct type": 0.9943820224719101
+     },
+     "PortScan": {
+      "flows": 13604,
+      "detected": 0.9994854454572185,
+      "correct type": 0.9994854454572185
+     },
+     "SSH-Patator": {
+      "flows": 483,
+      "detected": 0.9130434782608695,
+      "correct type": 0.9130434782608695
+     },
+     "Web Attack - Brute Force": {
+      "flows": 220,
+      "detected": 0.10909090909090909,
+      "correct type": 0.10909090909090909
+     },
+     "Web Attack - XSS": {
+      "flows": 98,
+      "detected": 0.04081632653061224,
+      "correct type": 0.030612244897959183
+     }
+    }
+   },
+   "public, unseen rows": {
+    "benign flows": 239666,
+    "false alarms": 0.035678819690736274,
+    "false alarms 95% CI": [
+     0.03494360687462374,
+     0.03642891745219169
+    ],
+    "attacks detected": 0.988340055105219,
+    "macro detected": 0.8158116928858693,
+    "macro correct type": 0.8140993436023657,
+    "per class": {
+     "Bot": {
+      "flows": 187,
+      "detected": 0.9144385026737968,
+      "correct type": 0.9144385026737968
+     },
+     "DDoS": {
+      "flows": 19199,
+      "detected": 0.9988541069847388,
+      "correct type": 0.9988541069847388
+     },
+     "DoS GoldenEye": {
+      "flows": 1541,
+      "detected": 0.9675535366645036,
+      "correct type": 0.9669046073977936
+     },
+     "DoS Hulk": {
+      "flows": 25679,
+      "detected": 0.9921336500642548,
+      "correct type": 0.9921336500642548
+     },
+     "DoS Slowhttptest": {
+      "flows": 784,
+      "detected": 0.9974489795918368,
+      "correct type": 0.9936224489795918
+     },
+     "DoS slowloris": {
+      "flows": 806,
+      "detected": 0.9937965260545906,
+      "correct type": 0.9900744416873449
+     },
+     "FTP-Patator": {
+      "flows": 888,
+      "detected": 0.9966216216216216,
+      "correct type": 0.9966216216216216
+     },
+     "PortScan": {
+      "flows": 248,
+      "detected": 0.9758064516129032,
+      "correct type": 0.9758064516129032
+     },
+     "SSH-Patator": {
+      "flows": 453,
+      "detected": 0.9735099337748344,
+      "correct type": 0.9735099337748344
+     },
+     "Web Attack - Brute Force": {
+      "flows": 198,
+      "detected": 0.12121212121212122,
+      "correct type": 0.12121212121212122
+     },
+     "Web Attack - XSS": {
+      "flows": 94,
+      "detected": 0.0425531914893617,
+      "correct type": 0.031914893617021274
+     }
+    }
+   },
+   "lab": {
+    "benign flows": 108,
+    "false alarms": 0.2777777777777778,
+    "false alarms 95% CI": [
+     0.20204904430713197,
+     0.36877254622805344
+    ],
+    "attacks detected": 0.9310448424050054,
+    "macro detected": 0.5788401368487789,
+    "macro correct type": 0.39338261279084646,
+    "per class": {
+     "Bot": {
+      "flows": 30,
+      "detected": 0.0,
+      "correct type": 0.0
+     },
+     "DoS GoldenEye": {
+      "flows": 5036,
+      "detected": 0.0,
+      "correct type": 0.0
+     },
+     "DoS slowloris": {
+      "flows": 1106,
+      "detected": 0.9755877034358047,
+      "correct type": 0.47106690777576854
+     },
+     "FTP-Patator": {
+      "flows": 20,
+      "detected": 0.5,
+      "correct type": 0.5
+     },
+     "PortScan": {
+      "flows": 65963,
+      "detected": 0.9974531176568683,
+      "correct type": 0.9958461561784637
+     },
+     "SYN flood": {
+      "flows": 4394,
+      "detected": 1.0,
+      "correct type": 0.0
+     }
+    }
+   }
+  }
+ },
+ "speed": {
+  "1": 31.3618191992191,
+  "32": 1.6721289883889767,
+  "256": 0.27420599224114994,
+  "1024": 0.10881813477681135
+ },
+ "saved models on lab, with data fixes": {
+  "benign flows": 108,
+  "false alarms": 0.5462962962962963,
+  "false alarms 95% CI": [
+   0.45242362376844814,
+   0.6369885448700549
+  ],
+  "attacks detected": 0.9445641809370796,
+  "macro detected": 0.7787137392761386,
+  "macro correct type": 0.3916329909207965,
+  "per class": {
+   "Bot": {
+    "flows": 30,
+    "detected": 1.0,
+    "correct type": 0.0
+   },
+   "DoS GoldenEye": {
+    "flows": 5036,
+    "detected": 0.181890389197776,
+    "correct type": 0.0
+   },
+   "DoS slowloris": {
+    "flows": 1106,
+    "detected": 0.9918625678119349,
+    "correct type": 0.46112115732368897
+   },
+   "FTP-Patator": {
+    "flows": 20,
+    "detected": 0.5,
+    "correct type": 0.5
+   },
+   "PortScan": {
+    "flows": 65963,
+    "detected": 0.9985294786471204,
+    "correct type": 0.9970437972802935
+   },
+   "SYN flood": {
+    "flows": 4394,
+    "detected": 1.0,
+    "correct type": 0.0
+   }
+  }
+ },
+ "sizes MB": {
+  "if_portable_262144.joblib": 21.1,
+  "if_portable_65536.joblib": 10.0,
+  "if_portable_timing_262144.joblib": 38.1,
+  "if_portable_timing_65536.joblib": 16.2,
+  "rf14_all_features.joblib": 9.5,
+  "rf14_portable.joblib": 4.4,
+  "rf14_portable_timing.joblib": 10.9,
+  "rf15_portable.joblib": 15.1,
+  "rf15_portable_timing.joblib": 39.6
+ }
+}

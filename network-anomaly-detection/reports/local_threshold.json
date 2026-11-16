@@ -1,0 +1,332 @@
+{
+ "lan": {
+  "built-in threshold": {
+   "threshold": 0.023249628589168327,
+   "false alarms": 0.40834141610087293,
+   "95% CI": [
+    0.37873183959961465,
+    0.43863151340049666
+   ],
+   "public attacks": {
+    "macro detected": 0.9449478812227697,
+    "per class": {
+     "Bot": 0.8367346938775511,
+     "DDoS": 0.9986715376951179,
+     "PortScan": 0.99943741209564
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.5788401368487789,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.9755877034358047,
+     "FTP-Patator": 0.5,
+     "PortScan": 0.9974531176568683,
+     "SYN flood": 1.0
+    }
+   }
+  },
+  "local, target 10%": {
+   "threshold": 0.11099764371291693,
+   "false alarms": 0.11251212415130941,
+   "95% CI": [
+    0.09464384776799382,
+    0.1332573112113128
+   ],
+   "public attacks": {
+    "macro detected": 0.9376424557980072,
+    "per class": {
+     "Bot": 0.8163265306122449,
+     "DDoS": 0.9980073065426769,
+     "PortScan": 0.9985935302390999
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.08964855845777904,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.523508137432188,
+     "FTP-Patator": 0.0,
+     "PortScan": 4.5480041841638496e-05,
+     "SYN flood": 0.014337733272644515
+    }
+   }
+  },
+  "local, target 5%": {
+   "threshold": 0.11783694909154087,
+   "false alarms": 0.0533462657613967,
+   "95% CI": [
+    0.041212333628132675,
+    0.06879638654701296
+   ],
+   "public attacks": {
+    "macro detected": 0.9376424557980072,
+    "per class": {
+     "Bot": 0.8163265306122449,
+     "DDoS": 0.9980073065426769,
+     "PortScan": 0.9985935302390999
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.0822963495850848,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.484629294755877,
+     "FTP-Patator": 0.0,
+     "PortScan": 4.5480041841638496e-05,
+     "SYN flood": 0.009103322712790168
+    }
+   }
+  },
+  "local, target 3%": {
+   "threshold": 0.1246140881536385,
+   "false alarms": 0.029097963142580018,
+   "95% CI": [
+    0.020457044328747485,
+    0.04123510256600432
+   ],
+   "public attacks": {
+    "macro detected": 0.9376424557980072,
+    "per class": {
+     "Bot": 0.8163265306122449,
+     "DDoS": 0.9980073065426769,
+     "PortScan": 0.9985935302390999
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.038894653535647014,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.22603978300180833,
+     "FTP-Patator": 0.0,
+     "PortScan": 4.5480041841638496e-05,
+     "SYN flood": 0.007282658170232135
+    }
+   }
+  }
+ },
+ "wan": {
+  "built-in threshold": {
+   "threshold": 0.023249628589168327,
+   "false alarms": 0.21052631578947367,
+   "95% CI": [
+    0.18689073560041483,
+    0.2362824108499166
+   ],
+   "public attacks": {
+    "macro detected": 0.9449478812227697,
+    "per class": {
+     "Bot": 0.8367346938775511,
+     "DDoS": 0.9986715376951179,
+     "PortScan": 0.99943741209564
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.5788401368487789,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.9755877034358047,
+     "FTP-Patator": 0.5,
+     "PortScan": 0.9974531176568683,
+     "SYN flood": 1.0
+    }
+   }
+  },
+  "local, target 10%": {
+   "threshold": 0.09273690420812937,
+   "false alarms": 0.10143540669856459,
+   "95% CI": [
+    0.08456566050879949,
+    0.12122480394264862
+   ],
+   "public attacks": {
+    "macro detected": 0.9444451768864427,
+    "per class": {
+     "Bot": 0.8367346938775511,
+     "DDoS": 0.9980073065426769,
+     "PortScan": 0.9985935302390999
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.1858848061606968,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.8426763110307414,
+     "FTP-Patator": 0.0,
+     "PortScan": 0.12811727786789565,
+     "SYN flood": 0.14451524806554392
+    }
+   }
+  },
+  "local, target 5%": {
+   "threshold": 0.10844940708817273,
+   "false alarms": 0.021052631578947368,
+   "95% CI": [
+    0.013943262246198072,
+    0.0316704891534413
+   ],
+   "public attacks": {
+    "macro detected": 0.9376424557980072,
+    "per class": {
+     "Bot": 0.8163265306122449,
+     "DDoS": 0.9980073065426769,
+     "PortScan": 0.9985935302390999
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.09070341077845416,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.5298372513562387,
+     "FTP-Patator": 0.0,
+     "PortScan": 4.5480041841638496e-05,
+     "SYN flood": 0.014337733272644515
+    }
+   }
+  },
+  "local, target 3%": {
+   "threshold": 0.1215971044267473,
+   "false alarms": 0.012440191387559809,
+   "95% CI": [
+    0.007284295404282985,
+    0.021167665311234016
+   ],
+   "public attacks": {
+    "macro detected": 0.9376424557980072,
+    "per class": {
+     "Bot": 0.8163265306122449,
+     "DDoS": 0.9980073065426769,
+     "PortScan": 0.9985935302390999
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.050348364730950605,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.2938517179023508,
+     "FTP-Patator": 0.0,
+     "PortScan": 4.5480041841638496e-05,
+     "SYN flood": 0.008192990441511151
+    }
+   }
+  }
+ },
+ "slow": {
+  "built-in threshold": {
+   "threshold": 0.023249628589168327,
+   "false alarms": 0.14059590316573556,
+   "95% CI": [
+    0.12108520295952728,
+    0.16266855083880447
+   ],
+   "public attacks": {
+    "macro detected": 0.9449478812227697,
+    "per class": {
+     "Bot": 0.8367346938775511,
+     "DDoS": 0.9986715376951179,
+     "PortScan": 0.99943741209564
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.5788401368487789,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.9755877034358047,
+     "FTP-Patator": 0.5,
+     "PortScan": 0.9974531176568683,
+     "SYN flood": 1.0
+    }
+   }
+  },
+  "local, target 10%": {
+   "threshold": 0.046248953888016975,
+   "false alarms": 0.09869646182495345,
+   "95% CI": [
+    0.08226347647514871,
+    0.11799006727376578
+   ],
+   "public attacks": {
+    "macro detected": 0.944854116572043,
+    "per class": {
+     "Bot": 0.8367346938775511,
+     "DDoS": 0.9986715376951179,
+     "PortScan": 0.99915611814346
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.4897647762998416,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.9755877034358047,
+     "FTP-Patator": 0.0,
+     "PortScan": 0.9925867531798129,
+     "SYN flood": 0.9704142011834319
+    }
+   }
+  },
+  "local, target 5%": {
+   "threshold": 0.06607009359154895,
+   "false alarms": 0.05027932960893855,
+   "95% CI": [
+    0.03873828898068834,
+    0.06502612315556619
+   ],
+   "public attacks": {
+    "macro detected": 0.9446496467292428,
+    "per class": {
+     "Bot": 0.8367346938775511,
+     "DDoS": 0.9983394221188974,
+     "PortScan": 0.9988748241912799
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.20822888412038174,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.9755877034358047,
+     "FTP-Patator": 0.0,
+     "PortScan": 0.12813243788184286,
+     "SYN flood": 0.14565316340464268
+    }
+   }
+  },
+  "local, target 3%": {
+   "threshold": 0.08922804786831616,
+   "false alarms": 0.030726256983240222,
+   "95% CI": [
+    0.02196111112890894,
+    0.042836536317617524
+   ],
+   "public attacks": {
+    "macro detected": 0.9444451768864427,
+    "per class": {
+     "Bot": 0.8367346938775511,
+     "DDoS": 0.9980073065426769,
+     "PortScan": 0.9985935302390999
+    }
+   },
+   "team lab attacks": {
+    "macro detected": 0.19827957814276564,
+    "per class": {
+     "Bot": 0.0,
+     "DoS GoldenEye": 0.0,
+     "DoS slowloris": 0.9168173598553345,
+     "FTP-Patator": 0.0,
+     "PortScan": 0.12811727786789565,
+     "SYN flood": 0.14474283113336367
+    }
+   }
+  }
+ }
+}

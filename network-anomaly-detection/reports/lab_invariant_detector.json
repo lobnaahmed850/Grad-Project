@@ -1,0 +1,26 @@
+{
+ "invariant detector + RF": {
+  "lab false alarm": 0.05091937765205092,
+  "lab FA 95% CI": [
+   0.045135396454863405,
+   0.057400004636905824
+  ],
+  "detection": {
+   "PortScan": 0.0,
+   "SYN flood": 1.0,
+   "HTTP flood": 0.0
+  }
+ },
+ "chosen (timing) + RF": {
+  "lab false alarm": 0.11780157607597494,
+  "lab FA 95% CI": [
+   0.10911496581527456,
+   0.1270810797033223
+  ],
+  "detection": {
+   "PortScan": 0.9999000199960008,
+   "SYN flood": 1.0,
+   "HTTP flood": 0.9515072083879423
+  }
+ }
+}
