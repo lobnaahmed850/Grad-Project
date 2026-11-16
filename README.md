@@ -6,6 +6,9 @@ validation environment. It is not a production-validated IDS.
 
 ![Implemented topology](docs/network-topology.svg)
 
+[Open the full-size topology](docs/network-topology.svg) ·
+[Detailed packet-to-alert and model-release workflow](docs/network-workflow.svg)
+
 ## Quick start
 
 Use Linux, Docker Engine, Compose supporting `interface_name`, and Python 3.11.

@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1180" viewBox="0 0 1800 1180" role="img" aria-labelledby="title description">
+  <title id="title">AI-NetGuard — live processing and independent model release workflow</title>
+  <desc id="description">The live pipeline captures packets, builds bidirectional flows, extracts causal features, runs the approved model and delivers events through a durable outbox to shared alert storage and dashboard. The independent offline lane splits captures into training, calibration and final evaluation before promoting the selected model. No final-test data feeds training or calibration.</desc>
+  <defs>
+    <style>
+      text{font-family:Inter,"Segoe UI",Arial,sans-serif;fill:#182b43}
+      .eyebrow{font-size:13px;font-weight:700;letter-spacing:2px;fill:#526a86}
+      .heading{font-size:38px;font-weight:750;letter-spacing:-1px}
+      .sub{font-size:17px;fill:#536981}
+      .section{font-size:21px;font-weight:700}
+      .name{font-size:19px;font-weight:700}
+      .body{font-size:16px}
+      .small{font-size:14px;fill:#536981}
+      .mono{font-family:"DejaVu Sans Mono",Consolas,monospace;font-size:14px;fill:#325172}
+      .card{fill:#fff;stroke:#c9d7e6;stroke-width:1.5}
+      .path{fill:none;stroke:#156bce;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}
+      .offline{fill:none;stroke:#647b98;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#gray)}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 9 5 1 9" fill="none" stroke="#156bce" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 9 5 1 9" fill="none" stroke="#647b98" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1800" height="1180" fill="#f5f8fc"/><rect width="1800" height="8" fill="#1c3856"/>
+  <text x="56" y="51" class="eyebrow">AI-NETGUARD / PROCESSING ARCHITECTURE / 02</text>
+  <text x="56" y="105" class="heading">One live path. An independently evaluated release.</text>
+  <text x="56" y="139" class="sub">Implementation detail for the network topology · processing components are not extra Docker machines</text>
+  <rect x="40" y="182" width="1720" height="288" rx="20" fill="#eaf2fc" stroke="#bfd1e9"/>
+  <text x="72" y="222" class="section">01  Live sensor</text>
+  <text x="1720" y="222" text-anchor="end" class="small">Server-facing interface: lab0 · bounded state · model loaded once</text>
+  <path d="M405 348H488" class="path"/>
+  <path d="M815 348H898" class="path"/>
+  <path d="M1225 348H1308" class="path"/>
+  <rect x="78" y="264" width="327" height="170" rx="12" class="card"/>
+  <text x="100" y="296" class="eyebrow">01 / OBSERVE</text>
+  <text x="100" y="330" class="name">Packet ring + decoder</text>
+  <text x="100" y="361" class="mono">AF_PACKET · TPACKET_V2</text>
+  <text x="100" y="394" class="small">32 MiB ring · IPv4 TCP / UDP</text>
+  <text x="100" y="416" class="small">Kernel timestamps · invalid frames rejected</text>
+  <rect x="488" y="264" width="327" height="170" rx="12" class="card"/>
+  <text x="510" y="296" class="eyebrow">02 / TRACK</text>
+  <text x="510" y="330" class="name">Bidirectional flow state</text>
+  <text x="510" y="361" class="mono">idle: 1 s · active: 8 s</text>
+  <text x="510" y="394" class="small">FIN / RST / timeout / capacity / shutdown</text>
+  <text x="510" y="416" class="small">10,000 active flows · late packets counted</text>
+  <rect x="898" y="264" width="327" height="170" rx="12" class="card"/>
+  <text x="920" y="296" class="eyebrow">03 / EXTRACT</text>
+  <text x="920" y="330" class="name">Causal feature contract</text>
+  <text x="920" y="361" class="mono">41 ordered model features</text>
+  <text x="920" y="394" class="small">Source rate: starts in (t − 1 s, t] / 1 s</text>
+  <text x="920" y="416" class="small">Sampled at flow start · no future packets</text>
+  <rect x="1308" y="264" width="414" height="170" rx="12" fill="#fff" stroke="#75a6df" stroke-width="1.7"/>
+  <text x="1330" y="296" class="eyebrow">04 / CLASSIFY</text>
+  <text x="1330" y="330" class="name">Released model · lab-v2</text>
+  <text x="1330" y="361" class="mono">Random Forest · 64 trees · confidence 0.5</text>
+  <text x="1330" y="394" class="small">Normal · HTTP flood · port scan · slow HTTP</text>
+  <text x="1330" y="416" class="small">Checksum + schema + implementation checks</text>
+  <rect x="40" y="545" width="1720" height="277" rx="20" fill="#edf5f2" stroke="#c0d9ce"/>
+  <path d="M1515 434V493Q1515 509 1499 509H70Q54 509 54 525V678Q54 694 70 694H78" class="path"/>
+  <rect x="636" y="494" width="528" height="30" rx="8" fill="#f5f8fc"/>
+  <text x="900" y="514" text-anchor="middle" class="small">Decision + score + flow evidence + model identity</text>
+  <text x="72" y="578" class="section">02  Durable delivery and shared SIEM</text>
+  <path d="M405 680H488" class="path"/>
+  <path d="M815 680H898" class="path"/>
+  <path d="M1225 680H1308" class="path"/>
+  <rect x="78" y="604" width="327" height="180" rx="12" class="card"/>
+  <text x="100" y="636" class="eyebrow">05 / BUFFER</text>
+  <text x="100" y="670" class="name">Events + durable outbox</text>
+  <text x="100" y="702" class="mono">netguard-alert-v1 · SQLite</text>
+  <text x="100" y="735" class="small">Bounded queues · transactional batches</text>
+  <text x="100" y="760" class="small">Retry HTTP; acknowledge after ingest</text>
+  <rect x="488" y="604" width="327" height="180" rx="12" class="card"/>
+  <text x="510" y="636" class="eyebrow">06 / INGEST</text>
+  <text x="510" y="670" class="name">Two explicit event inputs</text>
+  <text x="510" y="702" class="mono">HTTP :8090 + UDP :5514</text>
+  <text x="510" y="735" class="small">ML events: authenticated structured input</text>
+  <text x="510" y="760" class="small">Syslog: Linux / Cisco / Windows parsers</text>
+  <rect x="898" y="604" width="327" height="180" rx="12" class="card"/>
+  <text x="920" y="636" class="eyebrow">07 / PERSIST</text>
+  <text x="920" y="670" class="name">Shared alert store</text>
+  <text x="920" y="702" class="mono">SQLite WAL · events volume</text>
+  <text x="920" y="735" class="small">Idempotent writes · bounded retention</text>
+  <text x="920" y="760" class="small">Unsupported logs → quarantine</text>
+  <rect x="1308" y="604" width="414" height="180" rx="12" class="card"/>
+  <text x="1330" y="636" class="eyebrow">08 / REVIEW</text>
+  <text x="1330" y="670" class="name">Dashboard + diagnostics</text>
+  <text x="1330" y="702" class="mono">127.0.0.1:8090 · host loopback</text>
+  <text x="1330" y="735" class="small">ML and syslog filters · inspect event evidence</text>
+  <text x="1330" y="760" class="small">Health · queue depth · drops · model version</text>
+  <rect x="40" y="856" width="1720" height="252" rx="20" fill="#f0f2f7" stroke="#cbd3e0"/>
+  <text x="72" y="894" class="section">03  Offline release workflow</text>
+  <text x="1720" y="894" text-anchor="end" class="small">Separate complete capture sessions · shared offline / live flow semantics</text>
+  <path d="M405 990H488" class="offline"/>
+  <path d="M815 990H898" class="offline"/>
+  <path d="M1225 990H1308" class="offline"/>
+  <rect x="78" y="924" width="327" height="146" rx="12" class="card"/>
+  <text x="100" y="958" class="name">Capture + provenance</text>
+  <text x="100" y="988" class="small">PCAPs · session IDs · hashes · labels</text>
+  <text x="100" y="1014" class="small">Reject capture loss and traffic failures</text>
+  <text x="100" y="1043" class="mono">train / calibration / final test</text>
+  <rect x="488" y="924" width="327" height="146" rx="12" class="card"/>
+  <text x="510" y="958" class="name">Fit + select</text>
+  <text x="510" y="988" class="small">Fit preprocessing and model on train</text>
+  <text x="510" y="1014" class="small">Select thresholds on calibration only</text>
+  <text x="510" y="1043" class="mono">Freeze selection before final test</text>
+  <rect x="898" y="924" width="327" height="146" rx="12" class="card"/>
+  <text x="920" y="958" class="name">Independent evaluation</text>
+  <text x="920" y="988" class="small">Whole held-out runs · duplicate screening</text>
+  <text x="920" y="1014" class="small">Per-class metrics + run-level results</text>
+  <text x="920" y="1043" class="mono">No tuning on final-test outcomes</text>
+  <rect x="1308" y="924" width="414" height="146" rx="12" class="card"/>
+  <text x="1330" y="958" class="name">Versioned deployable bundle</text>
+  <text x="1330" y="988" class="small">Model + manifest + hashes + schema + thresholds</text>
+  <text x="1330" y="1014" class="small">Verify saved / reloaded predictions</text>
+  <text x="1330" y="1043" class="mono">current.json → evaluated release → step 04</text>
+  <path d="M56 1138H1744" stroke="#d5dfeb"/>
+  <text x="56" y="1165" class="small">Synthetic laboratory validation only. Flow completion adds delay; the 5 ms packet-to-alert target is not achieved.</text>
+  <text x="1744" y="1165" text-anchor="end" class="small">ARCHITECTURE / 02</text>
+</svg>
